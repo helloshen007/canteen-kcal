@@ -1,7 +1,7 @@
-ultralytics>=8.3      # YOLO 与 SAM(框提示分割)都用它
+ultralytics>=8.3      # YOLO-World 与 SAM;YOLO-World 首次运行会自动安装 CLIP 文本编码器
 opencv-python
 numpy
-Pillow                # 画中文标注(cv2.putText 不支持中文)
+Pillow
 gradio>=4.0
-anthropic             # 方案B可选 provider 1
-openai                # 方案B可选 provider 2(兼容 Qwen-VL / GPT-4o 等)
+openai                # 方案B:OpenAI 兼容接口(通义千问 Qwen-VL 等)
+huggingface_hub       # 下载 Nutrition5k 数据子集
