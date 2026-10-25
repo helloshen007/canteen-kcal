@@ -54,12 +54,13 @@ python -m detector.fit_eval 0.05 --results-root results/revalidated
 
 ```dotenv
 VLM_PROVIDER=openai
-VLM_BASE_URL=实际支持图片输入的兼容接口地址
-VLM_MODEL=实际模型名称
+VLM_BASE_URL=https://api.deepseek.com
+VLM_MODEL=deepseek-flash
+VLM_DISABLE_THINKING=1
 VLM_API_KEY=仅在本地填写的密钥
 ```
 
-服务商名称本身不证明模型支持图像。原作者确认使用 DeepSeek，但具体模型名和原始逐图回复若尚未提供，不能填写一个猜测的模型名代替原实验配置。密钥不入库、不放进证据 ZIP，不出现在录屏中。
+服务商名称本身不证明模型支持图像。本轮已通过官方文档和实际接口核实 `deepseek-flash` 支持图片输入，对应 DeepSeek-V4.1-Flash-1017，使用 `https://api.deepseek.com` 并关闭思考模式；详见 `docs/deepseek-service.md`。密钥不入库、不放进证据 ZIP，不出现在录屏中。
 
 ```bash
 # 首张图一次调用，仍会产生 API 费用
@@ -96,3 +97,5 @@ python -m unittest discover -s tests -v
 回归测试验证数据处理、失败输出、重试和缓存规则，不能替代真实模型运行。新结果必须与本次修正后的真值绑定；历史表仅作为旧实验记录保留，并明确标注其评估口径已经失效的部分。
 
 服务端点会以 SHA-256 摘要加入缓存/实验签名，切换接口地址不会复用同名模型的旧结果，也不在记录中暴露地址内的凭据。
+
+本轮完整复验已完成：A/B 均为 20/20 张，B 60 次真实调用、0 失败；全部 raw 随逐图 JSON 入库。使用 `--results-root evidence/revalidated` 可以不调用 API、仅从已保存证据复算指标。

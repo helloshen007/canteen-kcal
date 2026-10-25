@@ -1,0 +1,77 @@
+{
+  "status": "success",
+  "parse_ok": true,
+  "dishes": [
+    {
+      "name": "potatoes",
+      "weight_g": 95,
+      "kcal": 73.1,
+      "protein_g": 1.9,
+      "fat_g": 0.1,
+      "carb_g": 16.1
+    },
+    {
+      "name": "bacon",
+      "weight_g": 25,
+      "kcal": 135.2,
+      "protein_g": 9.2,
+      "fat_g": 10.5,
+      "carb_g": 0.3
+    },
+    {
+      "name": "honeydew melons",
+      "weight_g": 85,
+      "kcal": 30.6,
+      "protein_g": 0.4,
+      "fat_g": 0.1,
+      "carb_g": 7.6
+    }
+  ],
+  "total": {
+    "kcal": 238.9,
+    "protein_g": 11.5,
+    "fat_g": 10.7,
+    "carb_g": 24.0
+  },
+  "advice": [],
+  "raw": "{\"items\":[{\"name\":\"potatoes\",\"grams\":95},{\"name\":\"bacon\",\"grams\":25},{\"name\":\"honeydew melons\",\"grams\":85}]}",
+  "context": {
+    "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+    "vocabulary": [
+      "avocado",
+      "bacon",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "caesar salad",
+      "cantaloupe",
+      "cauliflower",
+      "celery",
+      "chicken",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fish",
+      "honeydew melons",
+      "mixed greens",
+      "olives",
+      "potatoes",
+      "raspberries",
+      "spinach (raw)",
+      "steak",
+      "strawberries",
+      "watermelon",
+      "yam"
+    ]
+  },
+  "experiment": {
+    "provider": "openai",
+    "model": "deepseek-flash",
+    "image_id": "dish_1558029324",
+    "image_sha256": "75152cc0ce7813564f9567958a23602f3eaad6b38ec609f0c9b58771f4049b13",
+    "prompt": "你是食物营养分析助手。这是一张餐盘的俯拍照片。\n请判断图中可见食物及每种食物的总重量（克）。只输出 JSON，不输出解释。\n名称必须原样选自以下词表，不能猜测看不见的调料或油：\navocado, bacon, blackberries, broccoli, brussels sprouts, caesar salad, cantaloupe, cauliflower, celery, chicken, cucumbers, eggplant, eggs, fish, honeydew melons, mixed greens, olives, potatoes, raspberries, spinach (raw), steak, strawberries, watermelon, yam\n格式：{\"items\":[{\"name\":\"strawberries\",\"grams\":57}]}\n若确定没有任何可见食物，输出 {\"items\":[]}。",
+    "disable_thinking": "1",
+    "endpoint_sha256": "a34e2a4708ed1c61008a151688838dcf1c44d4e7f08054633e72ba7c0b16cfc1"
+  },
+  "seconds": 1.24
+}

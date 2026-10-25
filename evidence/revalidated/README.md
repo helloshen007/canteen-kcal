@@ -1,22 +1,29 @@
-# 当前标注版本的真实逐图证据
+# 当前标注版本的完整 A/B 逐图证据
 
-此目录包含实际重跑的 60 份方案 A 预测（40 calib / 20 test），不是合成测试夹具。
+本目录保存修正标注后的真实运行结果，不是合成测试夹具，也不是从历史汇总表倒推的数字。
 
-- `yolo_sam/`：60 份明确成功、带数据上下文的逐图预测。
-- `calibration.json`：仅用 40 张标定图拟合的系数与配对数。
-- `yolo_sam_per_image.csv`：20 张测试图的预测热量、真值及误差。
-- `yolo_sam_summary.json`：全体与难度子集指标。
-- `run.json`：数据指纹、软件版本、运行命令及覆盖范围。
-- 六图标注依据：`docs/annotation-audit.md` 和 `docs/annotation-corrections.csv`。
+- `yolo_sam/`：60 份 A 逐图预测，40 calib / 20 test。
+- `vlm/*_r0.json` 至 `*_r2.json`：20 张测试图各 3 次，共 60 份 B 预测，每份都有原始 `raw` 回复、数据指纹、图片 SHA、模型/提示词/端点摘要和耗时。
+- `vlm/<image_id>.json`：20 份 r0 展示副本，不作为额外调用或额外样本统计。
+- `calibration.json`：仅用标定集拟合的 A 系数与配对。
+- `yolo_sam_per_image.csv`、`yolo_sam_summary.json`：A 的逐图误差与汇总。
+- `run.json`：环境版本、运行命令、模型版本来源、覆盖范围及局限。
+- `manifest.json`：完整证据包的覆盖、重复次数、文件状态和哈希清单。
+- `docs/results.per-image.csv` 和 `docs/results.json`：两方案 40 个图/方法单元的误差与完整报告。
 
-**方案 B 的逐图预测/原始回复当前没有提供，本目录不包含推测或补造的回复。** 原先汇总表不是原始证据；本轮 A 指标也不能与原先 B 数字混作同一批新实验。
+## 本轮结果
 
-不需要模型权重或密钥即可从此目录复算 A 的部分报告：
+| 方案 | 测试图 | F1 | 重量MAE(g) | 热量MAE(kcal) |
+|---|---:|---:|---:|---:|
+| A YOLO-World＋SAM | 20 | 0.2450 | 65.80 | 62.16 |
+| B DeepSeek V4.1 Flash | 20，每图3次 | 0.9889 | 17.90 | 17.38 |
+
+B API ID 为 `deepseek-flash`，运行时官方文档标明服务版本 DeepSeek-V4.1-Flash-1017，思考关闭，max_tokens=1500。60 次实际调用全部成功，失败记录为 0。同图重复热量标准差均值为 10.40 kcal，基线 MAE 为 70.69 kcal。正式模型文档见 `docs/deepseek-service.md`。
+
+无需模型权重、原图或 API 密钥即可从这些文件复算完整报告：
 
 ```bash
-python -m compare.report --results-root evidence/revalidated --allow-partial --output results/revalidated/from-versioned-evidence.md
+python -m compare.report --results-root evidence/revalidated --output results/revalidated/from-versioned-evidence.md
 ```
 
-完整检测框/分割掩膜与原始图像可通过 README 的固定数据准备、提取步骤复现，也可随完整证据 ZIP 一起交付。生成 ZIP 的命令见 README；导出 manifest 明确区分成功、失败、过期与缺失，列出文件哈希。导出成功不等于两方案全部成功。
-
-本次 A 复验：F1 0.2450，热量 MAE 62.16 kcal，基线 MAE 70.69 kcal。旧阈值选择的方法学局限仍在，未通过重选测试集阈值美化结果。28 项回归测试、60 张图特征提取、20 张真实界面回调及修正西瓜图的 Gradio API 检查均已完成。B 调用未执行，缺少原始回复与准确模型配置。
+原图、掩膜和原始元数据复算材料可通过 README 的固定数据步骤或完整证据 ZIP 取得。29 项回归测试通过，60 份真实 B 回复已重新解析并与逐图预测比对；断点重跑只复用有效缓存。历史阈值选择局限仍保留，不将模型服务版本变化或标注修正后的结果冒充为原历史实验。

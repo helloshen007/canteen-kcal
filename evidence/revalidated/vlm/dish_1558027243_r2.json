@@ -1,0 +1,77 @@
+{
+  "status": "success",
+  "parse_ok": true,
+  "dishes": [
+    {
+      "name": "bacon",
+      "weight_g": 30,
+      "kcal": 162.3,
+      "protein_g": 11.1,
+      "fat_g": 12.6,
+      "carb_g": 0.4
+    },
+    {
+      "name": "yam",
+      "weight_g": 45,
+      "kcal": 55.8,
+      "protein_g": 0.7,
+      "fat_g": 0.1,
+      "carb_g": 13.2
+    },
+    {
+      "name": "watermelon",
+      "weight_g": 80,
+      "kcal": 24.0,
+      "protein_g": 0.5,
+      "fat_g": 0.2,
+      "carb_g": 6.1
+    }
+  ],
+  "total": {
+    "kcal": 242.1,
+    "protein_g": 12.3,
+    "fat_g": 12.9,
+    "carb_g": 19.7
+  },
+  "advice": [],
+  "raw": "{\"items\":[{\"name\":\"bacon\",\"grams\":30},{\"name\":\"yam\",\"grams\":45},{\"name\":\"watermelon\",\"grams\":80}]}",
+  "context": {
+    "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+    "vocabulary": [
+      "avocado",
+      "bacon",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "caesar salad",
+      "cantaloupe",
+      "cauliflower",
+      "celery",
+      "chicken",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fish",
+      "honeydew melons",
+      "mixed greens",
+      "olives",
+      "potatoes",
+      "raspberries",
+      "spinach (raw)",
+      "steak",
+      "strawberries",
+      "watermelon",
+      "yam"
+    ]
+  },
+  "experiment": {
+    "provider": "openai",
+    "model": "deepseek-flash",
+    "image_id": "dish_1558027243",
+    "image_sha256": "2d4ad9180cba3dcfcf2d3d30f700698bc04f6a71fcd04f1a2f4a7d9aa57bf25e",
+    "prompt": "你是食物营养分析助手。这是一张餐盘的俯拍照片。\n请判断图中可见食物及每种食物的总重量（克）。只输出 JSON，不输出解释。\n名称必须原样选自以下词表，不能猜测看不见的调料或油：\navocado, bacon, blackberries, broccoli, brussels sprouts, caesar salad, cantaloupe, cauliflower, celery, chicken, cucumbers, eggplant, eggs, fish, honeydew melons, mixed greens, olives, potatoes, raspberries, spinach (raw), steak, strawberries, watermelon, yam\n格式：{\"items\":[{\"name\":\"strawberries\",\"grams\":57}]}\n若确定没有任何可见食物，输出 {\"items\":[]}。",
+    "disable_thinking": "1",
+    "endpoint_sha256": "a34e2a4708ed1c61008a151688838dcf1c44d4e7f08054633e72ba7c0b16cfc1"
+  },
+  "seconds": 1.42
+}

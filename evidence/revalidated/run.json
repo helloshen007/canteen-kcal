@@ -1,5 +1,5 @@
 {
-  "status": "partial",
+  "status": "complete",
   "context": {
     "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
     "vocabulary": [
@@ -34,26 +34,44 @@
   "test_images": 20,
   "coverage": {
     "yolo_sam": 20,
-    "vlm": 0
+    "vlm": 20
   },
-  "vlm_raw_replies": 0,
+  "vlm_raw_replies": 60,
   "python": "3.12.14",
   "packages": {
     "torch": "2.14.1+cpu",
     "ultralytics": "8.4.184",
     "numpy": "2.5.2",
     "Pillow": "12.3.0",
-    "gradio": "6.30.0"
+    "gradio": "6.30.0",
+    "openai": "3.37.0",
+    "httpx": "0.28.1",
+    "opencv-python": "5.0.0.93"
   },
   "commands": [
     "python -m data.prepare",
     "python -m data.build_gt",
     "python -m detector.extract --results-root results/revalidated",
     "python -m detector.fit_eval 0.05 --results-root results/revalidated",
-    "python -m compare.report --results-root results/revalidated --allow-partial --output docs/results.md"
+    "VLM_MODEL=deepseek-flash VLM_DISABLE_THINKING=1 python -m vlm.run_vlm 3 --results-root results/revalidated",
+    "python -m compare.report --results-root results/revalidated --output docs/results.md"
   ],
   "limitations": [
-    "B原始逐图回复缺失，未重新调用付费接口",
-    "沿用既有阈值，未消除原测试集选阈值的方法学局限"
-  ]
+    "沿用既有阈值，未消除原测试集选阈值的方法学局限",
+    "服务模型别名将来可能升级，本轮服务版本依据运行时官方文档记录",
+    "原历史汇总表仍仅供存档，本轮指标来自修正标注后的实际重跑"
+  ],
+  "vlm_repeats_per_image": 3,
+  "vlm_successful_calls": 60,
+  "vlm_failed_attempts": 0,
+  "regression_tests": 29,
+  "completed_at_utc": "2026-10-25T01:42:18.335405+00:00",
+  "vision_service": {
+    "provider": "openai-compatible DeepSeek",
+    "model_id": "deepseek-flash",
+    "documented_service_version": "DeepSeek-V4.1-Flash-1017",
+    "service_version_source": "https://api-docs.deepseek.com/",
+    "thinking_disabled": true,
+    "max_tokens": 1500
+  }
 }

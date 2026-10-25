@@ -12,7 +12,7 @@ from uuid import uuid4
 from compare.evaluate import load_gt
 from compare.provenance import evaluation_context, load_prediction, write_json
 from detector.vocab import candidate_names
-from vlm.client import call_vlm, parse_json
+from vlm.client import call_vlm, parse_json, resolve_model_name, thinking_setting
 
 OUT = Path('results/vlm')
 PROMPT = '''你是食物营养分析助手。这是一张餐盘的俯拍照片。
@@ -113,9 +113,9 @@ def main(argv=None):
         provider = os.getenv('VLM_PROVIDER', 'anthropic')
         endpoint = ((os.getenv('VLM_BASE_URL') or os.getenv('OPENAI_BASE_URL') or 'https://api.openai.com/v1')
                     if provider == 'openai' else (os.getenv('ANTHROPIC_BASE_URL') or 'https://api.anthropic.com'))
-        experiment = {'provider':provider, 'model':os.getenv('VLM_MODEL',''),
+        experiment = {'provider':provider, 'model':resolve_model_name(os.getenv('VLM_MODEL',''), provider, endpoint),
                       'image_id':iid, 'image_sha256':hashlib.sha256(image.read_bytes()).hexdigest(),
-                      'prompt':prompt, 'disable_thinking':os.getenv('VLM_DISABLE_THINKING','0'),
+                      'prompt':prompt, 'disable_thinking':thinking_setting(),
                       'endpoint_sha256':hashlib.sha256(endpoint.encode()).hexdigest()}
         for repeat in range(args.reps):
             path = out / f'{iid}_r{repeat}.json'

@@ -7,7 +7,7 @@ import unittest
 from unittest.mock import patch
 
 import vlm.run_vlm as batch
-from vlm.client import normalize
+from vlm.client import normalize, resolve_model_name, thinking_setting
 
 VOCAB = ['watermelon']
 TABLE = {'watermelon': {'kcal':'30','protein':'0.6','fat':'0.1','carb':'7.6'}}
@@ -33,6 +33,16 @@ def run_once(attempts=2):
 
 
 class VLMRegressionTests(unittest.TestCase):
+    def test_verified_deepseek_display_name_and_non_thinking_default(self):
+        with patch.dict(os.environ, {'VLM_PROVIDER':'openai','VLM_BASE_URL':'https://api.deepseek.com'}):
+            with patch.dict(os.environ):
+                os.environ.pop('VLM_DISABLE_THINKING',None)
+                self.assertEqual(resolve_model_name('DeepSeek V4.1 Flash'),'deepseek-flash')
+                self.assertEqual(thinking_setting(),'1')
+            with patch.dict(os.environ, {'VLM_DISABLE_THINKING':'0'}):
+                self.assertEqual(thinking_setting(),'0')
+        self.assertEqual(resolve_model_name('DeepSeek V4.1 Flash','openai','https://example.com'), 'DeepSeek V4.1 Flash')
+
     def test_bad_formats_cannot_become_zero_predictions(self):
         for text in (None,'','not JSON','{}','[]','{"items":null}','{"items":{}}'):
             with self.subTest(text=text), self.assertRaises(ValueError):

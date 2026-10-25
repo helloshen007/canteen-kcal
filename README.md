@@ -9,9 +9,16 @@
 - 词表为 **24 类**，测试集为 **15 张单一食材、5 张多食材**。详细原图、标注来源与修正差异见 [标注审计](docs/annotation-audit.md)、[六图对照](docs/annotation-contact-sheet.jpg)、[逐图修正 CSV](docs/annotation-corrections.csv)。映射有人工核对依据，未冒称已访问被阻断的官方 GCS 原表。
 - 错误 JSON、缺字段、未知食材、非法重量均视为失败，不保存成“无食材、零热量”。只有显式的 `{"items":[]}` 可作为成功空预测。失败回复单独保留，下次运行会重试；过期缓存隔离保存。
 - 真值、营养表、词表和图片变化会使旧缓存失效。成功预测记录上下文、原始回复、模型、提示词和耗时。失败不参与指标，也不当作零预测。
-- 原汇总表已移到 [历史存档](docs/historical-results.md)，不得用于当前性能结论。方案 B 的原始预测/回复当前缺失，不能从汇总表还原或编造。
+- 原汇总表已移到 [历史存档](docs/historical-results.md)，不得用于当前性能结论。本轮已真实调用 DeepSeek 60 次并保存全部原始回复，不沿用或补造旧汇总表的逐图数据。
 
-修正后的真实 A 复验：[新结果表](docs/results.md)、[40 行逐图状态/误差](docs/results.per-image.csv)、[60 份 A 逐图预测与运行记录](evidence/revalidated/README.md)。全部 20 张测试图的 F1=0.2450、热量 MAE=62.16 kcal；B 覆盖为 0/20，尚不构成完整 A/B 比较。
+修正后的完整 A/B 复验：[新结果表](docs/results.md)、[40 行逐图误差](docs/results.per-image.csv)、[逐图预测、全部 B 原始回复及运行记录](evidence/revalidated/README.md)。A/B 均覆盖 20/20 测试图，B 每图重复 3 次，60 次调用全部成功、失败记录为 0。
+
+| 本轮方案 | 菜名 F1 | 热量 MAE(kcal) | 重量 MAE(g) |
+|---|---:|---:|---:|
+| A YOLO-World＋SAM | 0.2450 | 62.16 | 65.80 |
+| B DeepSeek V4.1 Flash | 0.9889 | 17.38 | 17.90 |
+
+基线热量 MAE 为 70.69 kcal；B 同图重复热量标准差均值为 10.40 kcal。B 使用的正式 API ID 是 `deepseek-flash`，服务版本与官方依据见 [DeepSeek 配置说明](docs/deepseek-service.md)。
 
 ## 方案与限制
 
@@ -56,7 +63,7 @@ python app.py --results-root results/revalidated
 python -m unittest discover -s tests -v
 ```
 
-`.env` 由 `vlm` 包加载，现有环境变量优先。`VLM_PROVIDER` 使用 `openai` 或 `anthropic`，还需 `VLM_API_KEY` 和准确的 `VLM_MODEL`；OpenAI 兼容服务填写 `VLM_BASE_URL`。服务明确支持 `thinking.type=disabled` 时才设置 `VLM_DISABLE_THINKING=1`。失败日志不保存 HTTP 异常正文，避免回显密钥；原始模型文本共享前仍应检查敏感信息。
+`.env` 由 `vlm` 包加载，现有环境变量优先。`VLM_PROVIDER` 使用 `openai` 或 `anthropic`，还需 `VLM_API_KEY` 和准确的 `VLM_MODEL`；OpenAI 兼容服务填写 `VLM_BASE_URL`。当前 DeepSeek 官方接口支持 `thinking.type=disabled`；本轮设置 `VLM_DISABLE_THINKING=1`。本项目对该官方接口默认关闭思考，其他接口仍需确认参数支持；显式设置 `0` 可保留思考。失败日志不保存 HTTP 异常正文，避免回显密钥；原始模型文本共享前仍应检查敏感信息。
 
 成功记录为 `vlm/<image_id>_rN.json`，展示副本为 `<image_id>.json`；无效旧缓存和失败请求在 `vlm/failures/`。只有输出、数据版本和实验配置均通过校验才跳过调用。更换模型或提示词、重建标注后，建议改用独立结果目录。
 
@@ -64,7 +71,7 @@ python -m unittest discover -s tests -v
 
 ## 逐图结果与原始回复
 
-本轮真实 A 复验结果和标注版本将存入 `evidence/revalidated/`，包括逐图预测、逐图评估和缺失状态，不只保留汇总表。B 缺失时明确留空，不附虚假的回复。全部模型特征和原图可从数据准备脚本及完整证据 ZIP 恢复。
+本轮 A/B 真实复验结果及标注版本已存入 `evidence/revalidated/`：A 的 60 份逐图预测，B 的 60 份重复预测及原始 `raw` 回复（另有 20 份展示副本），并保留逐图评估和运行配置。全部模型特征和原图可从数据准备脚本及完整证据 ZIP 恢复。
 
 ```bash
 python tools/export_evidence.py --results-root results/revalidated --output results/revalidated/evidence.zip

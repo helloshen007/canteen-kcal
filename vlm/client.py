@@ -2,12 +2,32 @@
   VLM_PROVIDER = anthropic | openai   (openai 表示 OpenAI 兼容接口,Qwen-VL/GPT-4o 等都可用)
   VLM_MODEL, VLM_API_KEY, VLM_BASE_URL(openai 兼容时填)"""
 import base64, json, math, os, re
+from urllib.parse import urlsplit
+
+
+def resolve_model_name(model, provider=None, base_url=None):
+    """仅转换已由官方文档/API 核实的 DeepSeek 展示名称。"""
+    provider = provider or os.getenv("VLM_PROVIDER", "anthropic")
+    base_url = base_url or os.getenv("VLM_BASE_URL") or os.getenv("OPENAI_BASE_URL", "")
+    if provider == "openai" and urlsplit(base_url).hostname == "api.deepseek.com":
+        if re.sub(r"[\s_-]", "", model.lower()) == "deepseekv4.1flash":
+            return "deepseek-flash"
+    return model
+
+
+def thinking_setting():
+    configured = os.getenv("VLM_DISABLE_THINKING")
+    if configured is not None:
+        return "1" if configured.lower() in {"1", "true"} else "0"
+    base_url = os.getenv("VLM_BASE_URL") or os.getenv("OPENAI_BASE_URL", "")
+    return "1" if os.getenv("VLM_PROVIDER") == "openai" and urlsplit(base_url).hostname == "api.deepseek.com" else "0"
 
 def _img_b64(path):
     with open(path, "rb") as f: return base64.b64encode(f.read()).decode()
 
 def call_vlm(image_path, prompt):
     provider = os.getenv("VLM_PROVIDER", "anthropic"); model = os.getenv("VLM_MODEL", "claude-sonnet-4-6")
+    model = resolve_model_name(model, provider)
     if provider not in {"anthropic", "openai"}:
         raise ValueError("VLM_PROVIDER 必须为 anthropic 或 openai")
     if not os.getenv("VLM_API_KEY"):
@@ -24,7 +44,7 @@ def call_vlm(image_path, prompt):
         return r.content[0].text
     from openai import OpenAI
     c = OpenAI(api_key=os.getenv("VLM_API_KEY"), base_url=os.getenv("VLM_BASE_URL") or None)
-    extra = {"thinking": {"type": "disabled"}} if os.getenv("VLM_DISABLE_THINKING", "0").lower() in {"1", "true"} else None
+    extra = {"thinking": {"type": "disabled"}} if thinking_setting() == "1" else None
     r = c.chat.completions.create(model=model, max_tokens=1500, extra_body=extra, messages=[{"role": "user", "content": [
         {"type": "image_url", "image_url": {"url": f"data:{mt};base64,{b64}"}},
         {"type": "text", "text": prompt}]}])
