@@ -13,7 +13,7 @@
 
 修正后的完整 A/B 复验：[新结果表](docs/results.md)、[40 行逐图误差](docs/results.per-image.csv)、[逐图预测、全部 B 原始回复及运行记录](evidence/revalidated/README.md)。A/B 均覆盖 20/20 测试图，B 每图重复 3 次，60 次调用全部成功、失败记录为 0。
 
-本轮交付核对见 [验收清单](docs/acceptance-check.md)；[运行演示视频](docs/video/demo.mp4)展示当前应用的原图、检测分割和真值/A/B 并排结果，[录制说明](docs/video/README.md)列出案例及演示范围。
+[运行演示视频](docs/video/demo.mp4)展示当前应用的原图、检测分割和真值/A/B 并排结果，[录制说明](docs/video/README.md)列出案例及演示范围。
 
 | 本轮方案 | 菜名 F1 | 热量 MAE(kcal) | 重量 MAE(g) |
 |---|---:|---:|---:|
