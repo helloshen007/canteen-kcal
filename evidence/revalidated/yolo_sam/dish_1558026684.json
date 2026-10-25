@@ -1,0 +1,53 @@
+{
+  "status": "success",
+  "context": {
+    "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+    "vocabulary": [
+      "avocado",
+      "bacon",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "caesar salad",
+      "cantaloupe",
+      "cauliflower",
+      "celery",
+      "chicken",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fish",
+      "honeydew melons",
+      "mixed greens",
+      "olives",
+      "potatoes",
+      "raspberries",
+      "spinach (raw)",
+      "steak",
+      "strawberries",
+      "watermelon",
+      "yam"
+    ]
+  },
+  "dishes": [
+    {
+      "name": "cantaloupe",
+      "weight_g": 49,
+      "kcal": 16.5,
+      "protein_g": 0.4,
+      "fat_g": 0.1,
+      "carb_g": 3.9,
+      "conf": 0.121
+    }
+  ],
+  "total": {
+    "kcal": 16.5,
+    "protein_g": 0.4,
+    "fat_g": 0.1,
+    "carb_g": 3.9
+  },
+  "advice": [],
+  "split": "test",
+  "image_id": "dish_1558026684",
+  "threshold": 0.05
+}

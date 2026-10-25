@@ -43,18 +43,18 @@ dish_1558026623,single,honeydew melons:83,29.9,0.4,0.1,7.5,test,83.0,honeydew me
 dish_1558026684,single,cantaloupe:71,24.1,0.6,0.1,5.7,test,71.0,cantaloupe:71,24.1,71.0
 dish_1558026714,single,bacon:24,129.8,8.9,10.1,0.3,test,24.0,bacon:24,129.8,24.0
 dish_1558026756,few,honeydew melons:83;cantaloupe:71;bacon:24,183.9,9.9,10.3,13.5,test,178.0,honeydew melons:83;cantaloupe:71;bacon:24,183.9,178.0
-dish_1558027001,none,deprecated:68,20.4,0.4,0.1,5.2,test,68.0,,0,0
+dish_1558027001,single,watermelon:68,20.4,0.4,0.1,5.2,test,68.0,watermelon:68,20.4,68.0
 dish_1558027057,single,yam:65,80.7,1.0,0.1,19.1,test,65.0,yam:65,80.7,65.0
 dish_1558027164,single,bacon:30,162.3,11.1,12.6,0.4,test,30.0,bacon:30,162.3,30.0
-dish_1558027243,few,deprecated:68;bacon:30;yam:65,263.4,12.5,12.8,24.7,test,163.0,bacon:30;yam:65,243.0,95.0
+dish_1558027243,few,watermelon:68;bacon:30;yam:65,263.4,12.5,12.8,24.7,test,163.0,watermelon:68;bacon:30;yam:65,263.4,163.0
 dish_1558028007,single,potatoes:71,54.7,1.4,0.1,12.1,test,71.0,potatoes:71,54.7,71.0
 dish_1558028057,single,bacon:28,151.5,10.4,11.8,0.4,test,28.0,bacon:28,151.5,28.0
-dish_1558028142,none,deprecated:73,21.9,0.4,0.1,5.5,test,73.0,,0,0
-dish_1558028194,few,bacon:28;deprecated:73;potatoes:71,228.1,12.2,11.9,18.0,test,172.0,bacon:28;potatoes:71,206.1,99.0
+dish_1558028142,single,watermelon:73,21.9,0.4,0.1,5.5,test,73.0,watermelon:73,21.9,73.0
+dish_1558028194,few,bacon:28;watermelon:73;potatoes:71,228.1,12.2,11.9,18.0,test,172.0,bacon:28;watermelon:73;potatoes:71,228.0,172.0
 dish_1558028492,single,cantaloupe:61,20.7,0.5,0.1,4.9,test,61.0,cantaloupe:61,20.7,61.0
-dish_1558028606,none,deprecated:65,19.5,0.4,0.1,4.9,test,65.0,,0,0
+dish_1558028606,single,watermelon:65,19.5,0.4,0.1,4.9,test,65.0,watermelon:65,19.5,65.0
 dish_1558028690,single,honeydew melons:66,23.8,0.3,0.1,5.9,test,66.0,honeydew melons:66,23.8,66.0
-dish_1558028772,few,deprecated:65;honeydew melons:66;cantaloupe:61,64.0,1.2,0.3,15.8,test,192.0,honeydew melons:66;cantaloupe:61,44.5,127.0
+dish_1558028772,few,watermelon:65;honeydew melons:66;cantaloupe:61,64.0,1.2,0.3,15.8,test,192.0,watermelon:65;honeydew melons:66;cantaloupe:61,64.0,192.0
 dish_1558029148,single,honeydew melons:108,38.9,0.5,0.1,9.7,test,108.0,honeydew melons:108,38.9,108.0
 dish_1558029230,single,potatoes:115,88.5,2.3,0.1,19.6,test,115.0,potatoes:115,88.5,115.0
 dish_1558029278,single,bacon:27,146.1,10.0,11.3,0.4,test,27.0,bacon:27,146.1,27.0

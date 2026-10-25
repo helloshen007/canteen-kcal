@@ -1,0 +1,660 @@
+{
+  "context": {
+    "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+    "vocabulary": [
+      "avocado",
+      "bacon",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "caesar salad",
+      "cantaloupe",
+      "cauliflower",
+      "celery",
+      "chicken",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fish",
+      "honeydew melons",
+      "mixed greens",
+      "olives",
+      "potatoes",
+      "raspberries",
+      "spinach (raw)",
+      "steak",
+      "strawberries",
+      "watermelon",
+      "yam"
+    ]
+  },
+  "baseline_kcal": 90.6175,
+  "expected_test_images": 20,
+  "coverage": {
+    "yolo_sam": {
+      "success": 20,
+      "expected": 20
+    },
+    "vlm": {
+      "success": 0,
+      "expected": 20
+    }
+  },
+  "issues": [
+    {
+      "method": "vlm",
+      "image_id": "dish_1558026623",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558026684",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558026714",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558026756",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558027001",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558027057",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558027164",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558027243",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028007",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028057",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028142",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028194",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028492",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028606",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028690",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028772",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558029148",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558029230",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558029278",
+      "status": "missing"
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558029324",
+      "status": "missing"
+    }
+  ],
+  "metrics": {
+    "yolo_sam": {
+      "全部": {
+        "n": 20,
+        "precision": 0.2333,
+        "recall": 0.2833,
+        "f1": 0.245,
+        "weight_mae_g": 65.8,
+        "kcal_mae": 62.16,
+        "baseline_mae": 70.69
+      },
+      "单一食材": {
+        "n": 15,
+        "precision": 0.1889,
+        "recall": 0.2667,
+        "f1": 0.2111,
+        "weight_mae_g": 45.13,
+        "kcal_mae": 44.93,
+        "baseline_mae": 53.39
+      },
+      "2-3种": {
+        "n": 5,
+        "precision": 0.3667,
+        "recall": 0.3333,
+        "f1": 0.3467,
+        "weight_mae_g": 127.8,
+        "kcal_mae": 113.84,
+        "baseline_mae": 122.59
+      }
+    },
+    "vlm": {}
+  },
+  "vlm_stability_kcal": null,
+  "per_image": [
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558026623",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 29.9,
+      "true_mass_g": 83.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 17.0,
+      "kcal_mae": 5.200000000000003,
+      "baseline_mae": 60.71750000000001
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558026684",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 24.1,
+      "true_mass_g": 71.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "weight_mae_g": 22.0,
+      "kcal_mae": 7.600000000000001,
+      "baseline_mae": 66.51750000000001
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558026714",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 129.8,
+      "true_mass_g": 24.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 81.0,
+      "kcal_mae": 42.89999999999998,
+      "baseline_mae": 39.182500000000005
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558026756",
+      "difficulty": "few",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 183.9,
+      "true_mass_g": 178.0,
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "f1": 0.6666666666666666,
+      "weight_mae_g": 45.0,
+      "kcal_mae": 2.4000000000000057,
+      "baseline_mae": 93.2825
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558027001",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 20.4,
+      "true_mass_g": 68.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 107.0,
+      "kcal_mae": 57.9,
+      "baseline_mae": 70.2175
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558027057",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 80.7,
+      "true_mass_g": 65.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 54.0,
+      "kcal_mae": 72.2,
+      "baseline_mae": 9.917500000000004
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558027164",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 162.3,
+      "true_mass_g": 30.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 30.0,
+      "kcal_mae": 162.3,
+      "baseline_mae": 71.6825
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558027243",
+      "difficulty": "few",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 263.4,
+      "true_mass_g": 163.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 91.0,
+      "kcal_mae": 235.29999999999998,
+      "baseline_mae": 172.78249999999997
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558028007",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 54.7,
+      "true_mass_g": 71.0,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "f1": 0.5,
+      "weight_mae_g": 9.0,
+      "kcal_mae": 28.300000000000004,
+      "baseline_mae": 35.917500000000004
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558028057",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 151.5,
+      "true_mass_g": 28.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 28.0,
+      "kcal_mae": 151.5,
+      "baseline_mae": 60.88249999999999
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558028142",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 21.9,
+      "true_mass_g": 73.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 65.0,
+      "kcal_mae": 23.700000000000003,
+      "baseline_mae": 68.7175
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558028194",
+      "difficulty": "few",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 228.0,
+      "true_mass_g": 172.0,
+      "precision": 0.5,
+      "recall": 0.3333333333333333,
+      "f1": 0.4,
+      "weight_mae_g": 16.0,
+      "kcal_mae": 155.4,
+      "baseline_mae": 137.3825
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558028492",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 20.7,
+      "true_mass_g": 61.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "weight_mae_g": 6.0,
+      "kcal_mae": 2.1000000000000014,
+      "baseline_mae": 69.9175
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558028606",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 19.5,
+      "true_mass_g": 65.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 48.0,
+      "kcal_mae": 33.7,
+      "baseline_mae": 71.1175
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558028690",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 23.8,
+      "true_mass_g": 66.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 66.0,
+      "kcal_mae": 23.8,
+      "baseline_mae": 66.81750000000001
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558028772",
+      "difficulty": "few",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 64.0,
+      "true_mass_g": 192.0,
+      "precision": 0.3333333333333333,
+      "recall": 0.3333333333333333,
+      "f1": 0.3333333333333333,
+      "weight_mae_g": 119.0,
+      "kcal_mae": 28.6,
+      "baseline_mae": 26.617500000000007
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558029148",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 38.9,
+      "true_mass_g": 108.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 29.0,
+      "kcal_mae": 9.100000000000001,
+      "baseline_mae": 51.71750000000001
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558029230",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 88.5,
+      "true_mass_g": 115.0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6666666666666666,
+      "weight_mae_g": 56.0,
+      "kcal_mae": 49.6,
+      "baseline_mae": 2.117500000000007
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558029278",
+      "difficulty": "single",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 146.1,
+      "true_mass_g": 27.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "weight_mae_g": 59.0,
+      "kcal_mae": 4.099999999999994,
+      "baseline_mae": 55.48249999999999
+    },
+    {
+      "method": "yolo_sam",
+      "image_id": "dish_1558029324",
+      "difficulty": "few",
+      "status": "success",
+      "repeats": 1,
+      "true_kcal": 273.5,
+      "true_mass_g": 250.0,
+      "precision": 0.3333333333333333,
+      "recall": 0.3333333333333333,
+      "f1": 0.3333333333333333,
+      "weight_mae_g": 368.0,
+      "kcal_mae": 147.5,
+      "baseline_mae": 182.8825
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558026623",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 29.9,
+      "true_mass_g": 83.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558026684",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 24.1,
+      "true_mass_g": 71.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558026714",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 129.8,
+      "true_mass_g": 24.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558026756",
+      "difficulty": "few",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 183.9,
+      "true_mass_g": 178.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558027001",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 20.4,
+      "true_mass_g": 68.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558027057",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 80.7,
+      "true_mass_g": 65.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558027164",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 162.3,
+      "true_mass_g": 30.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558027243",
+      "difficulty": "few",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 263.4,
+      "true_mass_g": 163.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028007",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 54.7,
+      "true_mass_g": 71.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028057",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 151.5,
+      "true_mass_g": 28.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028142",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 21.9,
+      "true_mass_g": 73.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028194",
+      "difficulty": "few",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 228.0,
+      "true_mass_g": 172.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028492",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 20.7,
+      "true_mass_g": 61.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028606",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 19.5,
+      "true_mass_g": 65.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028690",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 23.8,
+      "true_mass_g": 66.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558028772",
+      "difficulty": "few",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 64.0,
+      "true_mass_g": 192.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558029148",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 38.9,
+      "true_mass_g": 108.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558029230",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 88.5,
+      "true_mass_g": 115.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558029278",
+      "difficulty": "single",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 146.1,
+      "true_mass_g": 27.0
+    },
+    {
+      "method": "vlm",
+      "image_id": "dish_1558029324",
+      "difficulty": "few",
+      "status": "missing",
+      "repeats": 0,
+      "true_kcal": 273.5,
+      "true_mass_g": 250.0
+    }
+  ]
+}

@@ -6,3 +6,5 @@ results/
 data/images/*
 !data/images/.gitkeep
 data/raw/
+
+.venv/

@@ -1,15 +1,16 @@
-"""候选类别词表。YOLO-World 是开放词汇检测,用英文食材名当类别,不需要训练。
-词表 = 评估子集(data/ground_truth.csv)里出现过的所有可见食材(封闭词表设定)。"""
+"""The shared closed vocabulary is derived from corrected visible labels."""
 import csv
+from data.labels import INVISIBLE
 
-# 配方里有、但图上看不见的调料/无效名称:既不当检测类别,评估时也不计入真值
-INVISIBLE = {"olive oil", "salt", "pepper", "vinegar", "garlic", "deprecated", "water"}
 
 def candidate_names(path="data/ground_truth.csv"):
     names = set()
-    for r in csv.DictReader(open(path, encoding="utf-8")):
-        for item in r["dishes"].split(";"):
-            n = item.rsplit(":", 1)[0].strip()
-            if n and n not in INVISIBLE:
-                names.add(n)
+    with open(path, encoding="utf-8") as stream:
+        for row in csv.DictReader(stream):
+            for item in row["visible_dishes"].split(";"):
+                name = item.rsplit(":", 1)[0].strip()
+                if name:
+                    if name == "deprecated" or name.startswith("unresolved "):
+                        raise ValueError("ground truth contains unaudited ingredient labels; rebuild/review it")
+                    names.add(name)
     return sorted(names)

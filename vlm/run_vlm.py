@@ -1,73 +1,170 @@
-"""方案B:大模型只回答"有哪些食材 + 各多少克",名称限定在词表内;热量用与方案A同一张营养表计算。
-用法: python -m vlm.run_vlm [重复次数=3]
-环境变量: VLM_PROVIDER=openai  VLM_API_KEY=...  VLM_BASE_URL=...  VLM_MODEL=..."""
-import csv, json, sys, time
+"""方案 B 批量推理。仅缓存明确成功且数据/模型/提示词一致的结果。"""
+import argparse
+import csv
+import hashlib
+import json
+import math
+import os
 from pathlib import Path
+import time
+from uuid import uuid4
+
 from compare.evaluate import load_gt
+from compare.provenance import evaluation_context, load_prediction, write_json
 from detector.vocab import candidate_names
 from vlm.client import call_vlm, parse_json
 
-OUT = Path("results/vlm")
-PROMPT = """你是食物营养分析助手。这是一张食堂餐盘的俯拍照片(盘子放在秤台上)。
-请判断盘中有哪些食物,并估计每种食物的重量(克)。
-要求:
-1. 食物名称只能从下面的列表中选择,原样输出英文名,列表之外的一律不要输出:
+OUT = Path('results/vlm')
+PROMPT = '''你是食物营养分析助手。这是一张餐盘的俯拍照片。
+请判断图中可见食物及每种食物的总重量（克）。只输出 JSON，不输出解释。
+名称必须原样选自以下词表，不能猜测看不见的调料或油：
 {vocab}
-2. 只列出图中能看到的食物,不要猜测看不见的调料或油。
-3. 重量用克表示,是你对该食物在盘中总量的估计。
-4. 只输出一个 JSON,不要任何其他文字,格式:
-{{"items":[{{"name":"strawberries","grams":57}}]}}"""
+格式：{{"items":[{{"name":"strawberries","grams":57}}]}}
+若确定没有任何可见食物，输出 {{"items":[]}}。'''
+
 
 def to_result(text, vocab, table):
-    """解析大模型回复 → 与方案A相同的统一格式。名称不在词表里的丢弃并记录。"""
-    d = parse_json(text) or {}
-    canon = {v.lower(): v for v in vocab}
-    grams, dropped = {}, []
-    for it in (d.get("items", []) if isinstance(d, dict) else []):
-        if not isinstance(it, dict): continue
-        name = canon.get(str(it.get("name", "")).strip().lower())
-        try: g = float(it.get("grams"))
-        except (TypeError, ValueError): g = 0.0
-        if name is None: dropped.append(it.get("name")); continue
-        grams[name] = grams.get(name, 0.0) + max(g, 0.0)
+    data = parse_json(text)
+    if not isinstance(data, dict) or not isinstance(data.get('items'), list):
+        raise ValueError('回复必须是包含 items 数组的 JSON 对象')
+    canon = {name.lower(): name for name in vocab}
+    weights = {}
+    for item in data['items']:
+        if not isinstance(item, dict) or not isinstance(item.get('name'), str):
+            raise ValueError('每项必须包含名称和数值重量')
+        name = canon.get(item['name'].strip().lower())
+        grams = item.get('grams')
+        if name is None:
+            raise ValueError('食材名称不在封闭词表中')
+        try:
+            valid = not isinstance(grams, bool) and isinstance(grams, (int, float)) and math.isfinite(grams) and grams >= 0
+        except OverflowError:
+            valid = False
+        if not valid:
+            raise ValueError('重量必须是非负有限数值')
+        weights[name] = weights.get(name, 0) + grams
+        if not math.isfinite(weights[name]):
+            raise ValueError('累计重量溢出')
     dishes = []
-    for name, g in grams.items():
-        t = table.get(name)
-        nut = lambda k: round(g / 100 * float(t[k]), 1) if t else 0.0
-        dishes.append({"name": name, "weight_g": round(g), "kcal": nut("kcal"), "protein_g": nut("protein"),
-                       "fat_g": nut("fat"), "carb_g": nut("carb")})
-    total = {k: round(sum(x[k] for x in dishes), 1) for k in ("kcal", "protein_g", "fat_g", "carb_g")}
-    return {"dishes": dishes, "total": total, "advice": [], "dropped": dropped, "parse_ok": bool(d)}
+    for name, grams in weights.items():
+        if name not in table:
+            raise ValueError('食材不在营养表中')
+        nutrients = {}
+        for target, source in (('kcal','kcal'),('protein_g','protein'),('fat_g','fat'),('carb_g','carb')):
+            value = grams / 100 * float(table[name][source])
+            if not math.isfinite(value) or value < 0:
+                raise ValueError('营养换算结果无效')
+            nutrients[target] = round(value, 1)
+        dishes.append({'name': name, 'weight_g': round(grams), **nutrients})
+    total = {key: round(sum(d[key] for d in dishes), 1) for key in ('kcal','protein_g','fat_g','carb_g')}
+    return {'status': 'success', 'parse_ok': True, 'dishes': dishes, 'total': total, 'advice': []}
+
+
+def redact(text):
+    secret = os.getenv('VLM_API_KEY')
+    return text.replace(secret, '[REDACTED]') if secret else text
+
+
+def failure(out, iid, repeat, *, raw=None, error_type, reason, attempt=None, original=None):
+    record = {'status':'failed', 'image_id':iid, 'repetition':repeat, 'attempt':attempt,
+              'error_type':error_type, 'reason':reason, 'raw':redact(raw) if isinstance(raw,str) else raw}
+    if original is not None:
+        record['original_file'] = original.name
+        record['original_content'] = redact(original.read_text(encoding='utf-8', errors='replace'))
+    target = out / 'failures' / f'{iid}_r{repeat}_{uuid4().hex}.json'
+    write_json(target, record)
+    return target
+
+
+def cache_valid(path, context, experiment, vocab, table):
+    saved = load_prediction(path, context)
+    if saved.get('parse_ok') is not True or saved.get('experiment') != experiment or not isinstance(saved.get('raw'),str):
+        raise ValueError('缓存缺少有效回复或实验配置不一致')
+    parsed = to_result(saved['raw'], vocab, table)
+    if any(parsed[key] != saved[key] for key in ('dishes','total')):
+        raise ValueError('缓存预测与原始回复不一致')
+    return saved
+
 
 def main(argv=None):
-    argv = sys.argv[1:] if argv is None else argv
-    reps = int(argv[0]) if argv else 3
-    gt = load_gt(); vocab = candidate_names()
-    table = {r["name"]: r for r in csv.DictReader(open("data/ingredient_nutrition.csv", encoding="utf-8"))}
-    prompt = PROMPT.format(vocab=", ".join(vocab))
-    OUT.mkdir(parents=True, exist_ok=True)
-    ids = [i for i, g in gt.items() if g["split"] == "test"]          # 只跑测试集,省时间和费用
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('reps', nargs='?', type=int, default=3)
+    parser.add_argument('--limit', type=int)
+    parser.add_argument('--attempts', type=int, default=3)
+    parser.add_argument('--retry-delay', type=float, default=3)
+    parser.add_argument('--results-root', type=Path, default=Path('results'))
+    args = parser.parse_args(argv)
+    if args.reps < 1 or args.attempts < 1 or (args.limit is not None and args.limit < 1) or args.retry_delay < 0:
+        parser.error('次数和 limit 必须为正数，等待时间不能为负')
+    gt, vocab = load_gt(), candidate_names()
+    context = evaluation_context()
+    with open('data/ingredient_nutrition.csv', encoding='utf-8') as stream:
+        table = {r['name']:r for r in csv.DictReader(stream)}
+    prompt = PROMPT.format(vocab=', '.join(vocab))
+    out = args.results_root / 'vlm'
+    ids = [iid for iid, g in gt.items() if g['split']=='test']
+    if args.limit is not None:
+        ids = ids[:args.limit]
+    failed = 0
     for n, iid in enumerate(ids, 1):
-        img = Path("data/images") / f"{iid}.jpg"
-        for k in range(reps):
-            f = OUT / f"{iid}_r{k}.json"
-            if f.exists(): continue                                    # 断点续跑
-            t = time.time()
-            for attempt in range(3):                                   # 网络/限流偶发失败自动重试
+        image = Path('data/images') / f'{iid}.jpg'
+        if not image.is_file():
+            raise SystemExit(f'缺少图片 {image}；先运行 python -m data.prepare')
+        provider = os.getenv('VLM_PROVIDER', 'anthropic')
+        endpoint = ((os.getenv('VLM_BASE_URL') or os.getenv('OPENAI_BASE_URL') or 'https://api.openai.com/v1')
+                    if provider == 'openai' else (os.getenv('ANTHROPIC_BASE_URL') or 'https://api.anthropic.com'))
+        experiment = {'provider':provider, 'model':os.getenv('VLM_MODEL',''),
+                      'image_id':iid, 'image_sha256':hashlib.sha256(image.read_bytes()).hexdigest(),
+                      'prompt':prompt, 'disable_thinking':os.getenv('VLM_DISABLE_THINKING','0'),
+                      'endpoint_sha256':hashlib.sha256(endpoint.encode()).hexdigest()}
+        for repeat in range(args.reps):
+            path = out / f'{iid}_r{repeat}.json'
+            display = out / f'{iid}.json'
+            if path.exists():
                 try:
-                    text = call_vlm(str(img), prompt)
-                    # 空正文多半是思考模式把 max_tokens 吃光了,当成失败重试,别静默写进结果
-                    if not (text and str(text).strip()):
-                        raise ValueError("空回答(可能是思考模式占满 max_tokens)")
+                    saved = cache_valid(path, context, experiment, vocab, table)
+                except (ValueError, OSError):
+                    failure(out,iid,repeat,error_type='InvalidCache',reason='旧版本/损坏/失败缓存已隔离，需重新请求',original=path)
+                    path.unlink()
+                    if repeat == 0 and display.exists():
+                        failure(out,iid,repeat,error_type='InvalidDisplayCache',reason='对应主缓存已失效',original=display)
+                        display.unlink()
+                else:
+                    if repeat == 0:
+                        write_json(display,saved)
+                    print(f'[{n}/{len(ids)}] {iid} r{repeat}: 有效缓存')
+                    continue
+            # 单独展示文件不能充当有效的重复实验缓存。
+            if repeat == 0 and display.exists():
+                failure(out,iid,repeat,error_type='UnverifiedDisplayCache',reason='缺少对应有效重复缓存',original=display)
+                display.unlink()
+            if not os.getenv('VLM_API_KEY') or not experiment['model']:
+                failure(out,iid,repeat,error_type='MissingConfiguration',reason='需通过环境设置或 .env 配置 VLM_API_KEY 和 VLM_MODEL')
+                raise SystemExit('缺少 VLM_API_KEY 或 VLM_MODEL，失败缓存已隔离；补齐配置后可重跑')
+            start = time.monotonic()
+            for attempt in range(1, args.attempts+1):
+                raw = None
+                try:
+                    raw = call_vlm(str(image),prompt)
+                    parsed = to_result(raw,vocab,table)
+                    parsed.update(raw=redact(raw), context=context, experiment=experiment,
+                                  seconds=round(time.monotonic()-start,2))
+                    write_json(path,parsed)
+                    if repeat == 0:
+                        write_json(display,parsed)
+                    print(f'[{n}/{len(ids)}] {iid} r{repeat}: 成功')
                     break
-                except Exception as e:
-                    print("  重试", attempt + 1, type(e).__name__, str(e)[:80]); time.sleep(3)
+                except Exception as exc:
+                    # 不记录 HTTP 异常正文，防止服务端回显密钥。
+                    failure(out,iid,repeat,raw=raw,error_type=type(exc).__name__,reason='请求或输出校验失败',attempt=attempt)
+                    print(f'{iid} r{repeat} attempt {attempt}: {type(exc).__name__}')
+                    if attempt < args.attempts:
+                        time.sleep(args.retry_delay)
             else:
-                print("  跳过", iid, k); continue
-            res = to_result(text, vocab, table); res["seconds"] = round(time.time() - t, 2); res["raw"] = text
-            json.dump(res, open(f, "w", encoding="utf-8"), ensure_ascii=False)
-            if k == 0: json.dump(res, open(OUT / f"{iid}.json", "w", encoding="utf-8"), ensure_ascii=False)
-            print(f"[{n}/{len(ids)}] {iid} r{k}: {[ (d['name'], d['weight_g']) for d in res['dishes']]} 丢弃={res['dropped']}")
+                failed += 1
+    if failed:
+        raise SystemExit(f'{failed} 份预测失败；失败记录在 {out / "failures"}，再次运行会重试，不会把失败算成零热量')
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     main()

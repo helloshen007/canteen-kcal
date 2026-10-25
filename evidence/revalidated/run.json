@@ -1,0 +1,59 @@
+{
+  "status": "partial",
+  "context": {
+    "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+    "vocabulary": [
+      "avocado",
+      "bacon",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "caesar salad",
+      "cantaloupe",
+      "cauliflower",
+      "celery",
+      "chicken",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fish",
+      "honeydew melons",
+      "mixed greens",
+      "olives",
+      "potatoes",
+      "raspberries",
+      "spinach (raw)",
+      "steak",
+      "strawberries",
+      "watermelon",
+      "yam"
+    ]
+  },
+  "annotation_audit": "docs/annotation-audit.md",
+  "images": 60,
+  "test_images": 20,
+  "coverage": {
+    "yolo_sam": 20,
+    "vlm": 0
+  },
+  "vlm_raw_replies": 0,
+  "python": "3.12.14",
+  "packages": {
+    "torch": "2.14.1+cpu",
+    "ultralytics": "8.4.184",
+    "numpy": "2.5.2",
+    "Pillow": "12.3.0",
+    "gradio": "6.30.0"
+  },
+  "commands": [
+    "python -m data.prepare",
+    "python -m data.build_gt",
+    "python -m detector.extract --results-root results/revalidated",
+    "python -m detector.fit_eval 0.05 --results-root results/revalidated",
+    "python -m compare.report --results-root results/revalidated --allow-partial --output docs/results.md"
+  ],
+  "limitations": [
+    "B原始逐图回复缺失，未重新调用付费接口",
+    "沿用既有阈值，未消除原测试集选阈值的方法学局限"
+  ]
+}

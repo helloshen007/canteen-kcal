@@ -1,0 +1,7 @@
+image_id,ingredient_id,old_label,new_label,split,old_difficulty,new_difficulty,old_visible_mass_g,new_visible_mass_g,old_visible_kcal,new_visible_kcal
+dish_1558027001,ingr_0000000458,deprecated,watermelon,test,none,single,0,68.0,0,20.4
+dish_1558027243,ingr_0000000458,deprecated,watermelon,test,few,few,95.0,163.0,243.0,263.4
+dish_1558028142,ingr_0000000458,deprecated,watermelon,test,none,single,0,73.0,0,21.9
+dish_1558028194,ingr_0000000458,deprecated,watermelon,test,few,few,99.0,172.0,206.1,228.0
+dish_1558028606,ingr_0000000458,deprecated,watermelon,test,none,single,0,65.0,0,19.5
+dish_1558028772,ingr_0000000458,deprecated,watermelon,test,few,few,127.0,192.0,44.5,64.0

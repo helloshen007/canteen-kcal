@@ -1,0 +1,80 @@
+{
+  "status": "success",
+  "context": {
+    "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+    "vocabulary": [
+      "avocado",
+      "bacon",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "caesar salad",
+      "cantaloupe",
+      "cauliflower",
+      "celery",
+      "chicken",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fish",
+      "honeydew melons",
+      "mixed greens",
+      "olives",
+      "potatoes",
+      "raspberries",
+      "spinach (raw)",
+      "steak",
+      "strawberries",
+      "watermelon",
+      "yam"
+    ]
+  },
+  "dishes": [
+    {
+      "name": "olives",
+      "weight_g": 10,
+      "kcal": 11.2,
+      "protein_g": 0.1,
+      "fat_g": 1.0,
+      "carb_g": 0.6,
+      "conf": 0.18
+    },
+    {
+      "name": "brussels sprouts",
+      "weight_g": 66,
+      "kcal": 28.6,
+      "protein_g": 2.3,
+      "fat_g": 0.2,
+      "carb_g": 6.0,
+      "conf": 0.107
+    },
+    {
+      "name": "cucumbers",
+      "weight_g": 30,
+      "kcal": 3.0,
+      "protein_g": 0.3,
+      "fat_g": 0.0,
+      "carb_g": 0.6,
+      "conf": 0.102
+    },
+    {
+      "name": "avocado",
+      "weight_g": 24,
+      "kcal": 37.8,
+      "protein_g": 0.5,
+      "fat_g": 3.5,
+      "carb_g": 2.1,
+      "conf": 0.091
+    }
+  ],
+  "total": {
+    "kcal": 80.6,
+    "protein_g": 3.2,
+    "fat_g": 4.7,
+    "carb_g": 9.3
+  },
+  "advice": [],
+  "split": "calib",
+  "image_id": "dish_1557863012",
+  "threshold": 0.05
+}

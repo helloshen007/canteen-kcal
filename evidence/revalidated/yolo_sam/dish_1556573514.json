@@ -1,0 +1,53 @@
+{
+  "status": "success",
+  "context": {
+    "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+    "vocabulary": [
+      "avocado",
+      "bacon",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "caesar salad",
+      "cantaloupe",
+      "cauliflower",
+      "celery",
+      "chicken",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fish",
+      "honeydew melons",
+      "mixed greens",
+      "olives",
+      "potatoes",
+      "raspberries",
+      "spinach (raw)",
+      "steak",
+      "strawberries",
+      "watermelon",
+      "yam"
+    ]
+  },
+  "dishes": [
+    {
+      "name": "mixed greens",
+      "weight_g": 138,
+      "kcal": 38.7,
+      "protein_g": 3.0,
+      "fat_g": 0.6,
+      "carb_g": 7.3,
+      "conf": 0.496
+    }
+  ],
+  "total": {
+    "kcal": 38.7,
+    "protein_g": 3.0,
+    "fat_g": 0.6,
+    "carb_g": 7.3
+  },
+  "advice": [],
+  "split": "calib",
+  "image_id": "dish_1556573514",
+  "threshold": 0.05
+}

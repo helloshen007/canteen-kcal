@@ -1,92 +1,77 @@
-# 食堂餐盘食材与热量估算:传统检测 vs 多模态大模型
+# 餐盘食材与热量估算：传统检测分割 vs 多模态大模型
 
-同一个问题:给一张餐盘俯拍照片,输出盘中有哪些食材、各多少克、合计多少千卡。
-两种方案并排对比:**A** YOLO-World + SAM(传统检测+分割) · **B** 多模态大模型。
+同一组 Nutrition5k 餐盘图片，比较 YOLO-World＋SAM 与多模态大模型输出的食材、重量及热量。两方案共用修正后的词表、营养表和测试集。
 
-## 问题与数据
+## 当前修正与证据状态
 
-- **数据**:Nutrition5k(Google, CVPR 2021)子集,60 张餐盘俯拍图(盘子放在秤台上),每张都有真实重量与营养标注。
-- **划分**:40 张标定、20 张测试。**按时间连续块切分,不是随机划分**——同一批次相邻编号的图常常是同一盘菜的多次增量扫描,随机划分会让测试图在标定集里"见过",指标会虚高。
-- **只评估看得见的食材**:调味油、盐之类看不见的不计入真值,否则两个方案都会因为"看不见的东西"被判错。
+- 固定 60 张图，前 40 张标定、后 20 张测试；划分未改变。
+- 按食材 ID 核对六张测试图：`ingr_0000000458` 为可见西瓜，不能因原名称 `deprecated` 而排除。另一个同名 ID 并非同一类，不能全局替换。
+- 词表为 **24 类**，测试集为 **15 张单一食材、5 张多食材**。详细原图、标注来源与修正差异见 [标注审计](docs/annotation-audit.md)、[六图对照](docs/annotation-contact-sheet.jpg)、[逐图修正 CSV](docs/annotation-corrections.csv)。映射有人工核对依据，未冒称已访问被阻断的官方 GCS 原表。
+- 错误 JSON、缺字段、未知食材、非法重量均视为失败，不保存成“无食材、零热量”。只有显式的 `{"items":[]}` 可作为成功空预测。失败回复单独保留，下次运行会重试；过期缓存隔离保存。
+- 真值、营养表、词表和图片变化会使旧缓存失效。成功预测记录上下文、原始回复、模型、提示词和耗时。失败不参与指标，也不当作零预测。
+- 原汇总表已移到 [历史存档](docs/historical-results.md)，不得用于当前性能结论。方案 B 的原始预测/回复当前缺失，不能从汇总表还原或编造。
 
-## 方案
+修正后的真实 A 复验：[新结果表](docs/results.md)、[40 行逐图状态/误差](docs/results.per-image.csv)、[60 份 A 逐图预测与运行记录](evidence/revalidated/README.md)。全部 20 张测试图的 F1=0.2450、热量 MAE=62.16 kcal；B 覆盖为 0/20，尚不构成完整 A/B 比较。
 
-### A:YOLO-World 检测 + SAM 分割
+## 方案与限制
 
-1. 用英文食材名当类别做开放词汇检测(YOLO-World,不需要训练);
-2. 跨类别 NMS 去重;
-3. 用检测框提示 SAM 分割出像素掩膜,同类别的多个掩膜取并集;
-4. 在标定集上拟合"像素面积 → 克数"系数(取中位数抗离群,样本 ≥3 的类别用类别专属系数);
-5. 用同一张营养表把克数换算成热量。
+A：英文食材词表 → YOLO-World 检测 → 跨类别 NMS → 检测框提示 SAM → 同类掩膜并集 → 标定集估计像素/克系数 → 共用营养表。
 
-### B:多模态大模型
+B：多模态服务只输出闭集食材名与克数 → 校验 JSON → 用同一营养表换算营养。服务必须支持图像输入，不能仅根据服务商名称推断模型能力。
 
-让大模型**只回答"食材名 + 克数"**,名称限定在同一个 23 种食材的封闭词表内,热量用**和方案 A 同一张营养表**计算。
+图片为固定环境的俯拍子集，不能外推至真实中式食堂。两种方法都是估重而非称重。历史阈值 0.05 曾参考测试集选择；本轮修复沿用它以避免新增调参，并未消除原方法学局限。严格后续实验应在标定集选择阈值，再冻结测试。
 
-这样两个方案比的只是"认得准不准、分量估得准不准",没有别的变量。
+## 完整复现
 
-### 公平性设计
-
-两方案共用同一份词表、同一张营养表、同一个测试集,只评估看得见的食材;热量口径完全一致,唯一的差别是"谁来认食材、谁来估分量"。
-
-## 结果
-
-| 方案 | 子集 | 图数 | 菜名P | 菜名R | 菜名F1 | 重量MAE(g) | 热量MAE(kcal) | 基线MAE(kcal) |
-|---|---|---|---|---|---|---|---|---|
-| A YOLO-World+SAM | 全部 | 20 | 0.23 | 0.30 | 0.25 | 70.7 | 61.55 | 72.64 |
-| A | 单一食材 | 12 | 0.24 | 0.33 | 0.26 | 38.08 | 46.56 | 49.24 |
-| A | 2-3种 | 5 | 0.37 | 0.40 | 0.38 | 106.2 | 99.06 | 118.03 |
-| B 多模态大模型 | 全部 | 20 | 0.80 | 0.85 | 0.82 | 42.88 | 27.72 | 72.64 |
-| B | 单一食材 | 12 | 1.00 | 1.00 | 1.00 | 22.00 | 20.66 | 49.24 |
-| B | 2-3种 | 5 | 0.80 | 1.00 | 0.88 | 78.07 | 47.90 | 118.03 |
-
-- 基线:不看图,一律预测标定集平均热量(90.6 kcal)。
-- 大模型稳定性:同一张图重复调用 3 次,总热量的平均标准差 **14.3 kcal**。
-
-## 发现与局限
-
-**1. 开放词汇检测在这份数据上很弱。**
-阈值 0.30 时,20 张测试图里 **19 张一个食材都没检出**;降到 0.05 才有 F1=0.25,热量误差 61.6 kcal 也仅比"不看图直接猜平均值"(72.6)好一点。这是可以写进报告的负面结论:靠文字类别 + 面积换算,对小目标、外观相近的食材不够用。
-
-**2. 大模型赢在"认得准",而且很稳定。**
-菜名 F1 从 0.25 提到 0.82;单一食材图上做到 P=R=F1=1.00,热量误差 20.7 kcal。重复 3 次的热量标准差只有 14.3 kcal,说明它不是随机蒙对。
-
-**3. 大模型也偏高估重量。**
-最典型的一张:真值是 36 g 橄榄,模型常给到 40~50 g,热量随之偏高。所以它"认得准"但"称不准",这是这类模型的通病。
-
-**4. 食材越多,分量越难估。**
-单一食材 MAE 20.7 kcal,2-3 种时涨到 47.9 kcal;重量误差从 22 g 涨到 78 g。堆叠遮挡和相对大小判断是主要难点。
-
-**5. 指标口径上的两个坑。**
-- **不要用 MAPE**:个别图真值热量接近 0(比如芹菜只有 4 kcal),除法会把百分比放大到 900% 以上,没有参考价值,报热量统一用 MAE。
-- **A 的阈值是在测试集上比较后选定的**,严格做法应该在标定集上选完再冻结,这是一个方法学瑕疵,如实写在这里。
-
-**6. 数据本身的局限。**
-图片是摄影棚里固定背景、固定角度的俯拍,和真实食堂的托盘、灯光、遮挡差距很大;词表只有 23 种食材;没有覆盖中式菜品。所以结论只在这份数据的范围内成立。
-
-## 复现
+建议 Python 3.12，在项目根目录运行。CPU 可以运行 A，但完整提取较慢。先创建虚拟环境并安装依赖；如无需 GPU，可先从官方 CPU 源安装 torch/torchvision。
 
 ```bash
-# 环境
-pip install -r requirements.txt
+python -m venv .venv
+# Linux/macOS 激活；Windows 使用 .venv\Scripts\activate
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pip install 'git+https://github.com/ultralytics/CLIP.git'
 
-# 方案 A:提特征(YOLO-World + SAM)
-python -m detector.extract
-python -m detector.fit_eval 0.05        # 用定稿阈值重算方案 A 结果
+# 固定版本下载全部原图与 metadata.jsonl，校验元数据，不改 dish_ids.json
+python -m data.prepare
+# 显式生成经 ID 修正的真值及营养表
+python -m data.build_gt
 
-# 方案 B:大模型批量调用(20 张 × 3 次),需要密钥
-# 在项目根目录的 .env 里写四行:VLM_PROVIDER / VLM_API_KEY / VLM_BASE_URL / VLM_MODEL
-python -m vlm.run_vlm 3
+# 新实验目录，保留旧结果以供审计
+python -m detector.extract --results-root results/revalidated
+python -m detector.fit_eval 0.05 --results-root results/revalidated
 
-# 对比表 → docs/results.md
-python -m compare.report
+# 复制 .env.example 为 .env，在本地/环境设置中填写真实配置，不提交密钥
+# 先做单图单次调用（产生 API 费用）
+python -m vlm.run_vlm 1 --limit 1 --results-root results/revalidated
+# 确认服务正常后，20 张测试图各运行 3 次（产生 API 费用）
+python -m vlm.run_vlm 3 --results-root results/revalidated
 
-# 并排展示
-python app.py
+# 默认要求两方案全部测试图有有效结果，不覆盖历史表
+python -m compare.report --results-root results/revalidated --output results/revalidated/report.md
+# 仅复验 A 时可明确生成部分报告：会列出缺失 B，不伪装完整比较
+python -m compare.report --results-root results/revalidated --allow-partial --output results/revalidated/partial-report.md
+
+python app.py --results-root results/revalidated
+python -m unittest discover -s tests -v
 ```
 
-## 目录
+`.env` 由 `vlm` 包加载，现有环境变量优先。`VLM_PROVIDER` 使用 `openai` 或 `anthropic`，还需 `VLM_API_KEY` 和准确的 `VLM_MODEL`；OpenAI 兼容服务填写 `VLM_BASE_URL`。服务明确支持 `thinking.type=disabled` 时才设置 `VLM_DISABLE_THINKING=1`。失败日志不保存 HTTP 异常正文，避免回显密钥；原始模型文本共享前仍应检查敏感信息。
 
-`data/` 图片、真值、营养表 · `detector/` 方案 A(检测/分割/评估) · `vlm/` 方案 B(调用/批量/自测) · `compare/` 评估与汇总 · `docs/results.md` 对比表 · `app.py` Gradio 并排界面
+成功记录为 `vlm/<image_id>_rN.json`，展示副本为 `<image_id>.json`；无效旧缓存和失败请求在 `vlm/failures/`。只有输出、数据版本和实验配置均通过校验才跳过调用。更换模型或提示词、重建标注后，建议改用独立结果目录。
 
-> 营养表数值取自 Nutrition5k 的食材标注,仅供参考;本项目的估算结果不构成任何医疗或膳食建议。
+详细环境、数据、模型和故障说明见 [复现文档](docs/reproduction.md)。初次模型权重下载需联网，保留 TLS 及模型内置校验。
+
+## 逐图结果与原始回复
+
+本轮真实 A 复验结果和标注版本将存入 `evidence/revalidated/`，包括逐图预测、逐图评估和缺失状态，不只保留汇总表。B 缺失时明确留空，不附虚假的回复。全部模型特征和原图可从数据准备脚本及完整证据 ZIP 恢复。
+
+```bash
+python tools/export_evidence.py --results-root results/revalidated --output results/revalidated/evidence.zip
+```
+
+导出包仅包含白名单预测、原始回复、失败记录及复算材料，manifest 列明成功/失败/缺失。默认不包含密钥、`.env`、权重或虚拟环境。数据导出不等于实验成功，指标以经过校验的当前版本结果为准。
+
+原项目介绍及个人感悟见 [文档说明](docs/文档说明.md)，其中旧实验数字已明确标记为历史。估算仅供参考，不构成医疗或膳食建议。
+
+服务端点会以 SHA-256 摘要加入缓存/实验签名，切换接口地址不会复用同名模型的旧结果，也不在记录中暴露地址内的凭据。

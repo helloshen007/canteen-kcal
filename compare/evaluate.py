@@ -1,53 +1,87 @@
-"""评估:菜品识别 F1、总热量 MAE/MAPE(按难度分组)、大模型多次调用稳定性。
-结果文件约定: results/<method>/<image_id>.json (多次重复为 <image_id>_r0.json, _r1.json ...)"""
-import csv, json, statistics as st
-from collections import defaultdict
+"""读取可见食材真值并评估成功且属于当前标注版本的逐图结果。"""
+import argparse
+import csv
+import statistics as st
 from pathlib import Path
 
+from compare.provenance import evaluation_context, load_prediction
+
+
 def load_gt(path="data/ground_truth.csv"):
-    """读取真值。评估只看"图上看得见的食材"(visible_*),调料油盐等看不见的热量不计入。"""
     gt = {}
-    for r in csv.DictReader(open(path, encoding="utf-8")):
-        grams = {x.rsplit(":", 1)[0]: float(x.rsplit(":", 1)[1]) for x in r["visible_dishes"].split(";") if x}
-        gt[r["image_id"]] = {"difficulty": r["difficulty"], "kcal": float(r["visible_kcal"]), "names": set(grams),
-                             "grams": grams, "split": r["split"], "mass": float(r["visible_mass_g"])}
+    with open(path, encoding="utf-8") as stream:
+        for row in csv.DictReader(stream):
+            grams = {}
+            for item in row["visible_dishes"].split(";"):
+                if item:
+                    name, weight = item.rsplit(":", 1)
+                    grams[name] = grams.get(name, 0.0) + float(weight)
+            gt[row["image_id"]] = {"difficulty": row["difficulty"], "kcal": float(row["visible_kcal"]),
+                                    "names": set(grams), "grams": grams, "split": row["split"],
+                                    "mass": float(row["visible_mass_g"])}
     return gt
+
 
 def name_f1(pred, true):
     tp = len(pred & true)
-    if not pred or not true or tp == 0: return 0.0
-    p, r = tp / len(pred), tp / len(true); return 2 * p * r / (p + r)
+    if not pred or not true or tp == 0:
+        return 0.0
+    precision, recall = tp / len(pred), tp / len(true)
+    return 2 * precision * recall / (precision + recall)
 
-def evaluate(method, gt, root="results"):
+
+def evaluate(method, gt, root="results", context=None):
+    context = evaluation_context() if context is None else context
+    if method == "vlm":
+        from compare.report import runs, nutrition_table
+        table = nutrition_table()
     rows = []
     for iid, g in gt.items():
-        if g["split"] != "test": continue          # 只在测试集上评估
-        f = Path(root) / method / f"{iid}.json"
-        if not f.exists(): continue
-        d = json.load(open(f, encoding="utf-8"))
-        names = {x["name"] for x in d["dishes"]}; kcal = d["total"]["kcal"]
-        rows.append({"id": iid, "diff": g["difficulty"], "f1": name_f1(names, g["names"]),
-                     "abs_err": abs(kcal - g["kcal"]), "pct_err": abs(kcal - g["kcal"]) / g["kcal"] * 100})
+        if g["split"] != "test":
+            continue
+        if method == "vlm":
+            results = runs(method, iid, root, context, table)
+        else:
+            path = Path(root) / method / f"{iid}.json"
+            results = [load_prediction(path, context)] if path.exists() else []
+        if not results:
+            continue
+        f1 = st.mean(name_f1({x["name"] for x in result["dishes"]}, g["names"]) for result in results)
+        error = st.mean(abs(result["total"]["kcal"] - g["kcal"]) for result in results)
+        rows.append({"id": iid, "diff": g["difficulty"], "f1": f1,
+                     "abs_err": error, "pct_err": error / g["kcal"] * 100 if g["kcal"] > 0 else None})
     return rows
 
+
 def summarize_rows(rows):
-    if not rows: return None
+    if not rows:
+        return None
+    percentages = [row["pct_err"] for row in rows if row["pct_err"] is not None]
     return {"n": len(rows), "F1": round(st.mean(r["f1"] for r in rows), 3),
             "MAE_kcal": round(st.mean(r["abs_err"] for r in rows), 1),
-            "MAPE_%": round(st.mean(r["pct_err"] for r in rows), 1)}
+            "MAPE_%": round(st.mean(percentages), 1) if percentages else None}
 
-def stability(method, root="results"):
-    """同一张图多次调用的总热量标准差(越小越稳)。"""
-    groups = defaultdict(list)
-    for f in Path(root, method).glob("*_r*.json"):
-        groups[f.stem.rsplit("_r", 1)[0]].append(json.load(open(f, encoding="utf-8"))["total"]["kcal"])
-    sds = [st.pstdev(v) for v in groups.values() if len(v) > 1]
-    return round(st.mean(sds), 1) if sds else None
+
+def stability(method, root="results", image_ids=None, context=None):
+    """只统计指定测试图；失败与旧版预测均不能变成零热量。"""
+    context = evaluation_context() if context is None else context
+    if image_ids is None:
+        image_ids = [iid for iid, g in load_gt().items() if g["split"] == "test"]
+    from compare.report import runs
+    deviations = []
+    for iid in image_ids:
+        results = runs(method, iid, root, context)
+        if len(results) > 1:
+            deviations.append(st.pstdev(r["total"]["kcal"] for r in results))
+    return round(st.mean(deviations), 1) if deviations else None
+
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--results-root", default="results")
+    args = parser.parse_args()
     gt = load_gt()
-    for m in ("yolo_sam", "vlm", "hybrid"):
-        rows = evaluate(m, gt); print(f"\n== {m} ==  整体:", summarize_rows(rows), " 稳定性(kcal标准差):", stability(m))
-        by = defaultdict(list)
-        for r in rows: by[r["diff"]].append(r)
-        for k, v in by.items(): print(f"  [{k}]", summarize_rows(v))
+    for method in ("yolo_sam", "vlm"):
+        rows = evaluate(method, gt, args.results_root)
+        print(method, "成功结果（同图重复先取平均）:", summarize_rows(rows), "稳定性:", stability(method, args.results_root))
+        print("测试图覆盖:", len(rows), "/", sum(g["split"] == "test" for g in gt.values()))

@@ -1,18 +1,17 @@
 """冒烟测试:YOLO-World(文字类别)检测 → SAM 框提示分割 → 保存叠加图
-用法: python detector/try_world.py dish_1556572657"""
-import csv, sys
+用法: python -m detector.try_world dish_1556572657"""
+import sys
 import cv2, numpy as np, torch
 from PIL import Image, ImageDraw
 from ultralytics import YOLOWorld, SAM
 from detector.viz import _font
+from detector.vocab import candidate_names
 
 dish = sys.argv[1] if len(sys.argv) > 1 else "dish_1556572657"
 img = cv2.imread(f"data/images/{dish}.jpg")
 
-# 候选类别来自整个数据集的食材词表(不偷看这张图的答案),排除不可见的调料
-INVISIBLE = {"olive oil", "salt", "pepper", "vinegar", "garlic", "deprecated", "water"}
-names = [r["name"] for r in csv.DictReader(open("data/ingredient_nutrition.csv", encoding="utf-8"))
-         if r["name"] not in INVISIBLE][:40]
+# 与正式 A/B 流程共用修正后的 24 类词表，不再按旧名称排除 deprecated。
+names = candidate_names()
 
 dev = 0 if torch.cuda.is_available() else "cpu"
 yolo = YOLOWorld("yolov8s-worldv2.pt")

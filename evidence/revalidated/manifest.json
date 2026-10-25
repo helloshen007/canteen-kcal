@@ -1,0 +1,4007 @@
+{
+  "format_version": 1,
+  "created_at": "2026-10-25T00:57:47.232163+00:00",
+  "context": {
+    "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+    "vocabulary": [
+      "avocado",
+      "bacon",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "caesar salad",
+      "cantaloupe",
+      "cauliflower",
+      "celery",
+      "chicken",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fish",
+      "honeydew melons",
+      "mixed greens",
+      "olives",
+      "potatoes",
+      "raspberries",
+      "spinach (raw)",
+      "steak",
+      "strawberries",
+      "watermelon",
+      "yam"
+    ]
+  },
+  "source_metadata_sha256": "77401dbd6f7e75fde017cc3f6efec24cb144e52abbe0cec2b52164451c4dec53",
+  "validation_scope": "Prediction schema, explicit success status and current data context; model accuracy is not validated. Coverage is not task acceptance.",
+  "expected_test_images": [
+    "dish_1558026623",
+    "dish_1558026684",
+    "dish_1558026714",
+    "dish_1558026756",
+    "dish_1558027001",
+    "dish_1558027057",
+    "dish_1558027164",
+    "dish_1558027243",
+    "dish_1558028007",
+    "dish_1558028057",
+    "dish_1558028142",
+    "dish_1558028194",
+    "dish_1558028492",
+    "dish_1558028606",
+    "dish_1558028690",
+    "dish_1558028772",
+    "dish_1558029148",
+    "dish_1558029230",
+    "dish_1558029278",
+    "dish_1558029324"
+  ],
+  "expected_vlm_repeats": 3,
+  "vlm_experiment_consistent": true,
+  "vlm_experiment_signatures": [],
+  "coverage_complete": false,
+  "vlm_repetitions_complete": false,
+  "coverage": {
+    "dish_1558026623": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558026623.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558026684": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558026684.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558026714": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558026714.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558026756": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558026756.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558027001": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558027001.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558027057": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558027057.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558027164": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558027164.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558027243": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558027243.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558028007": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558028007.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558028057": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558028057.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558028142": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558028142.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558028194": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558028194.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558028492": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558028492.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558028606": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558028606.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558028690": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558028690.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558028772": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558028772.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558029148": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558029148.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558029230": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558029230.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558029278": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558029278.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    },
+    "dish_1558029324": {
+      "yolo_sam": {
+        "valid_predictions": 1,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [
+          "yolo_sam/dish_1558029324.json"
+        ],
+        "states": [
+          "schema_valid"
+        ],
+        "missing": false
+      },
+      "vlm": {
+        "valid_predictions": 0,
+        "repeat_sequence_valid": true,
+        "raw_replies": 0,
+        "files": [],
+        "states": [],
+        "missing": true
+      }
+    }
+  },
+  "records": [
+    {
+      "path": "features/dish_1556572657.json",
+      "image_id": "dish_1556572657",
+      "method": "features",
+      "sha256": "27b2fd7e26a79029af1c0b36e3baf067118a0388879bf45e91ba69ea62f7f46d",
+      "bytes": 1522,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556572657.npz",
+      "image_id": "dish_1556572657",
+      "method": "features",
+      "sha256": "abf9078ddfdb73bad9f81878d63adee9ba0250fd8d0f2bc09d1e5539874c4760",
+      "bytes": 8400,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556573514.json",
+      "image_id": "dish_1556573514",
+      "method": "features",
+      "sha256": "b06a943c40c72b60d877b0f7af985d635efac163037de0725beff725b5113d4c",
+      "bytes": 711,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556573514.npz",
+      "image_id": "dish_1556573514",
+      "method": "features",
+      "sha256": "df4e00aea926ff70c2cad17b5cc45269236abc8837f6b9a9c6e555196f2cd2e0",
+      "bytes": 1863,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575014.json",
+      "image_id": "dish_1556575014",
+      "method": "features",
+      "sha256": "a9e42ab2ef1095e92a2ce90a45b0946c6cb9b9c7e19f420f768f7bd379932601",
+      "bytes": 2109,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575014.npz",
+      "image_id": "dish_1556575014",
+      "method": "features",
+      "sha256": "7d10bc77eee51a55de10598d879a08a4702324dc60864c3e6cde86b69ad1da73",
+      "bytes": 9731,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575083.json",
+      "image_id": "dish_1556575083",
+      "method": "features",
+      "sha256": "5d50ec9bbd2f288af60944866fceac127c90a790f0c573433f72ea1cdff93219",
+      "bytes": 1151,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575083.npz",
+      "image_id": "dish_1556575083",
+      "method": "features",
+      "sha256": "10a8076368c25e2c51e083cc45cb50d64e802c93f70d53735ba969e5f87a22d7",
+      "bytes": 3720,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575124.json",
+      "image_id": "dish_1556575124",
+      "method": "features",
+      "sha256": "a4bb92fe5a56bc5f46cfc52e9590e45618edf4cf9ea35ed664292b770f722901",
+      "bytes": 708,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575124.npz",
+      "image_id": "dish_1556575124",
+      "method": "features",
+      "sha256": "483404ed3c8bd99681dc5dd5924da74ed456ded047c91630d5043d9178c5ecf8",
+      "bytes": 1126,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575273.json",
+      "image_id": "dish_1556575273",
+      "method": "features",
+      "sha256": "289dae2f84612d39a4430d0113db11c41726820d1e4a403c50669bd6c1238285",
+      "bytes": 2078,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575273.npz",
+      "image_id": "dish_1556575273",
+      "method": "features",
+      "sha256": "a87d08fb802e1b213f8941ca7d88815e4411c7089d6b2f830ad1fa0fad51e4a9",
+      "bytes": 11391,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575327.json",
+      "image_id": "dish_1556575327",
+      "method": "features",
+      "sha256": "62701d91d2919fbdb200ad59b350528f8f0db077f775959fdde8af9c4345cdb9",
+      "bytes": 2127,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575327.npz",
+      "image_id": "dish_1556575327",
+      "method": "features",
+      "sha256": "5edb82062126289cca8a678b8ba9a85878df67bec6d8f5133310d991be3bb9a6",
+      "bytes": 8918,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575386.json",
+      "image_id": "dish_1556575386",
+      "method": "features",
+      "sha256": "c8b4306eae747b06e57504bc02e5376e6c43149fc53c99c372bc165cf7752db6",
+      "bytes": 2074,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575386.npz",
+      "image_id": "dish_1556575386",
+      "method": "features",
+      "sha256": "1a303ee0e655fec0d90e95b746e630007ca9887639db90ef0a52198a3824fd2b",
+      "bytes": 8567,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575446.json",
+      "image_id": "dish_1556575446",
+      "method": "features",
+      "sha256": "a1eaa4bdce6960e537849e9b7aff9e560882771c20e82cbb38fc9c36183df2c9",
+      "bytes": 2077,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575446.npz",
+      "image_id": "dish_1556575446",
+      "method": "features",
+      "sha256": "e4709b6f10576b92f6e7e8f87d7cf729bde1f6343d5d7f32123cb36a0bce0311",
+      "bytes": 8509,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575499.json",
+      "image_id": "dish_1556575499",
+      "method": "features",
+      "sha256": "1758f27e7f2e349777450bea2deecbbd7e3c21daba556f2cafee2d920c68c39e",
+      "bytes": 2110,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575499.npz",
+      "image_id": "dish_1556575499",
+      "method": "features",
+      "sha256": "8668e35dd7227be31236659dabeed546caecfe6f70a97f06818d94dc3235198d",
+      "bytes": 8816,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575558.json",
+      "image_id": "dish_1556575558",
+      "method": "features",
+      "sha256": "0c8458acffd87d3c0b89a7cd8c64432683855a7718e25d1918aa72e62ff3bc5a",
+      "bytes": 2079,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1556575558.npz",
+      "image_id": "dish_1556575558",
+      "method": "features",
+      "sha256": "b27b68d72eabaa7b47a91facf7f4868a203b2a088cba925490f425635e24fe96",
+      "bytes": 8598,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557853154.json",
+      "image_id": "dish_1557853154",
+      "method": "features",
+      "sha256": "2c6c03ccfafeb4aaaa5de63d65206d6d1d1f4c53718e82ed001d79cc71ebfc64",
+      "bytes": 790,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557853154.npz",
+      "image_id": "dish_1557853154",
+      "method": "features",
+      "sha256": "e906e71cfad974e9aee1417e69b01c9a0a1feb4811e5ef62321cab9f52b19695",
+      "bytes": 1243,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557853229.json",
+      "image_id": "dish_1557853229",
+      "method": "features",
+      "sha256": "937ca13cb48ca9e5f9640fcc75ac15dce1e05dcf59f050da01823a4e504bdc95",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557853229.npz",
+      "image_id": "dish_1557853229",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557853314.json",
+      "image_id": "dish_1557853314",
+      "method": "features",
+      "sha256": "6a9e9e75708b4ce7271e0582f1b680d1f54a8eddce869cf59404a78ffbf46bcd",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557853314.npz",
+      "image_id": "dish_1557853314",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557853429.json",
+      "image_id": "dish_1557853429",
+      "method": "features",
+      "sha256": "386472fef5241cc729bb5773ddd058c8fd25b3c8e8dbd784e9901737ecf66d5a",
+      "bytes": 1015,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557853429.npz",
+      "image_id": "dish_1557853429",
+      "method": "features",
+      "sha256": "cbef1893b7eac65b03f2b7201b192a456c7001e0d1556e80428c171056467fa5",
+      "bytes": 5034,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557861605.json",
+      "image_id": "dish_1557861605",
+      "method": "features",
+      "sha256": "88b9dffdceb435fd410cde67b3a6e9fa37c1ce750e33e45d2f1639b4487fa0d1",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557861605.npz",
+      "image_id": "dish_1557861605",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557861697.json",
+      "image_id": "dish_1557861697",
+      "method": "features",
+      "sha256": "d6863df87613955248f2737898fdcfecec804fba977d80e5539802a0a3771320",
+      "bytes": 781,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557861697.npz",
+      "image_id": "dish_1557861697",
+      "method": "features",
+      "sha256": "5244591dc9026e07e9bb77b9592abec821f7de2e88643cfdced781e458507a29",
+      "bytes": 1401,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557861795.json",
+      "image_id": "dish_1557861795",
+      "method": "features",
+      "sha256": "17a0ba43fec2747c2fb7d1d44a58f23937a41decd312a076b11e88288618b12f",
+      "bytes": 860,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557861795.npz",
+      "image_id": "dish_1557861795",
+      "method": "features",
+      "sha256": "ffe4adcee5c4195e6cc534faa6a98c4b775efee5000a9abc38392108f61dbcd5",
+      "bytes": 2986,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557861837.json",
+      "image_id": "dish_1557861837",
+      "method": "features",
+      "sha256": "9435f2bb97602ad294ba966d265ada768053a507a325e216494df3bddbc942a5",
+      "bytes": 1296,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557861837.npz",
+      "image_id": "dish_1557861837",
+      "method": "features",
+      "sha256": "73f9efe214ac18a60716674e2247547831b400d715b9bcced9644c7f067edce1",
+      "bytes": 5494,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557862345.json",
+      "image_id": "dish_1557862345",
+      "method": "features",
+      "sha256": "048d529e47dac61c1ebdcc09052f35555f634e997c55cd30cb7a0a81009c55be",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557862345.npz",
+      "image_id": "dish_1557862345",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557862696.json",
+      "image_id": "dish_1557862696",
+      "method": "features",
+      "sha256": "0efe30af5d8b7a7fc9c0f4683a672763e13e599336189c8b5e20a964c522b67c",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557862696.npz",
+      "image_id": "dish_1557862696",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557862738.json",
+      "image_id": "dish_1557862738",
+      "method": "features",
+      "sha256": "06b3ce2d1b95807b748fa56e9ae1e561bf57a1cd9c85f70c700eea7c636d9cfb",
+      "bytes": 785,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557862738.npz",
+      "image_id": "dish_1557862738",
+      "method": "features",
+      "sha256": "73b1efc4cf5990dcdac942f3a1678796820aaadbb7417a69ff3ad97c0934c4dd",
+      "bytes": 1213,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557862783.json",
+      "image_id": "dish_1557862783",
+      "method": "features",
+      "sha256": "fb8d1236732dee513d68c01e1097075256717dffe7990c81b24b98fa7ffac54d",
+      "bytes": 703,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557862783.npz",
+      "image_id": "dish_1557862783",
+      "method": "features",
+      "sha256": "92a6e5437c8778a45973e7362063e5c369b827fec16b380a345eea17904095e8",
+      "bytes": 2684,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557862829.json",
+      "image_id": "dish_1557862829",
+      "method": "features",
+      "sha256": "a17cafdbe6aaa8ec06ce7587916c2f68b241e0a9536c41c842041efe9cc8faf4",
+      "bytes": 712,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557862829.npz",
+      "image_id": "dish_1557862829",
+      "method": "features",
+      "sha256": "d06524030e3cccc1d1fd9a579be2d5b5b293046562f20a8e056ab3354fad7c8f",
+      "bytes": 1939,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557863012.json",
+      "image_id": "dish_1557863012",
+      "method": "features",
+      "sha256": "fec9cf1b39d5068e2f708e1b72ae3249701d6ca8c23cef0a5063215b49451301",
+      "bytes": 1158,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557863012.npz",
+      "image_id": "dish_1557863012",
+      "method": "features",
+      "sha256": "a5486d70a5f9f13cfbbd2143d7c21c89dc04c373ad6818342b28b3b3fec5aeb8",
+      "bytes": 4726,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557863056.json",
+      "image_id": "dish_1557863056",
+      "method": "features",
+      "sha256": "3b56c7af64302e572569e6fa008a9234d9207191be33e63ea99d32105b8fcd0a",
+      "bytes": 853,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557863056.npz",
+      "image_id": "dish_1557863056",
+      "method": "features",
+      "sha256": "0c03d25f9a3d2018d1103da8ed4b65028f9842665725a990a7edee38a7fda898",
+      "bytes": 2030,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557863104.json",
+      "image_id": "dish_1557863104",
+      "method": "features",
+      "sha256": "11dcae69a2397d6c73eb1b9e816d68b53d92158263e75a90b0643d665185655d",
+      "bytes": 712,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557863104.npz",
+      "image_id": "dish_1557863104",
+      "method": "features",
+      "sha256": "c00b2e9bfb07e5ca9f3d7da0e0134e116261353e0ad2bf7a3ebd663a03bcc520",
+      "bytes": 640,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557863170.json",
+      "image_id": "dish_1557863170",
+      "method": "features",
+      "sha256": "7f8f3a9e3507f9af83b5df8327ba16c4a1d9fab17d5c9239394b24931cfe7748",
+      "bytes": 1080,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557863170.npz",
+      "image_id": "dish_1557863170",
+      "method": "features",
+      "sha256": "9f2a20816b449ff18f3e32cb7dc38ef693458dce2aea4f4095167ea628610ad9",
+      "bytes": 4955,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557936555.json",
+      "image_id": "dish_1557936555",
+      "method": "features",
+      "sha256": "8078c34346f75122416cf6c88e34bc376439893f39c258d269534e940e91e8ed",
+      "bytes": 704,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557936555.npz",
+      "image_id": "dish_1557936555",
+      "method": "features",
+      "sha256": "6165646b5f9b9a54a0e30f920739c8ea934b7d30228f81cdb4d4223b9f685c80",
+      "bytes": 1767,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557936599.json",
+      "image_id": "dish_1557936599",
+      "method": "features",
+      "sha256": "552e551ee797497d0dbb2049b377a3a36ae0ee9bab5268cb90e358cfc3713a19",
+      "bytes": 1002,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557936599.npz",
+      "image_id": "dish_1557936599",
+      "method": "features",
+      "sha256": "5ab074f21ee51532fbfac37ad7afc622ea4fccbd19d65680e01d8fefc70e390b",
+      "bytes": 2890,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557936645.json",
+      "image_id": "dish_1557936645",
+      "method": "features",
+      "sha256": "f0e36e85ea48d38761250b4fc3d7a1dc27dacee5b96beb246b705e8cbe33eb45",
+      "bytes": 864,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557936645.npz",
+      "image_id": "dish_1557936645",
+      "method": "features",
+      "sha256": "1cbb07c80de16d790c4ad169149633927693563ceac0c46b5f09adec39e9d0fc",
+      "bytes": 1741,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937037.json",
+      "image_id": "dish_1557937037",
+      "method": "features",
+      "sha256": "4cd3a9b49c37df7b6e4bc64f1d21fc93a126141c9c3414cdaec9699878340a92",
+      "bytes": 1491,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937037.npz",
+      "image_id": "dish_1557937037",
+      "method": "features",
+      "sha256": "32f218f499c475fe33b60e767bbba3e749fffb12a601ea17b816a431556e7387",
+      "bytes": 5689,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937079.json",
+      "image_id": "dish_1557937079",
+      "method": "features",
+      "sha256": "475eec6c9bd537639698a271543e862e42845d660d56a814fcccc424bc3fc170",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937079.npz",
+      "image_id": "dish_1557937079",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937157.json",
+      "image_id": "dish_1557937157",
+      "method": "features",
+      "sha256": "fe24b793f7daedca7fa34c3def2a609157e7794cb8e04ace4e00aaf4652fd871",
+      "bytes": 1009,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937157.npz",
+      "image_id": "dish_1557937157",
+      "method": "features",
+      "sha256": "eede268e5dd967e02b42fabbdadd888e9638718cc3aac3a092f2d141d9e3ca96",
+      "bytes": 8511,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937335.json",
+      "image_id": "dish_1557937335",
+      "method": "features",
+      "sha256": "6178527349f38e85f6526d845eb1f0ad6d15a4e78e6e3674ffaaf2279b694e54",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937335.npz",
+      "image_id": "dish_1557937335",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937427.json",
+      "image_id": "dish_1557937427",
+      "method": "features",
+      "sha256": "e41d5767691abf8591400cd8523c6f46e74d2bcf4742c56243b7e9b2c86a9ac2",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937427.npz",
+      "image_id": "dish_1557937427",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937574.json",
+      "image_id": "dish_1557937574",
+      "method": "features",
+      "sha256": "980dc710bfa9f385cece6ca28493fbf2694b1a9bb7765f9cdfa44cbe632c0b90",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937574.npz",
+      "image_id": "dish_1557937574",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937615.json",
+      "image_id": "dish_1557937615",
+      "method": "features",
+      "sha256": "ba2da2492902ed194ef8e704c0a5d14f63e17bc2eaf54a27710bcbe5b511ab4a",
+      "bytes": 774,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937615.npz",
+      "image_id": "dish_1557937615",
+      "method": "features",
+      "sha256": "3f379742222f4233ae80c1b1288f466fb6a73ebb80f0639b67b1dfb7ac74c983",
+      "bytes": 1543,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937715.json",
+      "image_id": "dish_1557937715",
+      "method": "features",
+      "sha256": "a3d2a78d4d2bb8b43476c194adaf2c71b8706c72fcd30f0dc3600556cde15abf",
+      "bytes": 946,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937715.npz",
+      "image_id": "dish_1557937715",
+      "method": "features",
+      "sha256": "e93333181f605bda98ccc7182c59d5f910130d6c2403f79e5d6e20dfade569f5",
+      "bytes": 1863,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937758.json",
+      "image_id": "dish_1557937758",
+      "method": "features",
+      "sha256": "58f137ce3037d241558954c9cef5bb152b088bbc9f896d27ccff42b874c1d5c6",
+      "bytes": 1414,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1557937758.npz",
+      "image_id": "dish_1557937758",
+      "method": "features",
+      "sha256": "9f41f58932bea53263348ea72253bc06487fa80f44de50ad835dd84994309ccb",
+      "bytes": 4614,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558026623.json",
+      "image_id": "dish_1558026623",
+      "method": "features",
+      "sha256": "e8993bc8a9e8efd39a0a8991576b794f5e2a4f0b9f61116f45de6a3558475ed3",
+      "bytes": 708,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558026623.npz",
+      "image_id": "dish_1558026623",
+      "method": "features",
+      "sha256": "6750180fc15692057d334c876dc5a53ebebe923559cc779cbb4995f785eeb7b7",
+      "bytes": 1456,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558026684.json",
+      "image_id": "dish_1558026684",
+      "method": "features",
+      "sha256": "5b289d373a2c47adf2f765d567d91209e5132195e5a8d2af0ff16f0067693444",
+      "bytes": 862,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558026684.npz",
+      "image_id": "dish_1558026684",
+      "method": "features",
+      "sha256": "84757ae0aa4f8f94e46475363fbb81ad0c3aed7badc202ea0c356a801461c470",
+      "bytes": 1785,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558026714.json",
+      "image_id": "dish_1558026714",
+      "method": "features",
+      "sha256": "dc7c167261f697dc41ffeaa159b62e564e7d921d6fb4708c5e4d7c74fa243867",
+      "bytes": 707,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558026714.npz",
+      "image_id": "dish_1558026714",
+      "method": "features",
+      "sha256": "8580e2863baf6458957a5d13767253d8b6203482d128ad6865a5eadf28b3b597",
+      "bytes": 1719,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558026756.json",
+      "image_id": "dish_1558026756",
+      "method": "features",
+      "sha256": "6e5bed581179d9244741ee8bfe8e58d7f9394f52585ce969202c7502a1e4ab53",
+      "bytes": 864,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558026756.npz",
+      "image_id": "dish_1558026756",
+      "method": "features",
+      "sha256": "d87d4a6190a3197f1f5852f84f4cb333f404271390c588840d1dc94eb70f3c5e",
+      "bytes": 2680,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558027001.json",
+      "image_id": "dish_1558027001",
+      "method": "features",
+      "sha256": "bb1b08a80732541fe0d116137c3bebbadf5d9c1a4dc60c56c3893e552cc63f58",
+      "bytes": 1099,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558027001.npz",
+      "image_id": "dish_1558027001",
+      "method": "features",
+      "sha256": "eaae35fa2fada894fc1c7758312a8103cd71de09a645e57bafbef1aa3a1bd67a",
+      "bytes": 3850,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558027057.json",
+      "image_id": "dish_1558027057",
+      "method": "features",
+      "sha256": "78ada997fdac95e31dd483d24d0e7d052b0948666ce485b414c60874047ce25d",
+      "bytes": 708,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558027057.npz",
+      "image_id": "dish_1558027057",
+      "method": "features",
+      "sha256": "ea0fccfec5c42f1a340bc298e64acc6f1a4641d2b6c8981f3dbc1406ee307fbc",
+      "bytes": 727,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558027164.json",
+      "image_id": "dish_1558027164",
+      "method": "features",
+      "sha256": "41346121383b12d83f80278289512ba25703e11bb82501be521a73293a70cef2",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558027164.npz",
+      "image_id": "dish_1558027164",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558027243.json",
+      "image_id": "dish_1558027243",
+      "method": "features",
+      "sha256": "a38f6ce89efcebef806001a37768fd25a39122ebe878273f66b383d9ff1f9b8a",
+      "bytes": 1098,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558027243.npz",
+      "image_id": "dish_1558027243",
+      "method": "features",
+      "sha256": "2d86f938b04350ee2564ecc81644b82cd16a7b0c869a474c22387b8ce5bbc78e",
+      "bytes": 2966,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028007.json",
+      "image_id": "dish_1558028007",
+      "method": "features",
+      "sha256": "7224ab39335c0a7b879b7238b4bec101e6783b28739c5df1cefebdb56b6c67e3",
+      "bytes": 941,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028007.npz",
+      "image_id": "dish_1558028007",
+      "method": "features",
+      "sha256": "b87faf21d21db185767c6fb4cb8c0fca7f59cc44e76040fbb207c77c08468a2f",
+      "bytes": 2314,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028057.json",
+      "image_id": "dish_1558028057",
+      "method": "features",
+      "sha256": "db33da9470dc74c422f55f7ac58e4dec970c3ba02448fca565294bb95bb8a929",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028057.npz",
+      "image_id": "dish_1558028057",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028142.json",
+      "image_id": "dish_1558028142",
+      "method": "features",
+      "sha256": "399386751ed8ea54ff66db758bcf004b738ab453c22ceb0dba4d951e939924ba",
+      "bytes": 945,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028142.npz",
+      "image_id": "dish_1558028142",
+      "method": "features",
+      "sha256": "77dc7d22f48a1b6e9590ca02c3442149c41d87bd2c99d217a970d0855fbcbabf",
+      "bytes": 2819,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028194.json",
+      "image_id": "dish_1558028194",
+      "method": "features",
+      "sha256": "82530281b3f9a5792b59ee2e0c3ccaa7edc1099afb3fb999245ad87079698576",
+      "bytes": 1405,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028194.npz",
+      "image_id": "dish_1558028194",
+      "method": "features",
+      "sha256": "278a2182f553dd2ced7101d07f08a6635d91d85c4e836a8da4a7763fd105a2d5",
+      "bytes": 4800,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028492.json",
+      "image_id": "dish_1558028492",
+      "method": "features",
+      "sha256": "e290606f5e6e585dfabad4c9c948eac24a59a244a0c4c8624d5ac8eb83216eba",
+      "bytes": 938,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028492.npz",
+      "image_id": "dish_1558028492",
+      "method": "features",
+      "sha256": "e2f1c0041c6df676c0380bac8dfd6333897cb1e8a5d18dd08cbac3ff165f0f10",
+      "bytes": 2336,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028606.json",
+      "image_id": "dish_1558028606",
+      "method": "features",
+      "sha256": "b8021bcd07ec3019e1697ecd370b9a8b0f87d9a4d7cf5c9c64bee76cf8159df2",
+      "bytes": 945,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028606.npz",
+      "image_id": "dish_1558028606",
+      "method": "features",
+      "sha256": "5702bcfdac3c4591e7ff1c3ef89bffd2c107318ebd12d0a1c7501f5a0c61f884",
+      "bytes": 2679,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028690.json",
+      "image_id": "dish_1558028690",
+      "method": "features",
+      "sha256": "888b9c11c9cf2a95491efade6e497840e3f2aa9496c8f37dbf402584d78ccee4",
+      "bytes": 636,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028690.npz",
+      "image_id": "dish_1558028690",
+      "method": "features",
+      "sha256": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+      "bytes": 212,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028772.json",
+      "image_id": "dish_1558028772",
+      "method": "features",
+      "sha256": "31b6b8201af7c6c5f84af1c4ed40433e9efdb4a8361f93704cea19011af448b1",
+      "bytes": 1087,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558028772.npz",
+      "image_id": "dish_1558028772",
+      "method": "features",
+      "sha256": "848d8c9cc761fda2cc645a594711193eb3283636c3d8fd801d1458f47d3b80c9",
+      "bytes": 2996,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558029148.json",
+      "image_id": "dish_1558029148",
+      "method": "features",
+      "sha256": "c45dd8039f388a00691be0303c569f8a7e337dbc70a178d0bce2d3f0a4a3cc24",
+      "bytes": 708,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558029148.npz",
+      "image_id": "dish_1558029148",
+      "method": "features",
+      "sha256": "158e324175bdb56c0c75fa93bd79e069afad8904d41f50ccffe84367948563d7",
+      "bytes": 1724,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558029230.json",
+      "image_id": "dish_1558029230",
+      "method": "features",
+      "sha256": "51bd6da017dfbab30cdf5352bf917d9bc2fa13c789e0de5e82e4c5df42506c12",
+      "bytes": 932,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558029230.npz",
+      "image_id": "dish_1558029230",
+      "method": "features",
+      "sha256": "008ded2d06b1537f3f3f837f8df698fd406ad1503e450ce06436ce8000b4aa6e",
+      "bytes": 2266,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558029278.json",
+      "image_id": "dish_1558029278",
+      "method": "features",
+      "sha256": "0e4790e21b7844c55a1fb5f490af11fd886616ad086097db71704f03c75dc4d0",
+      "bytes": 707,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558029278.npz",
+      "image_id": "dish_1558029278",
+      "method": "features",
+      "sha256": "27d030693b3b2e6ab20257ea1b2b10be8cd9b577fac7aead9b747a92abb48420",
+      "bytes": 1332,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558029324.json",
+      "image_id": "dish_1558029324",
+      "method": "features",
+      "sha256": "bf97192ed7917bd257a25c89c981fab14e1c88fd70b266329afb74bb22cd73b9",
+      "bytes": 1077,
+      "state": "feature"
+    },
+    {
+      "path": "features/dish_1558029324.npz",
+      "image_id": "dish_1558029324",
+      "method": "features",
+      "sha256": "847a1cdb916a7c69735736a9af453dc6c2c5217e699243027feff28d0284f81f",
+      "bytes": 8582,
+      "state": "feature"
+    },
+    {
+      "path": "yolo_sam/dish_1556572657.json",
+      "image_id": "dish_1556572657",
+      "method": "yolo_sam",
+      "sha256": "047b8244c1e5b46c3e96a1f39ee7205cf004d3fcd410a13bc61b025343e59e20",
+      "bytes": 1317,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1556573514.json",
+      "image_id": "dish_1556573514",
+      "method": "yolo_sam",
+      "sha256": "71fce49e4b952f5e6b362f4c87ef1bcd327782694372360f35f3ea57faa7e7ed",
+      "bytes": 985,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1556575014.json",
+      "image_id": "dish_1556575014",
+      "method": "yolo_sam",
+      "sha256": "6e6263ba6b5e416be432da04b955c7da21f98e277c9386c78553320873420185",
+      "bytes": 1315,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1556575083.json",
+      "image_id": "dish_1556575083",
+      "method": "yolo_sam",
+      "sha256": "c30c0e68a208292109ce1a3816b19e923beed194138b9a3a4f6df2c865773f24",
+      "bytes": 1317,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1556575124.json",
+      "image_id": "dish_1556575124",
+      "method": "yolo_sam",
+      "sha256": "198bd18ae66d9cad5ec1112ed4aa4291bb099d028eb6672f7946c3a8e81dfc93",
+      "bytes": 980,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1556575273.json",
+      "image_id": "dish_1556575273",
+      "method": "yolo_sam",
+      "sha256": "920ced2396baeb063dfd85e29b075ed3f7cc0db70ef121bf832f5e1c5384db6f",
+      "bytes": 1320,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1556575327.json",
+      "image_id": "dish_1556575327",
+      "method": "yolo_sam",
+      "sha256": "a1cb97902c585119cbc86d0dccc36f3a5617b0f3b8b1621a4a304c1240f8e67c",
+      "bytes": 1315,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1556575386.json",
+      "image_id": "dish_1556575386",
+      "method": "yolo_sam",
+      "sha256": "0633c4ffdd9bbed9247c0ea3883f780aef38cf68cd692966b91410b03636bcf4",
+      "bytes": 1145,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1556575446.json",
+      "image_id": "dish_1556575446",
+      "method": "yolo_sam",
+      "sha256": "b66ddf0c543f9d192878c2d52c420806eb33472dd3b0e585cae14560d97c8670",
+      "bytes": 1151,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1556575499.json",
+      "image_id": "dish_1556575499",
+      "method": "yolo_sam",
+      "sha256": "dc21afb9a7900a8ab8e5b605e4f1c05c2ff1aa1efe1d21862aaf280977489c6b",
+      "bytes": 1314,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1556575558.json",
+      "image_id": "dish_1556575558",
+      "method": "yolo_sam",
+      "sha256": "c1c4739525b87d8ab90c1fa0be47de7a7efe97a9f22c2967c464567437110442",
+      "bytes": 1145,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557853154.json",
+      "image_id": "dish_1557853154",
+      "method": "yolo_sam",
+      "sha256": "4681f5a99b6b5114541cd362df8aa3136349f805aace3c57d68c1ce5f3abbcc1",
+      "bytes": 984,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557853229.json",
+      "image_id": "dish_1557853229",
+      "method": "yolo_sam",
+      "sha256": "56be4a845d502efa52debace3dadbc10da10db1f1da4f3588d4d0375aeb2fed8",
+      "bytes": 803,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557853314.json",
+      "image_id": "dish_1557853314",
+      "method": "yolo_sam",
+      "sha256": "6057fd1f3c2946c0523e934cb0f53093f684eb0ed913381323e11fa6d0ea9369",
+      "bytes": 803,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557853429.json",
+      "image_id": "dish_1557853429",
+      "method": "yolo_sam",
+      "sha256": "3c8ac9082c9bb879ced22b7ad8c9340577e53c3293fd8bd9b44d6367b1f89b87",
+      "bytes": 1321,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557861605.json",
+      "image_id": "dish_1557861605",
+      "method": "yolo_sam",
+      "sha256": "2668583bd8ef4403b0f842bc68fdfd78a4fd96a0e25fb2622ddaf4a5438108e4",
+      "bytes": 803,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557861697.json",
+      "image_id": "dish_1557861697",
+      "method": "yolo_sam",
+      "sha256": "0a83b0b8ad077eafd602c036e272a3bb207ea74983ded11028f29cc230529420",
+      "bytes": 1152,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557861795.json",
+      "image_id": "dish_1557861795",
+      "method": "yolo_sam",
+      "sha256": "718ad6575fda6601b01bcfa4b827225b4e699a5a82bebf34428dd812e5529740",
+      "bytes": 1152,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557861837.json",
+      "image_id": "dish_1557861837",
+      "method": "yolo_sam",
+      "sha256": "61df64b9c3dc723acb3a55e533120de86ba7d21dd59fd1eddd050b58535beb48",
+      "bytes": 1480,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557862345.json",
+      "image_id": "dish_1557862345",
+      "method": "yolo_sam",
+      "sha256": "630f0112cd951901f6683fd2ab98586ff882bf44fc0932b33a3118d5885775d1",
+      "bytes": 803,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557862696.json",
+      "image_id": "dish_1557862696",
+      "method": "yolo_sam",
+      "sha256": "e9ac1c1884f493ce35747da458ec3748d18b6885ab7ffa8ea58c30aed82fd3f5",
+      "bytes": 803,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557862738.json",
+      "image_id": "dish_1557862738",
+      "method": "yolo_sam",
+      "sha256": "7db6c62e609f341d0ac0bc998498bc4b1b87780b112658d9781d417ca128a6d8",
+      "bytes": 1148,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557862783.json",
+      "image_id": "dish_1557862783",
+      "method": "yolo_sam",
+      "sha256": "9275f4d70d1b5c3c7486c38f616c97b8770a2e2a7800f447bb2d4da9244ce613",
+      "bytes": 983,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557862829.json",
+      "image_id": "dish_1557862829",
+      "method": "yolo_sam",
+      "sha256": "7f636451f61293fdbebf2990a5c785aaa9ff1ab48ae505cb577aab5700a67269",
+      "bytes": 987,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557863012.json",
+      "image_id": "dish_1557863012",
+      "method": "yolo_sam",
+      "sha256": "275542bb9b6a7900aca111e73c94641b5ca4cd1394375500fc07abb6bcec3cbd",
+      "bytes": 1482,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557863056.json",
+      "image_id": "dish_1557863056",
+      "method": "yolo_sam",
+      "sha256": "aeeb84cb882919ac42d363ab7f899787a3a16112b6a41ed3c18962fb7880ed31",
+      "bytes": 1142,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557863104.json",
+      "image_id": "dish_1557863104",
+      "method": "yolo_sam",
+      "sha256": "1f86463dfa648797536ed1f505c5521ee2fac1f83760fb42ca3a5a8165fa458b",
+      "bytes": 981,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557863170.json",
+      "image_id": "dish_1557863170",
+      "method": "yolo_sam",
+      "sha256": "f2f52e135d0a1a4ae7f416b2b64c8b7e84af13f476c12d69c63d3b641a889fae",
+      "bytes": 1485,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557936555.json",
+      "image_id": "dish_1557936555",
+      "method": "yolo_sam",
+      "sha256": "fff793d2bf7762707bd8845695f083844744044a1bdcfb3cbbc93c0efd9eca6f",
+      "bytes": 983,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557936599.json",
+      "image_id": "dish_1557936599",
+      "method": "yolo_sam",
+      "sha256": "c8ccd844cb0e18b1c88b98060b1162e71437a71bc7131a192ea6a7930c1a64d6",
+      "bytes": 980,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557936645.json",
+      "image_id": "dish_1557936645",
+      "method": "yolo_sam",
+      "sha256": "285fedabfcfe83dd7805cab5d0d64e4e86fec7c636e6ee1269948bcc03933c44",
+      "bytes": 1150,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557937037.json",
+      "image_id": "dish_1557937037",
+      "method": "yolo_sam",
+      "sha256": "d2acc7d9801e8803c801c2b58f2a623464acfaa967cf06454382076ab00885ff",
+      "bytes": 985,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557937079.json",
+      "image_id": "dish_1557937079",
+      "method": "yolo_sam",
+      "sha256": "2b0ef18ed01b063d6e6f315da83930f9e15dc91b23f0567c0a5c1e35b1416a6e",
+      "bytes": 803,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557937157.json",
+      "image_id": "dish_1557937157",
+      "method": "yolo_sam",
+      "sha256": "2610262e652c68e44810d66622edb6c1d1cb4d18bd1df7d4c98be3c11b95605f",
+      "bytes": 1325,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557937335.json",
+      "image_id": "dish_1557937335",
+      "method": "yolo_sam",
+      "sha256": "58913ebcf39dc299b938ae4afa906e640d1df59619ca994963760937c7255135",
+      "bytes": 803,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557937427.json",
+      "image_id": "dish_1557937427",
+      "method": "yolo_sam",
+      "sha256": "b06411a81afcd5484b1c50868860deceb849f06aff42b4b21329d31b6197093a",
+      "bytes": 803,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557937574.json",
+      "image_id": "dish_1557937574",
+      "method": "yolo_sam",
+      "sha256": "0c61abeae5df7962dc9e8584702ccc96f9cca99f1f4eabbde0ca9b06c64e4a51",
+      "bytes": 803,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557937615.json",
+      "image_id": "dish_1557937615",
+      "method": "yolo_sam",
+      "sha256": "9bd8f05ab6d28fedffc79310d771c16843dbe100d4d26723b22ec71f9bebe17c",
+      "bytes": 976,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557937715.json",
+      "image_id": "dish_1557937715",
+      "method": "yolo_sam",
+      "sha256": "71410ecd24af6276c99e2f4486826be04692670a6ee5048ad0838240e1bfa853",
+      "bytes": 982,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1557937758.json",
+      "image_id": "dish_1557937758",
+      "method": "yolo_sam",
+      "sha256": "db3efa3179630b01d62619d499476a6a015dfdcb6fbc03365e6518fe1c827884",
+      "bytes": 985,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558026623.json",
+      "image_id": "dish_1558026623",
+      "method": "yolo_sam",
+      "sha256": "9eb065996731b13d02ff546dc85b3b15286854efcedf6f37c23efc8724f0b9fe",
+      "bytes": 980,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558026684.json",
+      "image_id": "dish_1558026684",
+      "method": "yolo_sam",
+      "sha256": "18fa6fbeac06e569c80ee5d7352af49b4968a6bf4af7a47b132d011e91c90840",
+      "bytes": 981,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558026714.json",
+      "image_id": "dish_1558026714",
+      "method": "yolo_sam",
+      "sha256": "8b57a869e991c606dcecb7a510d25003085b7e5383ac86ba0c7e21c9122dc234",
+      "bytes": 983,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558026756.json",
+      "image_id": "dish_1558026756",
+      "method": "yolo_sam",
+      "sha256": "8d857d6ed8db5a35be035ff7f302b5fb7b1e9c19427ba9f2bff91adbe543e77b",
+      "bytes": 1322,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558027001.json",
+      "image_id": "dish_1558027001",
+      "method": "yolo_sam",
+      "sha256": "9d06453d80efea0136a20ef823071d54aed2c7d09b0c3055be2719def2b4a2ba",
+      "bytes": 1154,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558027057.json",
+      "image_id": "dish_1558027057",
+      "method": "yolo_sam",
+      "sha256": "b2cd156b541e7d7bcbdef5d76199b042caedd68b479bfb8ef3bd21d4d337547f",
+      "bytes": 977,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558027164.json",
+      "image_id": "dish_1558027164",
+      "method": "yolo_sam",
+      "sha256": "fe99bc11473e6c35accca649cfc3dd1258522d4e281e2fe3079eed62d180de40",
+      "bytes": 802,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558027243.json",
+      "image_id": "dish_1558027243",
+      "method": "yolo_sam",
+      "sha256": "30c0fefa1da9bd46dd0dcece5bbca7f96dde50a11b73f04f70f5484b35151154",
+      "bytes": 1147,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558028007.json",
+      "image_id": "dish_1558028007",
+      "method": "yolo_sam",
+      "sha256": "110c43763af297f1da63ad6dfc2c97ad6db93de40023b7748524f85b92a11ebf",
+      "bytes": 1318,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558028057.json",
+      "image_id": "dish_1558028057",
+      "method": "yolo_sam",
+      "sha256": "64f003b9493ef7d29c36089816f75784b6702c35ee9d56cd9a0c011a8577f892",
+      "bytes": 802,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558028142.json",
+      "image_id": "dish_1558028142",
+      "method": "yolo_sam",
+      "sha256": "0ef8838becc77102624cb5c8e04626165700972f5501a28956626ff24bb6ff81",
+      "bytes": 986,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558028194.json",
+      "image_id": "dish_1558028194",
+      "method": "yolo_sam",
+      "sha256": "051ab840e6773bc1f23164d109a483a5b994dbffad74b7f9c824c50bae8bc09a",
+      "bytes": 1151,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558028492.json",
+      "image_id": "dish_1558028492",
+      "method": "yolo_sam",
+      "sha256": "f93076aba479c2ab109e2e9dbb9b4229a2455a90089403ec4e7362d31b957403",
+      "bytes": 981,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558028606.json",
+      "image_id": "dish_1558028606",
+      "method": "yolo_sam",
+      "sha256": "298fccf87604f2a6e90ae1e3bc93bf5772fbc74bb1036249da9e4a9c716b3914",
+      "bytes": 1153,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558028690.json",
+      "image_id": "dish_1558028690",
+      "method": "yolo_sam",
+      "sha256": "b5e55e053bbe49f2a8805306270b3afff0c23dbf341bca4f5e50e40a352c1d05",
+      "bytes": 802,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558028772.json",
+      "image_id": "dish_1558028772",
+      "method": "yolo_sam",
+      "sha256": "c3efca7ad4cc6f91d580d5ce595f20b763adc0d1ce7cad91039e8ef901994cc7",
+      "bytes": 1313,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558029148.json",
+      "image_id": "dish_1558029148",
+      "method": "yolo_sam",
+      "sha256": "11c68d2a2ee47ee650bea24e6f5b4dd4ff6d65ee1c7dc6497af6c78da1d1cee8",
+      "bytes": 980,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558029230.json",
+      "image_id": "dish_1558029230",
+      "method": "yolo_sam",
+      "sha256": "311d08b73758e28c3a032e3b76718465829ad5ed793a67251548927a37b5f7f3",
+      "bytes": 1146,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558029278.json",
+      "image_id": "dish_1558029278",
+      "method": "yolo_sam",
+      "sha256": "959d014a49fc458588387deba0958cf6d56e5eba67ac290f8a3025d1433b2696",
+      "bytes": 982,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    },
+    {
+      "path": "yolo_sam/dish_1558029324.json",
+      "image_id": "dish_1558029324",
+      "method": "yolo_sam",
+      "sha256": "8c71903a2d4fa219127ebd9e1fd72411a563771b1bf998509029454b9bfff0bf",
+      "bytes": 1323,
+      "state": "schema_valid",
+      "raw_present": false,
+      "context": {
+        "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+        "vocabulary": [
+          "avocado",
+          "bacon",
+          "blackberries",
+          "broccoli",
+          "brussels sprouts",
+          "caesar salad",
+          "cantaloupe",
+          "cauliflower",
+          "celery",
+          "chicken",
+          "cucumbers",
+          "eggplant",
+          "eggs",
+          "fish",
+          "honeydew melons",
+          "mixed greens",
+          "olives",
+          "potatoes",
+          "raspberries",
+          "spinach (raw)",
+          "steak",
+          "strawberries",
+          "watermelon",
+          "yam"
+        ]
+      }
+    }
+  ],
+  "omitted": [],
+  "files_sha256": {
+    "data/dish_ids.json": "74de92be85342719427c5310adf134c2a25ba1aeac47242cc6f7fdbcfc4efe2b",
+    "data/ground_truth.csv": "68c17eee3c7c705e7f23ed8d83d80c8e1cf955eff12778c8d867314ea0c6fe8e",
+    "data/ingredient_nutrition.csv": "9070c28572ed2eb6f5114258c073155dc7b1add874bc5cae5bfb29208572e516",
+    "data/labels.py": "674c9f079a1e2d900c88b1d15c34305e796f33ac8437551de3a6c51db25835d4",
+    "detector/vocab.py": "a8c197f04bea0a8eea8cd9304b6eab475c844668247e51f55bbd799b0ebe446f",
+    "docs/annotation-audit.md": "bfbc79ed2cbf584fa2bc80a79d2cdcefa7f93b260a3b0ce8c865cf16aaae548f",
+    "data/raw/metadata_subset.jsonl": "78f69ceccce4ed39ba0d22615d8b031360d3a3006b5ce33c6bf461ab04ebf770",
+    "data/images/dish_1556572657.jpg": "7cad3186cfed98aa6d449d172272ba271a067faae4617134ac236ff739a2b619",
+    "data/images/dish_1556573514.jpg": "37183ede370541ec20dd0caf4fdcc6da5cb2ac0b8c8b699289c98e037b43f54b",
+    "data/images/dish_1556575014.jpg": "937e40960d06393f7d001ad6972a5f5424cafe4922578c85a525d7855b5a8966",
+    "data/images/dish_1556575083.jpg": "a988a096e1e1c2b81ac77eb3abb96b5f7ca30bdc69e3af4b95e123aaf910d89a",
+    "data/images/dish_1556575124.jpg": "003eae2da699426bee570253b98e770cc0ba680a53d0e3f505f018ef01687437",
+    "data/images/dish_1556575273.jpg": "41a5d1c466556a6fa58ef72e0f069f0ec8e2c3fcb08affada2e3f19617d4c6f4",
+    "data/images/dish_1556575327.jpg": "917492725567f5894af70ddc06fbffd6ecb305c9015f2f6b3836819ffbba074b",
+    "data/images/dish_1556575386.jpg": "c6c58e3b600ad028270c42bb97f46bce8ddc475a5f5197bfa2c70902a8321300",
+    "data/images/dish_1556575446.jpg": "9b84e940558949d9b5002e6b6b2730536e4b09eb2826412fbed6a9f8ba1c3ba9",
+    "data/images/dish_1556575499.jpg": "cdd10f2217eb837fa6fa26c218474ea88c94f897282a2b72f0265be9f61fb525",
+    "data/images/dish_1556575558.jpg": "34e32f85a92a0908453f35d77f3fda4fa02ab890c84f111afafff1e241c72b2d",
+    "data/images/dish_1557853154.jpg": "378a3e4cac7013b6b5bec3ff289db50dd4ccaf8853f693ac1f1d0b0c02980c4c",
+    "data/images/dish_1557853229.jpg": "a1b1e921e7a220ab6e0533d3305360931892d68f5f43bab05fb3b3f9421d55d3",
+    "data/images/dish_1557853314.jpg": "45634f60a6d3acc85d0c2758ae8a5cff2d69f42fbfff787873eee8b6082f8278",
+    "data/images/dish_1557853429.jpg": "bc32731841674e5da83660907a8fa4eb9fcdb17f18345ebb86d9275093e7da34",
+    "data/images/dish_1557861605.jpg": "01661618e148c2e8b7f62552d37a2cbc63e14a8e5336b1df015e7da8026fdc1c",
+    "data/images/dish_1557861697.jpg": "c3e6cbb4f81b25cebbb4d0dd2da39e8e909f0f33196460428deea892bc38099b",
+    "data/images/dish_1557861795.jpg": "ef8385df39f2fde7f98c6c55fc37c8483c84937cbba3e7caa6bd2d558a7f34c4",
+    "data/images/dish_1557861837.jpg": "131b3e6dd882b3911e77c10a6b543ba1fb167caf56f19c4a2e6540cdc49c8079",
+    "data/images/dish_1557862345.jpg": "c011c4b5da0a0ca7871f7c7dd315dca3282b8fc1ceb13ca01d2e5949c3b87ba3",
+    "data/images/dish_1557862696.jpg": "265c86e206e28074ec639cd06ef4a3ed939dab25532c6178aea7abab43cd3756",
+    "data/images/dish_1557862738.jpg": "449994756724f22b63660022ec2d9f24f4f91452c85738cc85d3f3433603c2de",
+    "data/images/dish_1557862783.jpg": "9db76e421348874fa4f07a33ee6c942ece86ce44e89130d570ff89d1fed365f4",
+    "data/images/dish_1557862829.jpg": "286b4e234fc07705de7014fcc7b70d7f9362e05c375dff93ea584b34cc03eeca",
+    "data/images/dish_1557863012.jpg": "cf8bbf1c1a6598bfb43b0807afdcab82dce99a496bc84aca6e5d1e62385e8e23",
+    "data/images/dish_1557863056.jpg": "4e3cafcb8cee8023b24a80430a1320af72f18a493c84f34b988f55224a93c587",
+    "data/images/dish_1557863104.jpg": "112b16b014390a42671bfb4782d641d8192f3bc490ecd793aed0bb0880b1a187",
+    "data/images/dish_1557863170.jpg": "8d314db9d89ea91835642daff099c433ca24ab4a1edaa30446153451cce76bf5",
+    "data/images/dish_1557936555.jpg": "8bf280bdf6b343bb93bb34515f6aa62b3686cc9b2b567d794ec9bfcf44d56fe5",
+    "data/images/dish_1557936599.jpg": "98e791ffac54649dbdcadb1fb7d2f24e972838a466b62121dbdd5769a0ac6331",
+    "data/images/dish_1557936645.jpg": "7a6a5b9415e35a358a667fcc15beb674bf59cdba0b9729000f67003ad4b6a3e3",
+    "data/images/dish_1557937037.jpg": "5b6b3f81685e8cc9dd98b7eda94c0cda50d4b261794414c461f16518585f2f48",
+    "data/images/dish_1557937079.jpg": "1bc422bde0cd2ee20365e0fe2890fe9abd6a550b63f6edc7e5b617803700e356",
+    "data/images/dish_1557937157.jpg": "daa1ddbf584e73c041860f28baa6187ff4a669aa32164cdfe54dbe73c56d512c",
+    "data/images/dish_1557937335.jpg": "2e502b5df7343494fbd29bd43a3c1eb1ac7c4e917e9a94853d691a5989661083",
+    "data/images/dish_1557937427.jpg": "919b6c28eadf3348e043f591e4aba646cc0841995b5f775adbeda7af2a2fd07c",
+    "data/images/dish_1557937574.jpg": "34bc5c1c3c810e8323043afc738b3cd61dd500b3a9e01dcbeb8f1330051abc30",
+    "data/images/dish_1557937615.jpg": "cef566aa747d13221ebb113376983a149b7b406372378e64be1ac72aa75767bb",
+    "data/images/dish_1557937715.jpg": "fe96d1202e3e9a90197c130532b6e5cbd133c56f8549ea086608b5cc83adaf86",
+    "data/images/dish_1557937758.jpg": "130d61bd10b122b8cb15171cfb1c4c37bca6cda2b3b3786711d78e40e2ec54a1",
+    "data/images/dish_1558026623.jpg": "729bc9435c89401f0cd7b056ba61e587ef0b6814c5cae01d4e8ce982c6a0fd91",
+    "data/images/dish_1558026684.jpg": "9e5dea286e8acbcfcfde23a2aa1c6b2de65df420bdae699168fc3c22b8fabe8a",
+    "data/images/dish_1558026714.jpg": "8bd2684a44f9add617bdb9a13af92b56f6a9e4c1ccf651ec9e42ade22b774a3d",
+    "data/images/dish_1558026756.jpg": "b6466760ced1f3a66a9d8bfc5586dfeaa735618680b293ab74d1c7ca934acd44",
+    "data/images/dish_1558027001.jpg": "2b5d3b764f2c2c355ebbedc5adbc33b0f8788fcae743e6e89e3a396b5b43fb23",
+    "data/images/dish_1558027057.jpg": "827a82ae104bc3f09fe702832c82df2807a6c585bb1ac8862a34ecc6ca1f42c7",
+    "data/images/dish_1558027164.jpg": "a5dc680673463c1153cb6e39faf34b2421794d6e359fed12ca6ff63dd3fcb391",
+    "data/images/dish_1558027243.jpg": "2d4ad9180cba3dcfcf2d3d30f700698bc04f6a71fcd04f1a2f4a7d9aa57bf25e",
+    "data/images/dish_1558028007.jpg": "d87dde97f78dab380580fe2777e4309bb5c4e9527cae670b9f8885ac2a7a3460",
+    "data/images/dish_1558028057.jpg": "9c5ab4528587a32761c4f9bc8bfc1e2c5b7e3fcf044ba8c3f55ae7ef51c5673f",
+    "data/images/dish_1558028142.jpg": "ec101dc28cbbfdd12e836d48b81b08e02c2fed3ccc8c316cd5e83b9f7deb0501",
+    "data/images/dish_1558028194.jpg": "2412dff7c8c1160f15f3ecfca227ec28592110e2b01615072a9eaee3286be136",
+    "data/images/dish_1558028492.jpg": "1e2401c8099c8dc4487cec3dbf2d1851e76a8f203e150e244aa7a4dc8b35f97b",
+    "data/images/dish_1558028606.jpg": "6589ba3f2b79a099a3dca57d97a7c3694c8a78ee25cf96825570fa89b94d6049",
+    "data/images/dish_1558028690.jpg": "8d728f620788ecdd4e548b06e13c2cfbd22fc35d8157c44ae1f46055dd4cd5cb",
+    "data/images/dish_1558028772.jpg": "66645c284d2e764dc7603f59f9c77bb01416169f7cb253fb6de26d69eb54247d",
+    "data/images/dish_1558029148.jpg": "bc4144a981f1654c7243da0cc0f72cd802bf28670f95ee873aaad137ace7fc57",
+    "data/images/dish_1558029230.jpg": "2ba7ed4ec50799e82e2a8458c9ebed1e66909e3b4ea3ae9de1715079e0002ada",
+    "data/images/dish_1558029278.jpg": "1678237118e8ed28dd57f5a489c6bb39a134f58e8f983f10147f72e0247566f5",
+    "data/images/dish_1558029324.jpg": "75152cc0ce7813564f9567958a23602f3eaad6b38ec609f0c9b58771f4049b13",
+    "results/features/dish_1556572657.json": "27b2fd7e26a79029af1c0b36e3baf067118a0388879bf45e91ba69ea62f7f46d",
+    "results/features/dish_1556572657.npz": "abf9078ddfdb73bad9f81878d63adee9ba0250fd8d0f2bc09d1e5539874c4760",
+    "results/features/dish_1556573514.json": "b06a943c40c72b60d877b0f7af985d635efac163037de0725beff725b5113d4c",
+    "results/features/dish_1556573514.npz": "df4e00aea926ff70c2cad17b5cc45269236abc8837f6b9a9c6e555196f2cd2e0",
+    "results/features/dish_1556575014.json": "a9e42ab2ef1095e92a2ce90a45b0946c6cb9b9c7e19f420f768f7bd379932601",
+    "results/features/dish_1556575014.npz": "7d10bc77eee51a55de10598d879a08a4702324dc60864c3e6cde86b69ad1da73",
+    "results/features/dish_1556575083.json": "5d50ec9bbd2f288af60944866fceac127c90a790f0c573433f72ea1cdff93219",
+    "results/features/dish_1556575083.npz": "10a8076368c25e2c51e083cc45cb50d64e802c93f70d53735ba969e5f87a22d7",
+    "results/features/dish_1556575124.json": "a4bb92fe5a56bc5f46cfc52e9590e45618edf4cf9ea35ed664292b770f722901",
+    "results/features/dish_1556575124.npz": "483404ed3c8bd99681dc5dd5924da74ed456ded047c91630d5043d9178c5ecf8",
+    "results/features/dish_1556575273.json": "289dae2f84612d39a4430d0113db11c41726820d1e4a403c50669bd6c1238285",
+    "results/features/dish_1556575273.npz": "a87d08fb802e1b213f8941ca7d88815e4411c7089d6b2f830ad1fa0fad51e4a9",
+    "results/features/dish_1556575327.json": "62701d91d2919fbdb200ad59b350528f8f0db077f775959fdde8af9c4345cdb9",
+    "results/features/dish_1556575327.npz": "5edb82062126289cca8a678b8ba9a85878df67bec6d8f5133310d991be3bb9a6",
+    "results/features/dish_1556575386.json": "c8b4306eae747b06e57504bc02e5376e6c43149fc53c99c372bc165cf7752db6",
+    "results/features/dish_1556575386.npz": "1a303ee0e655fec0d90e95b746e630007ca9887639db90ef0a52198a3824fd2b",
+    "results/features/dish_1556575446.json": "a1eaa4bdce6960e537849e9b7aff9e560882771c20e82cbb38fc9c36183df2c9",
+    "results/features/dish_1556575446.npz": "e4709b6f10576b92f6e7e8f87d7cf729bde1f6343d5d7f32123cb36a0bce0311",
+    "results/features/dish_1556575499.json": "1758f27e7f2e349777450bea2deecbbd7e3c21daba556f2cafee2d920c68c39e",
+    "results/features/dish_1556575499.npz": "8668e35dd7227be31236659dabeed546caecfe6f70a97f06818d94dc3235198d",
+    "results/features/dish_1556575558.json": "0c8458acffd87d3c0b89a7cd8c64432683855a7718e25d1918aa72e62ff3bc5a",
+    "results/features/dish_1556575558.npz": "b27b68d72eabaa7b47a91facf7f4868a203b2a088cba925490f425635e24fe96",
+    "results/features/dish_1557853154.json": "2c6c03ccfafeb4aaaa5de63d65206d6d1d1f4c53718e82ed001d79cc71ebfc64",
+    "results/features/dish_1557853154.npz": "e906e71cfad974e9aee1417e69b01c9a0a1feb4811e5ef62321cab9f52b19695",
+    "results/features/dish_1557853229.json": "937ca13cb48ca9e5f9640fcc75ac15dce1e05dcf59f050da01823a4e504bdc95",
+    "results/features/dish_1557853229.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1557853314.json": "6a9e9e75708b4ce7271e0582f1b680d1f54a8eddce869cf59404a78ffbf46bcd",
+    "results/features/dish_1557853314.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1557853429.json": "386472fef5241cc729bb5773ddd058c8fd25b3c8e8dbd784e9901737ecf66d5a",
+    "results/features/dish_1557853429.npz": "cbef1893b7eac65b03f2b7201b192a456c7001e0d1556e80428c171056467fa5",
+    "results/features/dish_1557861605.json": "88b9dffdceb435fd410cde67b3a6e9fa37c1ce750e33e45d2f1639b4487fa0d1",
+    "results/features/dish_1557861605.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1557861697.json": "d6863df87613955248f2737898fdcfecec804fba977d80e5539802a0a3771320",
+    "results/features/dish_1557861697.npz": "5244591dc9026e07e9bb77b9592abec821f7de2e88643cfdced781e458507a29",
+    "results/features/dish_1557861795.json": "17a0ba43fec2747c2fb7d1d44a58f23937a41decd312a076b11e88288618b12f",
+    "results/features/dish_1557861795.npz": "ffe4adcee5c4195e6cc534faa6a98c4b775efee5000a9abc38392108f61dbcd5",
+    "results/features/dish_1557861837.json": "9435f2bb97602ad294ba966d265ada768053a507a325e216494df3bddbc942a5",
+    "results/features/dish_1557861837.npz": "73f9efe214ac18a60716674e2247547831b400d715b9bcced9644c7f067edce1",
+    "results/features/dish_1557862345.json": "048d529e47dac61c1ebdcc09052f35555f634e997c55cd30cb7a0a81009c55be",
+    "results/features/dish_1557862345.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1557862696.json": "0efe30af5d8b7a7fc9c0f4683a672763e13e599336189c8b5e20a964c522b67c",
+    "results/features/dish_1557862696.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1557862738.json": "06b3ce2d1b95807b748fa56e9ae1e561bf57a1cd9c85f70c700eea7c636d9cfb",
+    "results/features/dish_1557862738.npz": "73b1efc4cf5990dcdac942f3a1678796820aaadbb7417a69ff3ad97c0934c4dd",
+    "results/features/dish_1557862783.json": "fb8d1236732dee513d68c01e1097075256717dffe7990c81b24b98fa7ffac54d",
+    "results/features/dish_1557862783.npz": "92a6e5437c8778a45973e7362063e5c369b827fec16b380a345eea17904095e8",
+    "results/features/dish_1557862829.json": "a17cafdbe6aaa8ec06ce7587916c2f68b241e0a9536c41c842041efe9cc8faf4",
+    "results/features/dish_1557862829.npz": "d06524030e3cccc1d1fd9a579be2d5b5b293046562f20a8e056ab3354fad7c8f",
+    "results/features/dish_1557863012.json": "fec9cf1b39d5068e2f708e1b72ae3249701d6ca8c23cef0a5063215b49451301",
+    "results/features/dish_1557863012.npz": "a5486d70a5f9f13cfbbd2143d7c21c89dc04c373ad6818342b28b3b3fec5aeb8",
+    "results/features/dish_1557863056.json": "3b56c7af64302e572569e6fa008a9234d9207191be33e63ea99d32105b8fcd0a",
+    "results/features/dish_1557863056.npz": "0c03d25f9a3d2018d1103da8ed4b65028f9842665725a990a7edee38a7fda898",
+    "results/features/dish_1557863104.json": "11dcae69a2397d6c73eb1b9e816d68b53d92158263e75a90b0643d665185655d",
+    "results/features/dish_1557863104.npz": "c00b2e9bfb07e5ca9f3d7da0e0134e116261353e0ad2bf7a3ebd663a03bcc520",
+    "results/features/dish_1557863170.json": "7f8f3a9e3507f9af83b5df8327ba16c4a1d9fab17d5c9239394b24931cfe7748",
+    "results/features/dish_1557863170.npz": "9f2a20816b449ff18f3e32cb7dc38ef693458dce2aea4f4095167ea628610ad9",
+    "results/features/dish_1557936555.json": "8078c34346f75122416cf6c88e34bc376439893f39c258d269534e940e91e8ed",
+    "results/features/dish_1557936555.npz": "6165646b5f9b9a54a0e30f920739c8ea934b7d30228f81cdb4d4223b9f685c80",
+    "results/features/dish_1557936599.json": "552e551ee797497d0dbb2049b377a3a36ae0ee9bab5268cb90e358cfc3713a19",
+    "results/features/dish_1557936599.npz": "5ab074f21ee51532fbfac37ad7afc622ea4fccbd19d65680e01d8fefc70e390b",
+    "results/features/dish_1557936645.json": "f0e36e85ea48d38761250b4fc3d7a1dc27dacee5b96beb246b705e8cbe33eb45",
+    "results/features/dish_1557936645.npz": "1cbb07c80de16d790c4ad169149633927693563ceac0c46b5f09adec39e9d0fc",
+    "results/features/dish_1557937037.json": "4cd3a9b49c37df7b6e4bc64f1d21fc93a126141c9c3414cdaec9699878340a92",
+    "results/features/dish_1557937037.npz": "32f218f499c475fe33b60e767bbba3e749fffb12a601ea17b816a431556e7387",
+    "results/features/dish_1557937079.json": "475eec6c9bd537639698a271543e862e42845d660d56a814fcccc424bc3fc170",
+    "results/features/dish_1557937079.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1557937157.json": "fe24b793f7daedca7fa34c3def2a609157e7794cb8e04ace4e00aaf4652fd871",
+    "results/features/dish_1557937157.npz": "eede268e5dd967e02b42fabbdadd888e9638718cc3aac3a092f2d141d9e3ca96",
+    "results/features/dish_1557937335.json": "6178527349f38e85f6526d845eb1f0ad6d15a4e78e6e3674ffaaf2279b694e54",
+    "results/features/dish_1557937335.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1557937427.json": "e41d5767691abf8591400cd8523c6f46e74d2bcf4742c56243b7e9b2c86a9ac2",
+    "results/features/dish_1557937427.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1557937574.json": "980dc710bfa9f385cece6ca28493fbf2694b1a9bb7765f9cdfa44cbe632c0b90",
+    "results/features/dish_1557937574.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1557937615.json": "ba2da2492902ed194ef8e704c0a5d14f63e17bc2eaf54a27710bcbe5b511ab4a",
+    "results/features/dish_1557937615.npz": "3f379742222f4233ae80c1b1288f466fb6a73ebb80f0639b67b1dfb7ac74c983",
+    "results/features/dish_1557937715.json": "a3d2a78d4d2bb8b43476c194adaf2c71b8706c72fcd30f0dc3600556cde15abf",
+    "results/features/dish_1557937715.npz": "e93333181f605bda98ccc7182c59d5f910130d6c2403f79e5d6e20dfade569f5",
+    "results/features/dish_1557937758.json": "58f137ce3037d241558954c9cef5bb152b088bbc9f896d27ccff42b874c1d5c6",
+    "results/features/dish_1557937758.npz": "9f41f58932bea53263348ea72253bc06487fa80f44de50ad835dd84994309ccb",
+    "results/features/dish_1558026623.json": "e8993bc8a9e8efd39a0a8991576b794f5e2a4f0b9f61116f45de6a3558475ed3",
+    "results/features/dish_1558026623.npz": "6750180fc15692057d334c876dc5a53ebebe923559cc779cbb4995f785eeb7b7",
+    "results/features/dish_1558026684.json": "5b289d373a2c47adf2f765d567d91209e5132195e5a8d2af0ff16f0067693444",
+    "results/features/dish_1558026684.npz": "84757ae0aa4f8f94e46475363fbb81ad0c3aed7badc202ea0c356a801461c470",
+    "results/features/dish_1558026714.json": "dc7c167261f697dc41ffeaa159b62e564e7d921d6fb4708c5e4d7c74fa243867",
+    "results/features/dish_1558026714.npz": "8580e2863baf6458957a5d13767253d8b6203482d128ad6865a5eadf28b3b597",
+    "results/features/dish_1558026756.json": "6e5bed581179d9244741ee8bfe8e58d7f9394f52585ce969202c7502a1e4ab53",
+    "results/features/dish_1558026756.npz": "d87d4a6190a3197f1f5852f84f4cb333f404271390c588840d1dc94eb70f3c5e",
+    "results/features/dish_1558027001.json": "bb1b08a80732541fe0d116137c3bebbadf5d9c1a4dc60c56c3893e552cc63f58",
+    "results/features/dish_1558027001.npz": "eaae35fa2fada894fc1c7758312a8103cd71de09a645e57bafbef1aa3a1bd67a",
+    "results/features/dish_1558027057.json": "78ada997fdac95e31dd483d24d0e7d052b0948666ce485b414c60874047ce25d",
+    "results/features/dish_1558027057.npz": "ea0fccfec5c42f1a340bc298e64acc6f1a4641d2b6c8981f3dbc1406ee307fbc",
+    "results/features/dish_1558027164.json": "41346121383b12d83f80278289512ba25703e11bb82501be521a73293a70cef2",
+    "results/features/dish_1558027164.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1558027243.json": "a38f6ce89efcebef806001a37768fd25a39122ebe878273f66b383d9ff1f9b8a",
+    "results/features/dish_1558027243.npz": "2d86f938b04350ee2564ecc81644b82cd16a7b0c869a474c22387b8ce5bbc78e",
+    "results/features/dish_1558028007.json": "7224ab39335c0a7b879b7238b4bec101e6783b28739c5df1cefebdb56b6c67e3",
+    "results/features/dish_1558028007.npz": "b87faf21d21db185767c6fb4cb8c0fca7f59cc44e76040fbb207c77c08468a2f",
+    "results/features/dish_1558028057.json": "db33da9470dc74c422f55f7ac58e4dec970c3ba02448fca565294bb95bb8a929",
+    "results/features/dish_1558028057.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1558028142.json": "399386751ed8ea54ff66db758bcf004b738ab453c22ceb0dba4d951e939924ba",
+    "results/features/dish_1558028142.npz": "77dc7d22f48a1b6e9590ca02c3442149c41d87bd2c99d217a970d0855fbcbabf",
+    "results/features/dish_1558028194.json": "82530281b3f9a5792b59ee2e0c3ccaa7edc1099afb3fb999245ad87079698576",
+    "results/features/dish_1558028194.npz": "278a2182f553dd2ced7101d07f08a6635d91d85c4e836a8da4a7763fd105a2d5",
+    "results/features/dish_1558028492.json": "e290606f5e6e585dfabad4c9c948eac24a59a244a0c4c8624d5ac8eb83216eba",
+    "results/features/dish_1558028492.npz": "e2f1c0041c6df676c0380bac8dfd6333897cb1e8a5d18dd08cbac3ff165f0f10",
+    "results/features/dish_1558028606.json": "b8021bcd07ec3019e1697ecd370b9a8b0f87d9a4d7cf5c9c64bee76cf8159df2",
+    "results/features/dish_1558028606.npz": "5702bcfdac3c4591e7ff1c3ef89bffd2c107318ebd12d0a1c7501f5a0c61f884",
+    "results/features/dish_1558028690.json": "888b9c11c9cf2a95491efade6e497840e3f2aa9496c8f37dbf402584d78ccee4",
+    "results/features/dish_1558028690.npz": "07f1b325d71832e52b7b19cd31f292d5ed98f98deb63f25c8480d9e69d5c03b5",
+    "results/features/dish_1558028772.json": "31b6b8201af7c6c5f84af1c4ed40433e9efdb4a8361f93704cea19011af448b1",
+    "results/features/dish_1558028772.npz": "848d8c9cc761fda2cc645a594711193eb3283636c3d8fd801d1458f47d3b80c9",
+    "results/features/dish_1558029148.json": "c45dd8039f388a00691be0303c569f8a7e337dbc70a178d0bce2d3f0a4a3cc24",
+    "results/features/dish_1558029148.npz": "158e324175bdb56c0c75fa93bd79e069afad8904d41f50ccffe84367948563d7",
+    "results/features/dish_1558029230.json": "51bd6da017dfbab30cdf5352bf917d9bc2fa13c789e0de5e82e4c5df42506c12",
+    "results/features/dish_1558029230.npz": "008ded2d06b1537f3f3f837f8df698fd406ad1503e450ce06436ce8000b4aa6e",
+    "results/features/dish_1558029278.json": "0e4790e21b7844c55a1fb5f490af11fd886616ad086097db71704f03c75dc4d0",
+    "results/features/dish_1558029278.npz": "27d030693b3b2e6ab20257ea1b2b10be8cd9b577fac7aead9b747a92abb48420",
+    "results/features/dish_1558029324.json": "bf97192ed7917bd257a25c89c981fab14e1c88fd70b266329afb74bb22cd73b9",
+    "results/features/dish_1558029324.npz": "847a1cdb916a7c69735736a9af453dc6c2c5217e699243027feff28d0284f81f",
+    "results/yolo_sam/dish_1556572657.json": "047b8244c1e5b46c3e96a1f39ee7205cf004d3fcd410a13bc61b025343e59e20",
+    "results/yolo_sam/dish_1556573514.json": "71fce49e4b952f5e6b362f4c87ef1bcd327782694372360f35f3ea57faa7e7ed",
+    "results/yolo_sam/dish_1556575014.json": "6e6263ba6b5e416be432da04b955c7da21f98e277c9386c78553320873420185",
+    "results/yolo_sam/dish_1556575083.json": "c30c0e68a208292109ce1a3816b19e923beed194138b9a3a4f6df2c865773f24",
+    "results/yolo_sam/dish_1556575124.json": "198bd18ae66d9cad5ec1112ed4aa4291bb099d028eb6672f7946c3a8e81dfc93",
+    "results/yolo_sam/dish_1556575273.json": "920ced2396baeb063dfd85e29b075ed3f7cc0db70ef121bf832f5e1c5384db6f",
+    "results/yolo_sam/dish_1556575327.json": "a1cb97902c585119cbc86d0dccc36f3a5617b0f3b8b1621a4a304c1240f8e67c",
+    "results/yolo_sam/dish_1556575386.json": "0633c4ffdd9bbed9247c0ea3883f780aef38cf68cd692966b91410b03636bcf4",
+    "results/yolo_sam/dish_1556575446.json": "b66ddf0c543f9d192878c2d52c420806eb33472dd3b0e585cae14560d97c8670",
+    "results/yolo_sam/dish_1556575499.json": "dc21afb9a7900a8ab8e5b605e4f1c05c2ff1aa1efe1d21862aaf280977489c6b",
+    "results/yolo_sam/dish_1556575558.json": "c1c4739525b87d8ab90c1fa0be47de7a7efe97a9f22c2967c464567437110442",
+    "results/yolo_sam/dish_1557853154.json": "4681f5a99b6b5114541cd362df8aa3136349f805aace3c57d68c1ce5f3abbcc1",
+    "results/yolo_sam/dish_1557853229.json": "56be4a845d502efa52debace3dadbc10da10db1f1da4f3588d4d0375aeb2fed8",
+    "results/yolo_sam/dish_1557853314.json": "6057fd1f3c2946c0523e934cb0f53093f684eb0ed913381323e11fa6d0ea9369",
+    "results/yolo_sam/dish_1557853429.json": "3c8ac9082c9bb879ced22b7ad8c9340577e53c3293fd8bd9b44d6367b1f89b87",
+    "results/yolo_sam/dish_1557861605.json": "2668583bd8ef4403b0f842bc68fdfd78a4fd96a0e25fb2622ddaf4a5438108e4",
+    "results/yolo_sam/dish_1557861697.json": "0a83b0b8ad077eafd602c036e272a3bb207ea74983ded11028f29cc230529420",
+    "results/yolo_sam/dish_1557861795.json": "718ad6575fda6601b01bcfa4b827225b4e699a5a82bebf34428dd812e5529740",
+    "results/yolo_sam/dish_1557861837.json": "61df64b9c3dc723acb3a55e533120de86ba7d21dd59fd1eddd050b58535beb48",
+    "results/yolo_sam/dish_1557862345.json": "630f0112cd951901f6683fd2ab98586ff882bf44fc0932b33a3118d5885775d1",
+    "results/yolo_sam/dish_1557862696.json": "e9ac1c1884f493ce35747da458ec3748d18b6885ab7ffa8ea58c30aed82fd3f5",
+    "results/yolo_sam/dish_1557862738.json": "7db6c62e609f341d0ac0bc998498bc4b1b87780b112658d9781d417ca128a6d8",
+    "results/yolo_sam/dish_1557862783.json": "9275f4d70d1b5c3c7486c38f616c97b8770a2e2a7800f447bb2d4da9244ce613",
+    "results/yolo_sam/dish_1557862829.json": "7f636451f61293fdbebf2990a5c785aaa9ff1ab48ae505cb577aab5700a67269",
+    "results/yolo_sam/dish_1557863012.json": "275542bb9b6a7900aca111e73c94641b5ca4cd1394375500fc07abb6bcec3cbd",
+    "results/yolo_sam/dish_1557863056.json": "aeeb84cb882919ac42d363ab7f899787a3a16112b6a41ed3c18962fb7880ed31",
+    "results/yolo_sam/dish_1557863104.json": "1f86463dfa648797536ed1f505c5521ee2fac1f83760fb42ca3a5a8165fa458b",
+    "results/yolo_sam/dish_1557863170.json": "f2f52e135d0a1a4ae7f416b2b64c8b7e84af13f476c12d69c63d3b641a889fae",
+    "results/yolo_sam/dish_1557936555.json": "fff793d2bf7762707bd8845695f083844744044a1bdcfb3cbbc93c0efd9eca6f",
+    "results/yolo_sam/dish_1557936599.json": "c8ccd844cb0e18b1c88b98060b1162e71437a71bc7131a192ea6a7930c1a64d6",
+    "results/yolo_sam/dish_1557936645.json": "285fedabfcfe83dd7805cab5d0d64e4e86fec7c636e6ee1269948bcc03933c44",
+    "results/yolo_sam/dish_1557937037.json": "d2acc7d9801e8803c801c2b58f2a623464acfaa967cf06454382076ab00885ff",
+    "results/yolo_sam/dish_1557937079.json": "2b0ef18ed01b063d6e6f315da83930f9e15dc91b23f0567c0a5c1e35b1416a6e",
+    "results/yolo_sam/dish_1557937157.json": "2610262e652c68e44810d66622edb6c1d1cb4d18bd1df7d4c98be3c11b95605f",
+    "results/yolo_sam/dish_1557937335.json": "58913ebcf39dc299b938ae4afa906e640d1df59619ca994963760937c7255135",
+    "results/yolo_sam/dish_1557937427.json": "b06411a81afcd5484b1c50868860deceb849f06aff42b4b21329d31b6197093a",
+    "results/yolo_sam/dish_1557937574.json": "0c61abeae5df7962dc9e8584702ccc96f9cca99f1f4eabbde0ca9b06c64e4a51",
+    "results/yolo_sam/dish_1557937615.json": "9bd8f05ab6d28fedffc79310d771c16843dbe100d4d26723b22ec71f9bebe17c",
+    "results/yolo_sam/dish_1557937715.json": "71410ecd24af6276c99e2f4486826be04692670a6ee5048ad0838240e1bfa853",
+    "results/yolo_sam/dish_1557937758.json": "db3efa3179630b01d62619d499476a6a015dfdcb6fbc03365e6518fe1c827884",
+    "results/yolo_sam/dish_1558026623.json": "9eb065996731b13d02ff546dc85b3b15286854efcedf6f37c23efc8724f0b9fe",
+    "results/yolo_sam/dish_1558026684.json": "18fa6fbeac06e569c80ee5d7352af49b4968a6bf4af7a47b132d011e91c90840",
+    "results/yolo_sam/dish_1558026714.json": "8b57a869e991c606dcecb7a510d25003085b7e5383ac86ba0c7e21c9122dc234",
+    "results/yolo_sam/dish_1558026756.json": "8d857d6ed8db5a35be035ff7f302b5fb7b1e9c19427ba9f2bff91adbe543e77b",
+    "results/yolo_sam/dish_1558027001.json": "9d06453d80efea0136a20ef823071d54aed2c7d09b0c3055be2719def2b4a2ba",
+    "results/yolo_sam/dish_1558027057.json": "b2cd156b541e7d7bcbdef5d76199b042caedd68b479bfb8ef3bd21d4d337547f",
+    "results/yolo_sam/dish_1558027164.json": "fe99bc11473e6c35accca649cfc3dd1258522d4e281e2fe3079eed62d180de40",
+    "results/yolo_sam/dish_1558027243.json": "30c0fefa1da9bd46dd0dcece5bbca7f96dde50a11b73f04f70f5484b35151154",
+    "results/yolo_sam/dish_1558028007.json": "110c43763af297f1da63ad6dfc2c97ad6db93de40023b7748524f85b92a11ebf",
+    "results/yolo_sam/dish_1558028057.json": "64f003b9493ef7d29c36089816f75784b6702c35ee9d56cd9a0c011a8577f892",
+    "results/yolo_sam/dish_1558028142.json": "0ef8838becc77102624cb5c8e04626165700972f5501a28956626ff24bb6ff81",
+    "results/yolo_sam/dish_1558028194.json": "051ab840e6773bc1f23164d109a483a5b994dbffad74b7f9c824c50bae8bc09a",
+    "results/yolo_sam/dish_1558028492.json": "f93076aba479c2ab109e2e9dbb9b4229a2455a90089403ec4e7362d31b957403",
+    "results/yolo_sam/dish_1558028606.json": "298fccf87604f2a6e90ae1e3bc93bf5772fbc74bb1036249da9e4a9c716b3914",
+    "results/yolo_sam/dish_1558028690.json": "b5e55e053bbe49f2a8805306270b3afff0c23dbf341bca4f5e50e40a352c1d05",
+    "results/yolo_sam/dish_1558028772.json": "c3efca7ad4cc6f91d580d5ce595f20b763adc0d1ce7cad91039e8ef901994cc7",
+    "results/yolo_sam/dish_1558029148.json": "11c68d2a2ee47ee650bea24e6f5b4dd4ff6d65ee1c7dc6497af6c78da1d1cee8",
+    "results/yolo_sam/dish_1558029230.json": "311d08b73758e28c3a032e3b76718465829ad5ed793a67251548927a37b5f7f3",
+    "results/yolo_sam/dish_1558029278.json": "959d014a49fc458588387deba0958cf6d56e5eba67ac290f8a3025d1433b2696",
+    "results/yolo_sam/dish_1558029324.json": "8c71903a2d4fa219127ebd9e1fd72411a563771b1bf998509029454b9bfff0bf",
+    "results/calibration.json": "286dbb09b97c9d671fee41d877185539f074a69d5cb43bf5b986a1d94bf88ac4",
+    "results/yolo_sam_summary.json": "68f6d82619f4c3627cb520d7be544f8246fa0f1d1a6970b75a9606183ef02b65",
+    "results/yolo_sam_per_image.csv": "5a243cb622a2fb40de74496a73c7007128e93d05f31cc18cdb6e7d3fb0b6564d"
+  },
+  "source_sha256": {
+    "data/dish_ids.json": "74de92be85342719427c5310adf134c2a25ba1aeac47242cc6f7fdbcfc4efe2b",
+    "data/ground_truth.csv": "68c17eee3c7c705e7f23ed8d83d80c8e1cf955eff12778c8d867314ea0c6fe8e",
+    "data/ingredient_nutrition.csv": "9070c28572ed2eb6f5114258c073155dc7b1add874bc5cae5bfb29208572e516",
+    "data/labels.py": "674c9f079a1e2d900c88b1d15c34305e796f33ac8437551de3a6c51db25835d4",
+    "data/raw/metadata_subset.jsonl": "78f69ceccce4ed39ba0d22615d8b031360d3a3006b5ce33c6bf461ab04ebf770"
+  },
+  "raw_reply_warning": "Raw model text is preserved as evidence. Review its content before sharing. No environment, credentials, weights, or virtualenv is exported."
+}

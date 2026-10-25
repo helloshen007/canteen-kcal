@@ -5,3 +5,4 @@ Pillow
 gradio>=4.0
 openai                # 方案B:OpenAI 兼容接口(通义千问 Qwen-VL 等)
 huggingface_hub       # 下载 Nutrition5k 数据子集
+anthropic

@@ -1,0 +1,62 @@
+{
+  "context": {
+    "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+    "vocabulary": [
+      "avocado",
+      "bacon",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "caesar salad",
+      "cantaloupe",
+      "cauliflower",
+      "celery",
+      "chicken",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fish",
+      "honeydew melons",
+      "mixed greens",
+      "olives",
+      "potatoes",
+      "raspberries",
+      "spinach (raw)",
+      "steak",
+      "strawberries",
+      "watermelon",
+      "yam"
+    ]
+  },
+  "baseline_kcal": 90.6175,
+  "threshold": 0.05,
+  "subsets": {
+    "全部": {
+      "precision": 0.2333,
+      "recall": 0.2833,
+      "f1": 0.245,
+      "kcal_abs_error": 62.16,
+      "weight_abs_error": 65.8,
+      "baseline_abs_error": 70.6935,
+      "n": 20
+    },
+    "single": {
+      "precision": 0.1889,
+      "recall": 0.2667,
+      "f1": 0.2111,
+      "kcal_abs_error": 44.9333,
+      "weight_abs_error": 45.1333,
+      "baseline_abs_error": 53.3948,
+      "n": 15
+    },
+    "few": {
+      "precision": 0.3667,
+      "recall": 0.3333,
+      "f1": 0.3467,
+      "kcal_abs_error": 113.84,
+      "weight_abs_error": 127.8,
+      "baseline_abs_error": 122.5895,
+      "n": 5
+    }
+  }
+}
