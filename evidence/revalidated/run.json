@@ -64,7 +64,7 @@
   "vlm_repeats_per_image": 3,
   "vlm_successful_calls": 60,
   "vlm_failed_attempts": 0,
-  "regression_tests": 29,
+  "regression_tests": 33,
   "completed_at_utc": "2026-10-25T01:42:18.335405+00:00",
   "vision_service": {
     "provider": "openai-compatible DeepSeek",
@@ -73,5 +73,13 @@
     "service_version_source": "https://api-docs.deepseek.com/",
     "thinking_disabled": true,
     "max_tokens": 1500
+  },
+  "latest_validation": {
+    "checked_at_utc": "2026-10-25T06:09:56.806116+00:00",
+    "regression_tests": 33,
+    "raw_replies_reparsed": 60,
+    "ground_truth_regenerated_identically": true,
+    "independent_metrics_match": true,
+    "api_calls_during_validation": 0
   }
 }

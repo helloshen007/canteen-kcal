@@ -44,7 +44,9 @@ class VLMRegressionTests(unittest.TestCase):
         self.assertEqual(resolve_model_name('DeepSeek V4.1 Flash','openai','https://example.com'), 'DeepSeek V4.1 Flash')
 
     def test_bad_formats_cannot_become_zero_predictions(self):
-        for text in (None,'','not JSON','{}','[]','{"items":null}','{"items":{}}'):
+        for text in (None,'','not JSON','{}','[]','{"items":null}','{"items":{}}',
+                     '[{"items":[]}]','image unreadable: {"items":[]}',
+                     '{"items":[],"message":"image unreadable"}', '{"items":[],"success":false}'):
             with self.subTest(text=text), self.assertRaises(ValueError):
                 batch.to_result(text,VOCAB,TABLE)
         for data in (None, {"dishes":[{}]}, {"dishes":[{"name":"watermelon"}]}):
@@ -63,10 +65,43 @@ class VLMRegressionTests(unittest.TestCase):
         self.assertEqual(result['status'],'success')
         self.assertEqual(result['total']['kcal'],0)
 
+    def test_failure_flags_cannot_become_empty_success(self):
+        for extra in ({'status':'failed'}, {'status':None}, {'status':False},
+                      {'status':'unknown'}, {'error':'image unreadable'}, {'parse_error':True}):
+            with self.subTest(extra=extra), self.assertRaises(ValueError):
+                batch.to_result(json.dumps({'items':[], **extra}),VOCAB,TABLE)
+
+    def test_duplicate_keys_and_nonstandard_constants_are_rejected(self):
+        for raw in ('{"items":[{"name":"watermelon","grams":68}],"items":[]}',
+                    '{"items":[{"name":"unknown","name":"watermelon","grams":68}]}',
+                    '{"items":[],"extra":NaN}', '{"items":[],"extra":Infinity}',
+                    '{"items":[],"extra":-Infinity}'):
+            with self.subTest(raw=raw), self.assertRaises(ValueError):
+                batch.to_result(raw,VOCAB,TABLE)
+
+    def test_error_or_duplicate_reply_is_preserved_then_retried(self):
+        for bad in ('{"status":"failed","error":"image unreadable","items":[]}',
+                    '{"items":[{"name":"watermelon","grams":68}],"items":[]}'):
+            with self.subTest(raw=bad), experiment(), patch.object(batch,'call_vlm',side_effect=[bad,VALID]) as call:
+                run_once()
+                self.assertEqual(call.call_count,2)
+                result=json.loads(Path('results/vlm/dish_test_r0.json').read_text())
+                self.assertEqual(result['total']['kcal'],20.4)
+                failures=list(Path('results/vlm/failures').glob('*.json'))
+                self.assertEqual(len(failures),1)
+                failed=json.loads(failures[0].read_text())
+                self.assertEqual(failed['raw'],bad)
+                self.assertEqual(failed['status'],'failed')
+                self.assertNotIn('total',failed)
+
     def test_valid_reply_uses_shared_nutrition(self):
         result=batch.to_result(VALID,VOCAB,TABLE)
         self.assertEqual(result['total']['kcal'],20.4)
         self.assertEqual(result['dishes'][0]['weight_g'],68)
+
+    def test_complete_markdown_fence_is_allowed(self):
+        result=batch.to_result('```json\n'+VALID+'\n```',VOCAB,TABLE)
+        self.assertEqual(result['total']['kcal'],20.4)
 
     def test_bad_reply_is_saved_separately_then_retried(self):
         with experiment(), patch.object(batch,'call_vlm',side_effect=['{}',VALID]) as call:

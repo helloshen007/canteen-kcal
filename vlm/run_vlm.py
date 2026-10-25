@@ -27,6 +27,12 @@ def to_result(text, vocab, table):
     data = parse_json(text)
     if not isinstance(data, dict) or not isinstance(data.get('items'), list):
         raise ValueError('回复必须是包含 items 数组的 JSON 对象')
+    if set(data) - {'items', 'status', 'error', 'parse_error'}:
+        raise ValueError('回复包含不支持的顶层字段')
+    if data.get('error') or data.get('parse_error'):
+        raise ValueError('回复包含失败标记，不能作为成功预测')
+    if 'status' in data and (not isinstance(data['status'], str) or data['status'].strip().lower() not in {'success', 'ok'}):
+        raise ValueError('回复状态不是成功，不能作为成功预测')
     canon = {name.lower(): name for name in vocab}
     weights = {}
     for item in data['items']:

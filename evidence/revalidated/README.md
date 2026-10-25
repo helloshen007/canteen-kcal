@@ -26,4 +26,4 @@ B API ID 为 `deepseek-flash`，运行时官方文档标明服务版本 DeepSeek
 python -m compare.report --results-root evidence/revalidated --output results/revalidated/from-versioned-evidence.md
 ```
 
-原图、掩膜和原始元数据复算材料可通过 README 的固定数据步骤或完整证据 ZIP 取得。29 项回归测试通过，60 份真实 B 回复已重新解析并与逐图预测比对；断点重跑只复用有效缓存。历史阈值选择局限仍保留，不将模型服务版本变化或标注修正后的结果冒充为原历史实验。
+原图、掩膜和原始元数据复算材料可通过 README 的固定数据步骤或完整证据 ZIP 取得。33 项回归测试通过，60 份真实 B 回复已重新解析并与逐图预测比对；断点重跑只复用有效缓存。历史阈值选择局限仍保留，不将模型服务版本变化或标注修正后的结果冒充为原历史实验。

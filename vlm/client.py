@@ -51,13 +51,28 @@ def call_vlm(image_path, prompt):
     return r.choices[0].message.content
 
 def parse_json(text):
-    """容错解析:去掉 ```json 围栏,截取第一个 { 到最后一个 }。失败返回 None。"""
+    """解析完整 JSON（允许完整 Markdown 围栏），拒绝重复键和非法常量。"""
+    def unique_object(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError('JSON 包含重复键')
+            result[key] = value
+        return result
+
+    def reject_constant(value):
+        raise ValueError('JSON 包含非法数值常量')
+
     if not isinstance(text, str): return None
-    text = re.sub(r"```(?:json)?", "", text)
-    i, j = text.find("{"), text.rfind("}")
-    if i < 0 or j < 0: return None
-    try: return json.loads(text[i:j + 1])
-    except json.JSONDecodeError: return None
+    text = text.strip()
+    if text.startswith('```'):
+        fenced = re.fullmatch(r'```(?:json)?\s*([\s\S]*?)\s*```', text, flags=re.IGNORECASE)
+        if fenced is None: return None
+        text = fenced.group(1)
+    try:
+        return json.loads(text, object_pairs_hook=unique_object, parse_constant=reject_constant)
+    except (ValueError, RecursionError):
+        return None
 
 def normalize(d):
     """验证旧的结构化接口；缺失字段和解析失败不能静默补成零。"""
