@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173d32">
+  <title>Canteen Lab · 餐盘视觉实验室</title>
+  <link rel="icon" href="/static/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Canteen Lab 首页"><img src="/static/mark.svg" alt=""><span>Canteen <b>Lab</b><small>餐盘视觉实验室</small></span></a>
+    <nav aria-label="主导航"><button class="nav-link active" data-page="workspace">工作台</button><button class="nav-link" data-page="history">分析记录</button><button class="nav-link" data-page="about">关于项目</button></nav>
+    <div class="account"><span id="account-name" hidden></span><button class="button button-small button-outline" id="auth-open">登录 / 注册 <span aria-hidden="true">↗</span></button><button id="logout" class="text-button" hidden>退出</button></div>
+  </header>
+
+  <main>
+    <section id="workspace-page" class="page">
+      <div class="intro"><div><p class="eyebrow"><span class="tiny-line"></span> A CLOSER LOOK AT YOUR PLATE</p><h1>一张餐盘，<em>两种视角。</em></h1><p class="intro-copy">让传统视觉与多模态模型观察同一张图片，<br class="desktop-break">并排比较食材识别、分量与热量估算。</p></div><div class="intro-aside"><span class="edition">第三阶段 / WEB APPLICATION</span><p>从照片出发<br>让结果有据可查</p><span class="numbered">01 — 02</span></div></div>
+
+      <div class="work-grid">
+        <section class="upload-card" aria-labelledby="upload-heading">
+          <div class="section-heading"><h2 id="upload-heading"><span class="section-number">01</span>添加餐盘照片</h2><span class="quiet-label">同图 · 双方案</span></div>
+          <label class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="选择或拖入餐盘照片">
+            <input id="image-file" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+            <div id="upload-placeholder"><svg class="plate-art" viewBox="0 0 180 120" fill="none" aria-hidden="true"><ellipse cx="90" cy="63" rx="47" ry="44" fill="#e7eddf"/><circle cx="90" cy="59" r="41" stroke="#52765e" stroke-width="1.5"/><circle cx="90" cy="59" r="31" stroke="#a2b69b"/><path d="M84 39C65 44 71 70 93 73C108 55 101 40 84 39Z" fill="#6c8c64"/><path d="m79 65 20-23" stroke="#d8e6c7" stroke-width="2"/><path d="M31 24v22m-6-22v14c0 11 12 11 12 0V24m-6 22v49M151 24c-12 14-11 31 0 32v39m0-71v32" stroke="#52765e" stroke-width="2" stroke-linecap="round"/><path d="M125 21v14m-7-7h14" stroke="#bb815a" stroke-width="2" stroke-linecap="round"/></svg><strong>拖入照片，或点击上传</strong><span>JPG、PNG、WebP · 最大 10 MiB</span></div>
+            <img id="upload-preview" alt="待分析的餐盘照片" hidden>
+            <span id="file-caption" class="file-caption" hidden></span>
+          </label>
+          <div class="upload-actions"><button class="button button-primary" id="analyze" disabled>开始双方案分析 <span aria-hidden="true">↗</span></button><button class="text-button" id="clear-upload" hidden>重新选择</button></div>
+          <p class="hint"><span class="info-icon">i</span>实时分析会调用已配置的大模型服务，产生 API 费用。</p>
+        </section>
+
+        <aside class="side-panel">
+          <div class="section-heading"><h2><span class="section-number">02</span>两条分析路径</h2><span class="quiet-label">WHAT TO COMPARE</span></div>
+          <div class="route"><span class="route-letter">A</span><div><h3>看见轮廓</h3><p class="route-name">YOLO-World + SAM</p><p>检测食材位置，分割可见区域，<br>结合标定系数估算重量与营养。</p></div><span class="route-icon">⌖</span></div>
+          <div class="route"><span class="route-letter warm">B</span><div><h3>理解餐盘</h3><p class="route-name">多模态大模型</p><p>观察相同照片，返回食材与克数，<br>使用同一营养表换算热量。</p></div><span class="route-icon">✳</span></div>
+          <div class="service-line"><span class="status-dot" id="service-dot"></span><span id="service-label">正在连接分析服务</span><button id="refresh-health" class="text-button" aria-label="刷新服务状态">↻</button></div>
+        </aside>
+      </div>
+
+      <section class="samples-section" aria-labelledby="samples-heading"><div class="section-heading"><h2 id="samples-heading">先用一张样例试试</h2><span class="quiet-label">历史回放 · 不调用模型 · 不产生 API 费用</span></div><div id="sample-grid" class="sample-grid"></div></section>
+
+      <section id="comparison" class="comparison-section" hidden aria-live="polite">
+        <div class="result-heading"><div><p class="eyebrow">SIDE BY SIDE</p><h2 id="result-title">分析结果</h2><p id="result-mode" class="mode-caption"></p></div><div class="result-actions"><span id="job-status" class="badge"></span><button id="edit-record" class="text-button">编辑记录</button><button id="export-result" class="button button-outline button-small">导出 JSON ↓</button></div></div>
+        <div id="job-progress" class="job-progress"><span>进入队列</span><span>方案 A</span><span>方案 B</span><span>完成</span></div>
+        <div class="result-grid"><article id="result-a" class="result-card"></article><article id="result-b" class="result-card"></article></div>
+        <div class="result-footer"><p id="result-note"></p><button id="retry-job" class="button button-primary button-small" hidden>仅重试失败方案 ↻</button></div>
+      </section>
+    </section>
+
+    <section id="history-page" class="page" hidden>
+      <div class="page-intro"><p class="eyebrow">YOUR PLATE JOURNAL</p><h1>每一次观察，<em>都有记录。</em></h1><p>查看、备注与导出你的餐盘分析。记录和照片仅当前账号可见。</p></div>
+      <div class="history-toolbar"><span id="history-total">分析记录</span><button id="refresh-history" class="button button-outline button-small">刷新 ↻</button></div>
+      <div id="history-list"></div><div class="pagination"><button id="history-prev" class="text-button" disabled>← 上一页</button><span id="history-page-label"></span><button id="history-next" class="text-button" disabled>下一页 →</button></div>
+    </section>
+
+    <section id="about-page" class="page about-page" hidden>
+      <div class="page-intro"><p class="eyebrow">FROM EXPERIMENT TO APPLICATION</p><h1>不止一个数字。<br><em>也比较如何得到它。</em></h1><p>Canteen Lab 在二阶段实验基础上，将同图双方案对比做成可保存、可追溯的 Web 应用。</p></div>
+      <div class="about-grid"><article><span class="section-number">01 / 方法</span><h2>同一照片，相同换算口径</h2><p>两种方案共用 24 类食材词表及营养表。传统方案提供检测与分割图，大模型方案保留结构化预测和原始回复。结果缺失或失败会明确提示，不按零热量计算。</p></article><article><span class="section-number">02 / 证据</span><h2>把回放与实时分析分开</h2><p>内置样例回放来自修正标注后真实运行的二阶段实验。上传照片走实时模型推理；历史回放不会发起新模型请求，也不会被算作新实验。</p></article><article><span class="section-number">03 / 边界</span><h2>估重，仍然不是称重</h2><p>单张照片无法可靠反映厚度、密度和被遮挡的食材。标定来自固定俯拍环境，不能直接外推到所有餐盘。本项目用于学习与演示，不作为医疗、饮食或营养决策依据。</p></article><article><span class="section-number">04 / 使用</span><h2>哪些场景适合哪种方法？</h2><p>需要本地运行、框和掩膜时，可继续训练与优化传统模型；快速探索食材语义和原型时，多模态接口更方便，但需管理费用、联网依赖及输出波动。</p></article></div>
+      <p class="about-link"><a href="https://github.com/helloshen007/canteen-kcal" target="_blank" rel="noreferrer">查看项目代码与复现说明 ↗</a></p>
+    </section>
+  </main>
+
+  <footer class="footer"><span>CANTEEN LAB <span class="footer-dot">·</span> 观察 / 比较 / 记录</span><p>图像估算仅供学习研究，不能替代实际称重。</p><span>EST. 2026</span></footer>
+
+  <dialog id="auth-dialog" class="modal"><button class="modal-close" data-close="auth-dialog" aria-label="关闭">×</button><p class="eyebrow">YOUR OWN WORKSPACE</p><h2 id="auth-title">欢迎回来。</h2><p class="modal-copy">登录后，分析结果会保存到你的专属记录中。</p><div class="auth-tabs"><button id="login-tab" class="active">登录</button><button id="register-tab">注册账号</button></div><form id="auth-form"><label>用户名<input name="username" autocomplete="username" required minlength="3" maxlength="32" pattern="[a-zA-Z0-9_\-]+" placeholder="字母、数字、下划线或连字符"></label><label>密码<input name="password" id="password" type="password" autocomplete="current-password" required minlength="8" maxlength="128" placeholder="至少 8 个字符"></label><p id="auth-error" class="form-error" role="alert"></p><button type="submit" class="button button-primary" id="auth-submit">登录工作台 ↗</button></form><p class="hint">密码经加盐哈希保存，服务密钥仅由服务器管理。</p></dialog>
+
+  <dialog id="edit-dialog" class="modal"><button class="modal-close" data-close="edit-dialog" aria-label="关闭">×</button><p class="eyebrow">A NOTE FOR LATER</p><h2>编辑记录</h2><form id="edit-form"><label>标题<input name="title" required maxlength="80"></label><label>备注<textarea name="note" rows="4" maxlength="2000" placeholder="记录餐次、拍摄环境或观察到的差异……"></textarea></label><button type="submit" class="button button-primary">保存修改 ↗</button></form></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "dish_1558027001",
+    "title": "西瓜 · 单一食材",
+    "description": "单一食材 · 看看识别差异",
+    "image_sha256": "2b5d3b764f2c2c355ebbedc5adbc33b0f8788fcae743e6e89e3a396b5b43fb23",
+    "source": "evidence/revalidated",
+    "license_source": "https://github.com/google-research-datasets/Nutrition5k"
+  },
+  {
+    "id": "dish_1558028194",
+    "title": "培根与西瓜餐盘",
+    "description": "混合餐盘 · 观察分量差异",
+    "image_sha256": "2412dff7c8c1160f15f3ecfca227ec28592110e2b01615072a9eaee3286be136",
+    "source": "evidence/revalidated",
+    "license_source": "https://github.com/google-research-datasets/Nutrition5k"
+  },
+  {
+    "id": "dish_1558028772",
+    "title": "蔬菜与西瓜餐盘",
+    "description": "多种食材 · 对照原始结果",
+    "image_sha256": "66645c284d2e764dc7603f59f9c77bb01416169f7cb253fb6de26d69eb54247d",
+    "source": "evidence/revalidated",
+    "license_source": "https://github.com/google-research-datasets/Nutrition5k"
+  }
+]

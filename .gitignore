@@ -8,3 +8,7 @@ data/images/*
 data/raw/
 
 .venv/
+var/
+models/
+deploy/.env
+*.log

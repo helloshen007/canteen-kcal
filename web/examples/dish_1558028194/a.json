@@ -1,0 +1,62 @@
+{
+  "status": "success",
+  "context": {
+    "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+    "vocabulary": [
+      "avocado",
+      "bacon",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "caesar salad",
+      "cantaloupe",
+      "cauliflower",
+      "celery",
+      "chicken",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fish",
+      "honeydew melons",
+      "mixed greens",
+      "olives",
+      "potatoes",
+      "raspberries",
+      "spinach (raw)",
+      "steak",
+      "strawberries",
+      "watermelon",
+      "yam"
+    ]
+  },
+  "dishes": [
+    {
+      "name": "strawberries",
+      "weight_g": 109,
+      "kcal": 36.1,
+      "protein_g": 0.8,
+      "fat_g": 0.3,
+      "carb_g": 8.8,
+      "conf": 0.258
+    },
+    {
+      "name": "potatoes",
+      "weight_g": 47,
+      "kcal": 36.5,
+      "protein_g": 0.9,
+      "fat_g": 0.0,
+      "carb_g": 8.1,
+      "conf": 0.158
+    }
+  ],
+  "total": {
+    "kcal": 72.6,
+    "protein_g": 1.7,
+    "fat_g": 0.3,
+    "carb_g": 16.9
+  },
+  "advice": [],
+  "split": "test",
+  "image_id": "dish_1558028194",
+  "threshold": 0.05
+}

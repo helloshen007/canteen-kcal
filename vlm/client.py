@@ -25,7 +25,7 @@ def thinking_setting():
 def _img_b64(path):
     with open(path, "rb") as f: return base64.b64encode(f.read()).decode()
 
-def call_vlm(image_path, prompt):
+def call_vlm(image_path, prompt, *, timeout=120):
     provider = os.getenv("VLM_PROVIDER", "anthropic"); model = os.getenv("VLM_MODEL", "claude-sonnet-4-6")
     model = resolve_model_name(model, provider)
     if provider not in {"anthropic", "openai"}:
@@ -37,13 +37,13 @@ def call_vlm(image_path, prompt):
     b64 = _img_b64(image_path); mt = "image/png" if image_path.lower().endswith("png") else "image/jpeg"
     if provider == "anthropic":
         import anthropic
-        c = anthropic.Anthropic(api_key=os.getenv("VLM_API_KEY"))
+        c = anthropic.Anthropic(api_key=os.getenv("VLM_API_KEY"), timeout=timeout, max_retries=0)
         r = c.messages.create(model=model, max_tokens=1500, messages=[{"role": "user", "content": [
             {"type": "image", "source": {"type": "base64", "media_type": mt, "data": b64}},
             {"type": "text", "text": prompt}]}])
         return r.content[0].text
     from openai import OpenAI
-    c = OpenAI(api_key=os.getenv("VLM_API_KEY"), base_url=os.getenv("VLM_BASE_URL") or None)
+    c = OpenAI(api_key=os.getenv("VLM_API_KEY"), base_url=os.getenv("VLM_BASE_URL") or None, timeout=timeout, max_retries=0)
     extra = {"thinking": {"type": "disabled"}} if thinking_setting() == "1" else None
     r = c.chat.completions.create(model=model, max_tokens=1500, extra_body=extra, messages=[{"role": "user", "content": [
         {"type": "image_url", "image_url": {"url": f"data:{mt};base64,{b64}"}},
