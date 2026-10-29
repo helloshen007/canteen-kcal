@@ -118,7 +118,8 @@ def run_b(image_path,directory,settings):
     for attempt in range(2):
         raw = None
         try:
-            raw = call_vlm(str(image_path),prompt)
+            timeout = max(10, min(600, int(os.getenv('VLM_TIMEOUT_SECONDS', '120'))))
+            raw = call_vlm(str(image_path),prompt,timeout=timeout)
             parsed = to_result(raw,vocab,nutrition())
         except JobTimeoutException:
             raise

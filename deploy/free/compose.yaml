@@ -1,0 +1,29 @@
+# Run on the user's own computer. No remote, paid VLM endpoint is used.
+x-local-vlm: &local-vlm
+  VLM_PROVIDER: openai
+  VLM_BASE_URL: http://ollama:11434/v1
+  VLM_MODEL: qwen2.5vl:3b
+  # Ollama ignores this non-secret SDK compatibility value; it is NOT an API key.
+  VLM_API_KEY: ollama-local
+  VLM_DISABLE_THINKING: "0"
+  VLM_TIMEOUT_SECONDS: "600"
+  COOKIE_SECURE: "1"
+services:
+  api:
+    environment:
+      <<: *local-vlm
+  worker:
+    environment:
+      <<: *local-vlm
+  nginx:
+    ports: !override
+      - "127.0.0.1:8090:8080"
+  ollama:
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    volumes:
+      - ollama:/root/.ollama
+    networks:
+      - backend
+volumes:
+  ollama:

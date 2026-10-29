@@ -4,6 +4,8 @@
 
 ![三阶段 Web 工作台](docs/images/stage3-home.png)
 
+不购买服务器、不调用付费 API 的本机公网演示方式见 [免费部署说明](docs/free-public-web.md)。该方式需要自己的电脑保持开机；实际公网链接须在启动成功后验证，当前尚未发布。
+
 ## 启动三阶段 Web
 
 在安装了 Docker Engine 和 Compose v2 的 Linux 主机或 Docker Desktop 环境中：
