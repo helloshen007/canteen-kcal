@@ -1,0 +1,80 @@
+{
+  "recorded_at_utc": "2026-10-29T14:06:33.808675+00:00",
+  "runtime_source_commit": "f728814c126cc3d625e12a0a25979763287cb17f",
+  "runtime": {
+    "python": "3.12.16",
+    "versions": {
+      "fastapi": "0.162.0",
+      "SQLAlchemy": "2.1.6",
+      "PyJWT": "2.15.1",
+      "redis": "6.4.0",
+      "rq": "2.12.0",
+      "torch": "2.14.1+cpu",
+      "torchvision": "0.29.1+cpu",
+      "ultralytics": "8.4.184",
+      "openai": "3.37.0",
+      "uvicorn": "0.54.0"
+    }
+  },
+  "docker_client_server": "28.4.0 / 28.4.0",
+  "docker_server": "Debian GNU/Linux 13 (trixie) (containerized) | 6.18.55 | x86_64",
+  "local_and_container_tests_passed": 53,
+  "api_smoke_checks": {
+    "invalid_image_rejected": true,
+    "redis_worker_replay_completed": true,
+    "update_persisted": true,
+    "other_account_cannot_read_record_or_images": true,
+    "logout_revokes_jwt": true,
+    "history_persisted": true,
+    "delete_removes_record": true,
+    "real_upload_yolo_sam_and_vlm_completed": true
+  },
+  "browser": {
+    "browser_errors": [],
+    "checks": {
+      "registration_in_browser": true,
+      "queued_replay_and_both_result_columns": true,
+      "edit_and_json_export": true,
+      "history_and_deletion": true,
+      "logout_and_login_in_browser": true,
+      "actual_live_results_visible": true,
+      "mobile_without_horizontal_overflow": true,
+      "real_upload_through_ui_and_recorded_live_comparison": true
+    }
+  },
+  "restart_recovery": {
+    "jwt_session_survived_full_restart": true,
+    "live_record_and_private_image_survived": true,
+    "redis_queued_task_consumed_after_full_restart": true,
+    "retained_live_b_kcal": 36,
+    "health": {
+      "status": "ok",
+      "database": true,
+      "queue": true,
+      "workers": 1,
+      "vlm_configured": true,
+      "model": "deepseek-flash",
+      "local_models": true
+    }
+  },
+  "live_jobs": {
+    "api-run": {
+      "evidence": "evidence/stage3-live/api-run",
+      "a_kcal": 78.3,
+      "b_kcal": 36.0,
+      "vlm_calls": 1
+    },
+    "browser-run": {
+      "evidence": "evidence/stage3-live/browser-run",
+      "a_kcal": 78.3,
+      "b_kcal": 36.0,
+      "vlm_calls": 1
+    }
+  },
+  "vlm_calls_total": 2,
+  "limits": [
+    "Single host, single inference worker; SQLite and local volumes",
+    "Current cloud Linux deployment validated; custom domain and personal server require user-specific addresses",
+    "Weight estimates inherit calibration and monocular-image limitations"
+  ]
+}

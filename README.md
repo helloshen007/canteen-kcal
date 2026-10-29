@@ -2,9 +2,39 @@
 
 第三阶段在原实验上新增可操作的 Web 应用：照片上传、YOLO-World＋SAM 与多模态模型并排分析、JWT 登录、个人记录、失败重试，以及数据库和异步队列。开发启动方式见 [Web 应用说明](web/README.md)。二阶段脚本、原始回复和实验结果继续保留，下文记录其复现与数据依据。
 
+![三阶段 Web 工作台](docs/images/stage3-home.png)
+
+## 启动三阶段 Web
+
+在安装了 Docker Engine 和 Compose v2 的 Linux 主机或 Docker Desktop 环境中：
+
+```bash
+git clone https://github.com/helloshen007/canteen-kcal.git
+cd canteen-kcal
+cp .env.example .env
+docker compose up --build -d
+docker compose ps
+```
+
+浏览器访问宿主机 8080 端口，注册后即可体验历史样例回放。实时分析还需准备模型，并在本地 `.env` 配置 VLM 密钥：
+
+```bash
+docker compose run --rm worker python -m web.prepare_models
+# 在本地 .env 填入 VLM_API_KEY，再应用配置；密钥不要入库。
+docker compose up -d
+```
+
+默认只监听服务器回环地址，远程使用可通过 SSH 转发；公网 HTTPS、代理和持久化配置见 [Linux / Docker 部署说明](docs/deployment.md)。API 文档位于 `/docs`。上传后的任务由 Redis＋RQ 在后台处理，历史记录和图片保存在数据卷；失败不会当作正常零值，可单独重试失败方案。
+
+[三阶段项目说明与工程复盘](docs/stage3.md) · [新版运行视频](docs/stage3-video/README.md) · [两次真实上传的逐图结果和 raw 回复](evidence/stage3-live/README.md) · [实跑环境与验证记录](docs/stage3-run.json)
+
+本轮已实际运行四个容器，53 项测试在本地和容器内通过；接口与浏览器各完成一次真实双模型分析，并验证整套服务重建后账号、图片、会话及排队任务恢复。历史回放、实时上传和二阶段总体指标分别保留来源，具体误识别与估重误差也如实展示。
+
+## 二阶段实验背景
+
 同一组 Nutrition5k 餐盘图片，比较 YOLO-World＋SAM 与多模态大模型输出的食材、重量及热量。两方案共用修正后的词表、营养表和测试集。
 
-## 当前修正与证据状态
+## 二阶段标注修正与证据状态
 
 - 固定 60 张图，前 40 张标定、后 20 张测试；划分未改变。
 - 按食材 ID 核对六张测试图：`ingr_0000000458` 为可见西瓜，不能因原名称 `deprecated` 而排除。另一个同名 ID 并非同一类，不能全局替换。

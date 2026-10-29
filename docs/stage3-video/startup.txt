@@ -1,0 +1,34 @@
+$ docker version --format '{{.Client.Version}} / {{.Server.Version}}'
+28.4.0 / 28.4.0
+
+$ docker compose -f compose.yaml -f /tmp/canteen-stage3-cloud.yaml up -d
+Container canteen-kcal-redis-1  Running
+ Container canteen-kcal-api-1  Recreate
+ Container canteen-kcal-api-1  Recreated
+ Container canteen-kcal-nginx-1  Recreate
+ Container canteen-kcal-worker-1  Recreate
+ Container canteen-kcal-nginx-1  Recreated
+ Container canteen-kcal-worker-1  Recreated
+ Container canteen-kcal-redis-1  Waiting
+ Container canteen-kcal-redis-1  Healthy
+ Container canteen-kcal-api-1  Starting
+ Container canteen-kcal-api-1  Started
+ Container canteen-kcal-api-1  Waiting
+ Container canteen-kcal-api-1  Waiting
+ Container canteen-kcal-redis-1  Waiting
+ Container canteen-kcal-redis-1  Healthy
+ Container canteen-kcal-api-1  Healthy
+ Container canteen-kcal-api-1  Healthy
+ Container canteen-kcal-nginx-1  Starting
+ Container canteen-kcal-worker-1  Starting
+ Container canteen-kcal-worker-1  Started
+ Container canteen-kcal-nginx-1  Started
+
+$ docker compose ps --format '{{.Service}} | {{.State}} | {{.Health}}'
+api | running | healthy
+nginx | running | healthy
+redis | running | healthy
+worker | running | healthy
+
+$ curl --fail -s http://127.0.0.1:8080/api/health
+{"status":"ok","database":true,"queue":true,"workers":1,"vlm_configured":true,"model":"deepseek-flash","local_models":true}

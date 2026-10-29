@@ -1,0 +1,66 @@
+{
+  "recorded_date": "2026-10-29",
+  "capture": "Actual browser viewport, with real startup-command output shown first. Original screenshot time intervals retained.",
+  "viewport": [
+    1440,
+    1080
+  ],
+  "seconds": 61.689,
+  "frames": 264,
+  "actions": [
+    {
+      "at_seconds": 0.0,
+      "action": "show_actual_startup_command_output"
+    },
+    {
+      "at_seconds": 7.64,
+      "action": "open_workspace"
+    },
+    {
+      "at_seconds": 11.66,
+      "action": "select_real_image"
+    },
+    {
+      "at_seconds": 14.72,
+      "action": "submit_live_comparison",
+      "job_id": "b57bc6fd84c84f7eb6c0b6fe9da8229d"
+    },
+    {
+      "at_seconds": 31.14,
+      "action": "both_live_methods_completed"
+    },
+    {
+      "at_seconds": 38.17,
+      "action": "inspect_raw_reply"
+    },
+    {
+      "at_seconds": 44.24,
+      "action": "save_record_note"
+    },
+    {
+      "at_seconds": 46.31,
+      "action": "open_persistent_history"
+    },
+    {
+      "at_seconds": 51.36,
+      "action": "contrast_explicit_historical_replay"
+    },
+    {
+      "at_seconds": 61.54,
+      "action": "finish_with_live_comparison"
+    }
+  ],
+  "browser_errors": [],
+  "runtime_source_commit": "f728814",
+  "video": {
+    "file": "demo.mp4",
+    "bytes": 1241359,
+    "sha256": "089f85fcc28d300f2b2ae78678fb812d20b3bb45744745825c7520c290ea9b91",
+    "codec": "H.264",
+    "fps": 12,
+    "encoded_seconds": 61.916667,
+    "audio": false
+  },
+  "live_job_id": "b57bc6fd84c84f7eb6c0b6fe9da8229d",
+  "evidence": "evidence/stage3-live/browser-run"
+}

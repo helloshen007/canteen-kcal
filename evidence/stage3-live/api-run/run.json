@@ -1,0 +1,63 @@
+{
+  "created_at": "2026-10-29T13:37:01.812406+00:00",
+  "mode": "live",
+  "input_sha256": "2b5d3b764f2c2c355ebbedc5adbc33b0f8788fcae743e6e89e3a396b5b43fb23",
+  "common_analysis_png_sha256": "d7e7c7aa052e674c9b03bf18337e8c777c245a20f9b09601ab4468183962c399",
+  "same_processed_image_for_both_methods": true,
+  "data_context": {
+    "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+    "vocabulary": [
+      "avocado",
+      "bacon",
+      "blackberries",
+      "broccoli",
+      "brussels sprouts",
+      "caesar salad",
+      "cantaloupe",
+      "cauliflower",
+      "celery",
+      "chicken",
+      "cucumbers",
+      "eggplant",
+      "eggs",
+      "fish",
+      "honeydew melons",
+      "mixed greens",
+      "olives",
+      "potatoes",
+      "raspberries",
+      "spinach (raw)",
+      "steak",
+      "strawberries",
+      "watermelon",
+      "yam"
+    ]
+  },
+  "inference_sources_sha256": {
+    "web/inference.py": "1a65c3c4aa2236e0460532392558a20ab24b9811c44a369a9da5f815dd158a11",
+    "web/tasks.py": "7c6049425c652aef85fc284f63ff05f3aaef6aa0354ef006d611165877d4e43b",
+    "vlm/client.py": "a5b4e688fa1e1b4fc1b2e1eafcef5a64cf96d4fc880e7d5653e06d55279950f0",
+    "vlm/run_vlm.py": "73e83fe92bf8a09237f82ffc8e0ceeb2316d4cd40f9abf0acf4100f4ea0e9816",
+    "detector/extract.py": "3bb6f61d86f0dab013cb23062caee43b8cec7eb25ef250c9dacad9d03f591759",
+    "detector/vocab.py": "a8c197f04bea0a8eea8cd9304b6eab475c844668247e51f55bbd799b0ebe446f",
+    "data/labels.py": "674c9f079a1e2d900c88b1d15c34305e796f33ac8437551de3a6c51db25835d4",
+    "data/ingredient_nutrition.csv": "9070c28572ed2eb6f5114258c073155dc7b1add874bc5cae5bfb29208572e516",
+    "data/ground_truth.csv": "68c17eee3c7c705e7f23ed8d83d80c8e1cf955eff12778c8d867314ea0c6fe8e",
+    "evidence/revalidated/calibration.json": "286dbb09b97c9d671fee41d877185539f074a69d5cb43bf5b986a1d94bf88ac4"
+  },
+  "vlm_calls": 1,
+  "model": "deepseek-flash",
+  "a_kcal": 78.3,
+  "b_kcal": 36.0,
+  "development_base_commit": "a9b5b8e45439c039fdd4855f440305ba6e770496",
+  "working_tree_changes_at_run": true,
+  "created_via": "HTTP smoke test through nginx during development",
+  "files_sha256": {
+    "a.json": "a3d89288b0d0aad068bfd733a7c6e7660bd83197c6ae3c9bfb0943566dab7a11",
+    "analysis.png": "d7e7c7aa052e674c9b03bf18337e8c777c245a20f9b09601ab4468183962c399",
+    "b.json": "68e108042659ce47ab52cf8b2d9852ccd7ed95df4d47d0c927b2710589a75099",
+    "input.jpg": "2b5d3b764f2c2c355ebbedc5adbc33b0f8788fcae743e6e89e3a396b5b43fb23",
+    "job.json": "0bb3bc9d728f885f822583d7c343f18fa50aa7d10258afb0d47c450452dfb6f2",
+    "overlay.jpg": "35b3786c1ac5bedef6c1876418aabf65f95950cf8d9b9c23532c9029562fd945"
+  }
+}

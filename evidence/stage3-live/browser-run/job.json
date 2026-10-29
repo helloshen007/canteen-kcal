@@ -1,0 +1,205 @@
+{
+  "id": "b57bc6fd84c84f7eb6c0b6fe9da8229d",
+  "filename": "餐盘实测-西瓜.jpg",
+  "title": "午餐观察 · 西瓜",
+  "note": "浏览器实时上传：A/B 使用同一张照片。",
+  "mode": "live",
+  "sample_id": null,
+  "status": "succeeded",
+  "a_status": "success",
+  "b_status": "success",
+  "a_error": null,
+  "b_error": null,
+  "a_attempts": 1,
+  "b_attempts": 1,
+  "generation": 0,
+  "image_sha256": "2b5d3b764f2c2c355ebbedc5adbc33b0f8788fcae743e6e89e3a396b5b43fb23",
+  "created_at": "2026-10-29T14:01:44.448257+00:00",
+  "updated_at": "2026-10-29T14:02:13.965811+00:00",
+  "image_url": "/api/jobs/b57bc6fd84c84f7eb6c0b6fe9da8229d/image",
+  "overlay_url": "/api/jobs/b57bc6fd84c84f7eb6c0b6fe9da8229d/overlay",
+  "a_result": {
+    "status": "success",
+    "dishes": [
+      {
+        "name": "strawberries",
+        "weight_g": 72,
+        "kcal": 23.9,
+        "protein_g": 0.5,
+        "fat_g": 0.2,
+        "carb_g": 5.8
+      },
+      {
+        "name": "raspberries",
+        "weight_g": 103,
+        "kcal": 54.4,
+        "protein_g": 1.2,
+        "fat_g": 0.7,
+        "carb_g": 12.3
+      }
+    ],
+    "total": {
+      "kcal": 78.3,
+      "protein_g": 1.7,
+      "fat_g": 0.9,
+      "carb_g": 18.1
+    },
+    "detections": [
+      {
+        "name": "strawberries",
+        "conf": 0.13,
+        "box": [
+          416.3,
+          162.1,
+          477.6,
+          226.1
+        ]
+      },
+      {
+        "name": "strawberries",
+        "conf": 0.117,
+        "box": [
+          413.7,
+          292.4,
+          480.5,
+          344.8
+        ]
+      },
+      {
+        "name": "raspberries",
+        "conf": 0.114,
+        "box": [
+          327.3,
+          161.4,
+          523.3,
+          345.2
+        ]
+      },
+      {
+        "name": "strawberries",
+        "conf": 0.07,
+        "box": [
+          460.3,
+          179.5,
+          518.8,
+          232.8
+        ]
+      },
+      {
+        "name": "strawberries",
+        "conf": 0.064,
+        "box": [
+          452.7,
+          278.3,
+          515.1,
+          325.5
+        ]
+      },
+      {
+        "name": "strawberries",
+        "conf": 0.061,
+        "box": [
+          327.7,
+          227.9,
+          386.6,
+          281.2
+        ]
+      }
+    ],
+    "context": {
+      "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+      "vocabulary": [
+        "avocado",
+        "bacon",
+        "blackberries",
+        "broccoli",
+        "brussels sprouts",
+        "caesar salad",
+        "cantaloupe",
+        "cauliflower",
+        "celery",
+        "chicken",
+        "cucumbers",
+        "eggplant",
+        "eggs",
+        "fish",
+        "honeydew melons",
+        "mixed greens",
+        "olives",
+        "potatoes",
+        "raspberries",
+        "spinach (raw)",
+        "steak",
+        "strawberries",
+        "watermelon",
+        "yam"
+      ]
+    },
+    "seconds": 13.17,
+    "provenance": {
+      "mode": "live",
+      "model": "YOLO-World yolov8s-worldv2 + SAM sam_b",
+      "calibration": "40-image calibration set",
+      "threshold": 0.05
+    }
+  },
+  "b_result": {
+    "status": "success",
+    "parse_ok": true,
+    "dishes": [
+      {
+        "name": "watermelon",
+        "weight_g": 120,
+        "kcal": 36.0,
+        "protein_g": 0.7,
+        "fat_g": 0.2,
+        "carb_g": 9.1
+      }
+    ],
+    "total": {
+      "kcal": 36.0,
+      "protein_g": 0.7,
+      "fat_g": 0.2,
+      "carb_g": 9.1
+    },
+    "advice": [],
+    "raw": "{\"items\":[{\"name\":\"watermelon\",\"grams\":120}]}",
+    "seconds": 2.09,
+    "context": {
+      "data_sha256": "03071676daf3447668e87dd19abbbdd6bd0a5ea5ef1165765930d54f8fa8e158",
+      "vocabulary": [
+        "avocado",
+        "bacon",
+        "blackberries",
+        "broccoli",
+        "brussels sprouts",
+        "caesar salad",
+        "cantaloupe",
+        "cauliflower",
+        "celery",
+        "chicken",
+        "cucumbers",
+        "eggplant",
+        "eggs",
+        "fish",
+        "honeydew melons",
+        "mixed greens",
+        "olives",
+        "potatoes",
+        "raspberries",
+        "spinach (raw)",
+        "steak",
+        "strawberries",
+        "watermelon",
+        "yam"
+      ]
+    },
+    "provenance": {
+      "mode": "live",
+      "model": "deepseek-flash",
+      "provider": "openai",
+      "prompt": "你是食物营养分析助手。这是一张餐盘的俯拍照片。\n请判断图中可见食物及每种食物的总重量（克）。只输出 JSON，不输出解释。\n名称必须原样选自以下词表，不能猜测看不见的调料或油：\navocado, bacon, blackberries, broccoli, brussels sprouts, caesar salad, cantaloupe, cauliflower, celery, chicken, cucumbers, eggplant, eggs, fish, honeydew melons, mixed greens, olives, potatoes, raspberries, spinach (raw), steak, strawberries, watermelon, yam\n格式：{\"items\":[{\"name\":\"strawberries\",\"grams\":57}]}\n若确定没有任何可见食物，输出 {\"items\":[]}。",
+      "attempts": 1
+    }
+  }
+}
