@@ -3,6 +3,8 @@
 Model calls are mocked here. The Docker smoke run separately exercises real models.
 """
 import io
+import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -111,6 +113,13 @@ class WebTests(unittest.TestCase):
         self.client.cookies.clear()
         self.assertEqual(self.client.get(job['image_url']).status_code,401)
 
+    def test_storage_failure_does_not_create_or_enqueue_a_false_task(self):
+        with patch('web.api.Path.mkdir',side_effect=OSError('fixture: no space left')):
+            response=self.client.post('/api/jobs',files={'file':('p.png',photo(),'image/png')})
+        self.assertEqual(response.status_code,507)
+        self.dispatch.assert_not_called()
+        self.assertEqual(self.client.get('/api/jobs').json()['total'],0)
+
     def test_per_user_inflight_limit(self):
         for _ in range(3): self.upload()
         response=self.client.post('/api/jobs',files={'file':('p.png',photo(),'image/png')})
@@ -162,6 +171,43 @@ class WebTests(unittest.TestCase):
         self.assertEqual(record['status'],'failed')
         self.assertEqual(record['a_status'],'failed')
         self.assertIsNone(record['a_result'])
+
+    def test_rq_timeout_is_not_swallowed_as_an_ordinary_model_error(self):
+        from rq.timeouts import JobTimeoutException
+        job=self.upload()
+        with patch('web.tasks.run_a',side_effect=JobTimeoutException('fixture timeout')), \
+             patch('web.tasks.run_b') as b, self.assertRaises(JobTimeoutException):
+            run_comparison(job['id'],0,self.settings)
+        b.assert_not_called()
+        record=self.record(job['id'])
+        self.assertEqual(record['status'],'failed')
+        self.assertIsNone(record['a_result']);self.assertIsNone(record['b_result'])
+
+    def test_live_b_adapter_preserves_bad_reply_and_retries(self):
+        from web.inference import run_b
+        job=self.upload()
+        directory=self.settings.state_dir/'jobs'/job['id']
+        bad='{"status":"failed","items":[]}'
+        valid='{"items":[{"name":"watermelon","grams":68}]}'
+        with patch.dict(os.environ,{'VLM_API_KEY':'fixture-adapter-secret','VLM_MODEL':'fixture'}), \
+             patch('vlm.client.call_vlm',side_effect=[bad,valid]) as call:
+            result=run_b(directory/'input.png',directory,self.settings)
+        self.assertEqual(call.call_count,2)
+        self.assertEqual(result['total']['kcal'],20.4)
+        failed=json.loads((directory/'b_failures.json').read_text())
+        self.assertEqual(failed[0]['status'],'failed')
+        self.assertEqual(failed[0]['raw'],bad)
+
+    def test_live_b_adapter_propagates_global_queue_timeout(self):
+        from web.inference import run_b
+        from rq.timeouts import JobTimeoutException
+        job=self.upload()
+        directory=self.settings.state_dir/'jobs'/job['id']
+        with patch.dict(os.environ,{'VLM_API_KEY':'fixture-adapter-secret','VLM_MODEL':'fixture'}), \
+             patch('vlm.client.call_vlm',side_effect=JobTimeoutException('deadline')) as call, \
+             self.assertRaises(JobTimeoutException):
+            run_b(directory/'input.png',directory,self.settings)
+        self.assertEqual(call.call_count,1)
 
     def test_title_note_crud_and_running_delete_guard(self):
         job=self.upload()

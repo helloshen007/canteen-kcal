@@ -11,7 +11,8 @@ def main():
     engine.dispose()
     redis = connection(settings)
     queue = Queue(settings.queue_name,connection=redis,default_timeout=settings.task_timeout)
-    SimpleWorker([queue],connection=redis,log_job_description=False).work(logging_level='INFO')
+    SimpleWorker([queue],connection=redis,log_job_description=False,
+                 worker_ttl=settings.task_timeout+120).work(logging_level='INFO')
 
 
 if __name__=='__main__':

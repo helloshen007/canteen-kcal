@@ -3,6 +3,7 @@ from pathlib import Path
 import shutil
 
 from sqlalchemy import update
+from rq.timeouts import JobTimeoutException
 
 from compare.provenance import evaluation_context, load_prediction
 from web.config import ROOT, Settings
@@ -45,6 +46,8 @@ def run_comparison(identifier,generation,settings=None):
                 inference_image = directory/'analysis.png'
                 if job.mode=='live':
                     prepare_input(settings.state_dir/job.input_path,inference_image)
+            except JobTimeoutException:
+                raise
             except Exception:
                 for method in ('a','b'):
                     if getattr(job,f'{method}_status')!='success':
@@ -68,6 +71,8 @@ def run_comparison(identifier,generation,settings=None):
                     if result.get('status')!='success':
                         raise InferenceError('推理未返回成功结果')
                     values = {f'{method}_result':result,f'{method}_status':'success',f'{method}_error':None,'updated_at':now()}
+                except JobTimeoutException:
+                    raise
                 except Exception as exc:
                     message = str(exc) if isinstance(exc,InferenceError) else '推理执行失败，请检查模型配置后重试'
                     values = {f'{method}_result':None,f'{method}_status':'failed',f'{method}_error':message,'updated_at':now()}
@@ -81,5 +86,16 @@ def run_comparison(identifier,generation,settings=None):
             statuses = (job.a_status,job.b_status)
             job.status = 'succeeded' if statuses==('success','success') else 'partial' if 'success' in statuses else 'failed'
             session.commit()
+    except JobTimeoutException:
+        with sessions() as session:
+            job=session.get(Comparison,identifier)
+            if job and job.generation==generation and job.status=='running':
+                for method in ('a','b'):
+                    if getattr(job,f'{method}_status')!='success':
+                        setattr(job,f'{method}_status','failed')
+                        setattr(job,f'{method}_error','任务执行超时，请检查服务后重试')
+                job.status='partial' if 'success' in (job.a_status,job.b_status) else 'failed'
+                session.commit()
+        raise
     finally:
         engine.dispose()

@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import time
+from rq.timeouts import JobTimeoutException
 
 from PIL import Image, ImageOps
 
@@ -119,6 +120,8 @@ def run_b(image_path,directory,settings):
         try:
             raw = call_vlm(str(image_path),prompt)
             parsed = to_result(raw,vocab,nutrition())
+        except JobTimeoutException:
+            raise
         except Exception as exc:
             failures.append({'status':'failed','attempt':attempt+1,'error_type':type(exc).__name__,
                              'raw':redact(raw) if isinstance(raw,str) else None})

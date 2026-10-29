@@ -1,0 +1,7 @@
+-r ../web/requirements.txt
+ultralytics==8.4.184
+opencv-python==5.0.0.93
+numpy==2.5.2
+openai==3.37.0
+anthropic>=0.40,<1
+git+https://github.com/ultralytics/CLIP.git@7ffa84b3bfa40c42ecc1c77147a855e69cb2dd40

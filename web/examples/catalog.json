@@ -17,8 +17,8 @@
   },
   {
     "id": "dish_1558028772",
-    "title": "蔬菜与西瓜餐盘",
-    "description": "多种食材 · 对照原始结果",
+    "title": "三色瓜果餐盘",
+    "description": "西瓜与甜瓜 · 对照多食材结果",
     "image_sha256": "66645c284d2e764dc7603f59f9c77bb01416169f7cb253fb6de26d69eb54247d",
     "source": "evidence/revalidated",
     "license_source": "https://github.com/google-research-datasets/Nutrition5k"

@@ -22,7 +22,7 @@ async function api(path, options={}) {
   try { response=await fetch(path,{...options,headers,credentials:'same-origin'}); }
   catch { throw new Error('暂时无法连接服务，请稍后重试'); }
   let data;
-  try { data=await response.json(); } catch { data={detail:'服务器返回异常，请稍后重试'}; }
+  try { data=await response.json(); } catch { data={detail:response.status===429?'请求过于频繁，请稍后再试':'服务器返回异常，请稍后重试'}; }
   if (!response.ok) {
     if(response.status===401 && !path.startsWith('/api/auth/')) { state.user=null; renderAccount(); }
     throw new Error(typeof data.detail==='string' ? data.detail : '输入格式不正确，请检查后重试');

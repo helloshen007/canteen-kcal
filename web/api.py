@@ -99,11 +99,15 @@ def create_record(request, session, user, content, filename, *, mode='live', sam
         raise HTTPException(429,'最多同时处理 3 个任务，请等待已有任务完成')
     identifier = uuid.uuid4().hex
     directory = settings.state_dir / 'jobs' / identifier
-    directory.mkdir(parents=True)
     target = directory / f'input.{extension}'
-    target.write_bytes(content)
+    try:
+        directory.mkdir(parents=True)
+        target.write_bytes(content)
+    except OSError:
+        shutil.rmtree(directory,ignore_errors=True)
+        raise HTTPException(507,'图片保存失败，请检查服务器存储空间及目录权限') from None
     filename = Path(filename.replace('\\','/')).name[:120] or '餐盘图片'
-    job = Comparison(id=identifier, owner_id=user.id, filename=filename, title=filename,
+    job = Comparison(id=identifier, owner_id=user.id, filename=filename, title=filename[:80],
                      input_path=target.relative_to(settings.state_dir).as_posix(),
                      image_sha256=hashlib.sha256(content).hexdigest(), mode=mode, sample_id=sample_id)
     session.add(job)
